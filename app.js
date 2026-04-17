@@ -1,213 +1,344 @@
-// Konfiguration der Datenquellen
-const LIVE_JSON_URL = "https://raw.githubusercontent.com/reemt-tammeus/Grammar-Grinder/main/data_quickie.json";
-const LOCAL_FALLBACK_URL = "./data__ap_mode.json";
+// GrammarGrinder - bereinigte Version
+// WICHTIG:
+// 1) Diese Datei als app.js speichern
+// 2) Die HTML-Datei für GitHub Pages in index.html umbenennen
+// 3) data_quickie.json und data__ap_mode.json im selben Ordner lassen
 
-let pool = [];
-let currentBlockIndex = 0;
-let currentGapIndex = 0;
-let lock = false;
-let currentInput = "";
+const CONFIG = {
+    primaryDataUrl: "./data_quickie.json",
+    fallbackDataUrl: "./data__ap_mode.json",
+    shuffleBlocks: false,
+    passagePauseMs: 1400,
+    correctPauseMs: 900,
+    wrongPauseMs: 3200
+};
 
-async function init() {
-    renderKeyboard();
-    const display = document.getElementById("task-display");
-    
-    // CSS-Anpassungen via JS, damit lange Lückentexte besser lesbar sind
+const state = {
+    pool: [],
+    currentBlockIndex: 0,
+    currentGapIndex: 0,
+    currentInput: "",
+    lock: false
+};
+
+function $(id) {
+    return document.getElementById(id);
+}
+
+function setDisplayStyle() {
+    const display = $("task-display");
     display.style.textAlign = "left";
     display.style.fontSize = "1.1rem";
     display.style.alignItems = "flex-start";
     display.style.lineHeight = "1.5";
-    
+}
+
+function shuffleArray(arr) {
+    const copy = [...arr];
+    for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+}
+
+async function fetchJson(url) {
+    const response = await fetch(url, { cache: "no-store" });
+    if (!response.ok) {
+        throw new Error(`HTTP ${response.status} while loading ${url}`);
+    }
+    return response.json();
+}
+
+function isValidPool(data) {
+    return Array.isArray(data) && data.length > 0;
+}
+
+async function loadData() {
+    const display = $("task-display");
+
     try {
-        display.innerText = "Connecting to GitHub...";
-        const response = await fetch(LIVE_JSON_URL);
-        
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        pool = await response.json();
-        
-        // Optional: pool = pool.sort(() => Math.random() - 0.5); // Blöcke mischen
-        nextTask();
-        
-    } catch (error) {
-        console.warn("Live-Verbindung fehlgeschlagen, wechsle in den AP-Modus:", error);
+        display.textContent = "Loading quickie data...";
+        let data = await fetchJson(CONFIG.primaryDataUrl);
+
+        if (!isValidPool(data)) {
+            throw new Error("Primary JSON is empty or invalid.");
+        }
+
+        return CONFIG.shuffleBlocks ? shuffleArray(data) : data;
+    } catch (primaryError) {
+        console.warn("Primary data load failed:", primaryError);
+
         try {
-            display.innerText = "Offline. Lade AP-Modus Daten...";
-            const fallbackResponse = await fetch(LOCAL_FALLBACK_URL);
-            
-            if (!fallbackResponse.ok) throw new Error("Lokale Datei nicht gefunden.");
-            pool = await fallbackResponse.json();
-            
-            setTimeout(nextTask, 800);
-            
+            display.textContent = "Quickie data unavailable. Loading fallback data...";
+            let data = await fetchJson(CONFIG.fallbackDataUrl);
+
+            if (!isValidPool(data)) {
+                throw new Error("Fallback JSON is empty or invalid.");
+            }
+
+            return CONFIG.shuffleBlocks ? shuffleArray(data) : data;
         } catch (fallbackError) {
-            console.error("Totalausfall:", fallbackError);
-            display.innerText = "Kritischer Fehler: Keine Daten verfügbar.";
-            display.style.color = "var(--danger)";
+            console.error("Fallback data load failed:", fallbackError);
+            throw new Error("No usable data source could be loaded.");
         }
     }
 }
 
 function normalize(text) {
-    let n = text.toLowerCase().replace(/['´`’]/g, "'");
-    n = n.replace(/n't\b/g, " not").replace(/'m\b/g, " am").replace(/'re\b/g, " are");
-    n = n.replace(/'ll\b/g, " will").replace(/'ve\b/g, " have").replace(/'d\b/g, " would");
-    return n.trim().replace(/\s+/g, ' ');
+    return String(text)
+        .toLowerCase()
+        .replace(/['´`’]/g, "'")
+        .replace(/n't\b/g, " not")
+        .replace(/'m\b/g, " am")
+        .replace(/'re\b/g, " are")
+        .replace(/'ll\b/g, " will")
+        .replace(/'ve\b/g, " have")
+        // bewusst KEIN pauschales "'d" => "would"
+        .trim()
+        .replace(/\s+/g, " ");
 }
 
-function nextTask() {
-    // Prüfen ob alle Text-Blöcke durchgespielt sind
-    if (currentBlockIndex >= pool.length) {
-        document.getElementById("main-game").classList.add("hidden");
-        document.getElementById("result-screen").classList.remove("hidden");
-        return;
-    }
+function getSolutions(gap) {
+    if (!gap || gap.solution == null) return [];
 
-    let block = pool[currentBlockIndex];
-
-    // Prüfen ob der aktuelle Text fertig ausgefüllt ist
-    if (currentGapIndex >= block.gaps.length) {
-        currentBlockIndex++;
-        currentGapIndex = 0;
-        
-        lock = true;
-        document.getElementById("task-display").innerText = "Excellent! Loading next passage...";
-        document.getElementById("feedback-hint").innerText = "";
-        
-        // Kurze Pause, bevor der nächste Paragraph geladen wird
-        setTimeout(() => { lock = false; nextTask(); }, 1500);
-        return;
-    }
-
-    let gap = block.gaps[currentGapIndex];
-    currentInput = "";
-    updateInputDisplay();
-    lock = false;
-
-    // Den Paragraph dynamisch rendern
-    let displayText = block.text;
-    block.gaps.forEach((g, index) => {
-        let placeholder = `{${g.id}}`;
-        if (index < currentGapIndex) {
-            // Lücke wurde bereits gelöst -> Wort im Text anzeigen (Hervorgehoben)
-            let solText = Array.isArray(g.solution) ? g.solution[0] : g.solution;
-            displayText = displayText.replace(placeholder, solText.toUpperCase());
-        } else if (index === currentGapIndex) {
-            // Das ist die aktuelle Lücke
-            displayText = displayText.replace(placeholder, `[ ___ ]`);
-        } else {
-            // Zukünftige Lücken bleiben neutral
-            displayText = displayText.replace(placeholder, `...`);
-        }
-    });
-
-    document.getElementById("task-display").innerText = displayText;
-    document.getElementById("feedback-hint").innerText = `Base word: ${gap.base_word}`;
-    document.getElementById("feedback-hint").style.color = "var(--primary)";
-}
-
-function checkAnswer() {
-    if (lock || currentInput.trim() === "") return;
-    lock = true;
-    
-    let block = pool[currentBlockIndex];
-    let gap = block.gaps[currentGapIndex];
-    let normalizedInput = normalize(currentInput);
-
-    // Mismatch beheben: Arrays (AP Mode) vs Strings (Quickie) zusammenführen
-    let validOptions = [];
     if (Array.isArray(gap.solution)) {
-        validOptions = gap.solution.map(x => normalize(x));
-    } else {
-        validOptions = gap.solution.split('/').map(x => normalize(x));
+        return gap.solution.map(s => String(s).trim()).filter(Boolean);
     }
-    
-    // Die primäre Lösung für die Anzeige
-    let mainSolution = Array.isArray(gap.solution) ? gap.solution[0] : gap.solution;
 
-    if (validOptions.includes(normalizedInput)) {
-        // RICHTIG
-        triggerFlash(true);
-        document.getElementById("feedback-hint").innerText = "✓ Correct!";
-        document.getElementById("feedback-hint").style.color = "var(--success)";
-        currentGapIndex++;
-        setTimeout(nextTask, 1000);
-    } else {
-        // FALSCH
-        triggerFlash(false);
-        
-        let feedbackMessage = `✗ Wrong.`;
-        
-        // Schlaue Fehleranalyse: Gibt es ein spezifisches Feedback in den JSONs?
-        if (gap.specific_feedback) {
-            if (gap.specific_feedback[currentInput]) {
-                feedbackMessage = `✗ ${gap.specific_feedback[currentInput]}`;
-            } else if (gap.specific_feedback[normalizedInput]) {
-                feedbackMessage = `✗ ${gap.specific_feedback[normalizedInput]}`;
-            }
-        } else if (gap.explanation) {
-            feedbackMessage = `✗ ${gap.explanation}`;
-        }
-
-        document.getElementById("feedback-hint").innerText = `${feedbackMessage} (Solution: ${mainSolution})`;
-        document.getElementById("feedback-hint").style.color = "var(--danger)";
-        
-        // Wir decken die Lücke auf und gehen zur nächsten weiter. 
-        // Längere Pause (3.5s), damit der User die ausführliche Erklärung lesen kann!
-        currentGapIndex++;
-        setTimeout(nextTask, 3500);
+    if (typeof gap.solution === "string") {
+        return gap.solution
+            .split("/")
+            .map(s => s.trim())
+            .filter(Boolean);
     }
+
+    return [String(gap.solution).trim()].filter(Boolean);
+}
+
+function getMainSolution(gap) {
+    const solutions = getSolutions(gap);
+    return solutions[0] || "";
+}
+
+function getNormalizedSolutions(gap) {
+    return getSolutions(gap).map(normalize);
+}
+
+function updateInputDisplay() {
+    $("task-input").value = state.currentInput;
 }
 
 function triggerFlash(isSuccess) {
-    const overlay = document.getElementById('flash-overlay');
-    overlay.className = isSuccess ? 'flash-success' : 'flash-error';
-    setTimeout(() => { overlay.className = ''; }, 300);
+    const overlay = $("flash-overlay");
+    overlay.className = isSuccess ? "flash-success" : "flash-error";
+    setTimeout(() => {
+        overlay.className = "";
+    }, 300);
+}
+
+function showResultScreen() {
+    $("main-game").classList.add("hidden");
+    $("result-screen").classList.remove("hidden");
+}
+
+function renderCurrentTask() {
+    const block = state.pool[state.currentBlockIndex];
+    const gap = block.gaps[state.currentGapIndex];
+
+    state.currentInput = "";
+    state.lock = false;
+    updateInputDisplay();
+
+    let displayText = block.text;
+
+    block.gaps.forEach((g, index) => {
+        const placeholder = `{${g.id}}`;
+
+        if (index < state.currentGapIndex) {
+            const solvedText = getMainSolution(g).toUpperCase();
+            displayText = displayText.replace(placeholder, solvedText);
+        } else if (index === state.currentGapIndex) {
+            displayText = displayText.replace(placeholder, "[ ___ ]");
+        } else {
+            displayText = displayText.replace(placeholder, "...");
+        }
+    });
+
+    $("task-display").textContent = displayText;
+    $("feedback-hint").textContent = `Base word: ${gap.base_word ?? "-"}`;
+    $("feedback-hint").style.color = "var(--primary)";
+}
+
+function nextTask() {
+    if (state.currentBlockIndex >= state.pool.length) {
+        showResultScreen();
+        return;
+    }
+
+    const block = state.pool[state.currentBlockIndex];
+
+    if (!block || !Array.isArray(block.gaps) || block.gaps.length === 0) {
+        console.warn("Invalid block skipped:", block);
+        state.currentBlockIndex++;
+        state.currentGapIndex = 0;
+        nextTask();
+        return;
+    }
+
+    if (state.currentGapIndex >= block.gaps.length) {
+        state.currentBlockIndex++;
+        state.currentGapIndex = 0;
+        state.lock = true;
+
+        $("task-display").textContent = "Excellent! Loading next passage...";
+        $("feedback-hint").textContent = "";
+
+        setTimeout(() => {
+            state.lock = false;
+            nextTask();
+        }, CONFIG.passagePauseMs);
+
+        return;
+    }
+
+    renderCurrentTask();
+}
+
+function getFeedbackMessage(gap, rawInput, normalizedInput) {
+    if (gap.specific_feedback) {
+        if (gap.specific_feedback[rawInput]) {
+            return gap.specific_feedback[rawInput];
+        }
+        if (gap.specific_feedback[normalizedInput]) {
+            return gap.specific_feedback[normalizedInput];
+        }
+    }
+
+    if (gap.explanation) {
+        return gap.explanation;
+    }
+
+    return "Wrong answer.";
+}
+
+function checkAnswer() {
+    if (state.lock) return;
+    if (state.currentInput.trim() === "") return;
+
+    state.lock = true;
+
+    const block = state.pool[state.currentBlockIndex];
+    const gap = block.gaps[state.currentGapIndex];
+
+    const rawInput = state.currentInput.trim();
+    const normalizedInput = normalize(rawInput);
+    const validOptions = getNormalizedSolutions(gap);
+    const mainSolution = getMainSolution(gap);
+
+    if (validOptions.includes(normalizedInput)) {
+        triggerFlash(true);
+        $("feedback-hint").textContent = "✓ Correct!";
+        $("feedback-hint").style.color = "var(--success)";
+
+        state.currentGapIndex++;
+
+        setTimeout(() => {
+            nextTask();
+        }, CONFIG.correctPauseMs);
+
+        return;
+    }
+
+    triggerFlash(false);
+
+    const feedback = getFeedbackMessage(gap, rawInput, normalizedInput);
+    $("feedback-hint").textContent = `✗ ${feedback} (Solution: ${mainSolution})`;
+    $("feedback-hint").style.color = "var(--danger)";
+
+    state.currentGapIndex++;
+
+    setTimeout(() => {
+        nextTask();
+    }, CONFIG.wrongPauseMs);
+}
+
+function handleKeyPress(key) {
+    if (state.lock) return;
+
+    if (key === "DEL") {
+        state.currentInput = state.currentInput.slice(0, -1);
+    } else if (key === "ENT") {
+        checkAnswer();
+        return;
+    } else if (key === "SPACE") {
+        state.currentInput += " ";
+    } else {
+        state.currentInput += key;
+    }
+
+    updateInputDisplay();
 }
 
 function renderKeyboard() {
     const layout = [
-        ['q','w','e','r','t','y','u','i','o','p'],
-        ['a','s','d','f','g','h','j','k','l', "'"],
-        ['DEL','z','x','c','v','b','n','m','ENT'],
-        ['SPACE']
+        ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
+        ["a", "s", "d", "f", "g", "h", "j", "k", "l", "'"],
+        ["DEL", "z", "x", "c", "v", "b", "n", "m", "ENT"],
+        ["SPACE"]
     ];
 
-    const kbContainer = document.getElementById('app-keyboard');
-    kbContainer.innerHTML = '';
+    const kbContainer = $("app-keyboard");
+    kbContainer.innerHTML = "";
 
     layout.forEach(row => {
-        const rowDiv = document.createElement('div');
-        rowDiv.className = 'keyboard-row';
-        row.forEach(key => {
-            const btn = document.createElement('button');
-            btn.className = 'key';
-            if (key === 'DEL' || key === 'ENT') btn.classList.add('action');
-            if (key === 'ENT') btn.classList.add('enter');
-            if (key === 'SPACE') btn.classList.add('space');
+        const rowDiv = document.createElement("div");
+        rowDiv.className = "keyboard-row";
 
-            btn.innerText = key === 'SPACE' ? 'SPACE' : (key === 'DEL' ? '⌫' : (key === 'ENT' ? 'GO' : key));
-            
-            const handleTap = (e) => { e.preventDefault(); handleKeyPress(key); };
-            btn.addEventListener('touchstart', handleTap, {passive: false});
-            btn.addEventListener('mousedown', handleTap);
-            
+        row.forEach(key => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "key";
+
+            if (key === "DEL" || key === "ENT") btn.classList.add("action");
+            if (key === "ENT") btn.classList.add("enter");
+            if (key === "SPACE") btn.classList.add("space");
+
+            if (key === "SPACE") {
+                btn.textContent = "SPACE";
+            } else if (key === "DEL") {
+                btn.textContent = "⌫";
+            } else if (key === "ENT") {
+                btn.textContent = "GO";
+            } else {
+                btn.textContent = key;
+            }
+
+            btn.addEventListener("pointerdown", (event) => {
+                event.preventDefault();
+                handleKeyPress(key);
+            });
+
             rowDiv.appendChild(btn);
         });
+
         kbContainer.appendChild(rowDiv);
     });
 }
 
-function handleKeyPress(key) {
-    if (lock) return;
-    if (key === 'DEL') currentInput = currentInput.slice(0, -1);
-    else if (key === 'ENT') checkAnswer();
-    else if (key === 'SPACE') currentInput += ' ';
-    else currentInput += key;
-    updateInputDisplay();
+async function init() {
+    renderKeyboard();
+    setDisplayStyle();
+
+    try {
+        state.pool = await loadData();
+        nextTask();
+    } catch (error) {
+        console.error("Critical startup error:", error);
+        $("task-display").textContent = "Kritischer Fehler: Keine Daten verfügbar.";
+        $("task-display").style.color = "var(--danger)";
+        $("feedback-hint").textContent = "";
+    }
 }
 
-function updateInputDisplay() {
-    document.getElementById('task-input').value = currentInput;
-}
-
-window.onload = init;
+document.addEventListener("DOMContentLoaded", init);
