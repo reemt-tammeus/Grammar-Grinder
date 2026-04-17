@@ -1,8 +1,3 @@
-Hier ist die komplette Sammlung aller **50 Texte** für deine `data_quickie.json`, fertig formatiert und bereit für den Einsatz in deiner App.
-
-Da die Datenmenge extrem groß ist, stelle sicher, dass du beim Kopieren keine Klammern übersiehst.
-
-```json
 [
   {
     "block_id": 1,
@@ -555,4 +550,3 @@ Da die Datenmenge extrem groß ist, stelle sicher, dass du beim Kopieren keine K
     ]
   }
 ]
-```
