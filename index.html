@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>GrammarGrinder</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="flash-overlay"></div>
+
+    <div id="app-container">
+        <header>
+            <div class="app-title">GrammarGrinder</div>
+        </header>
+
+        <main class="screen" id="main-game">
+            <div class="text-box" id="task-display">Initializing...</div>
+            
+            <div class="input-section">
+                <p class="label" id="feedback-hint">Mixed Grammar Passage</p>
+                <input type="text" id="task-input" class="app-input" readonly tabindex="-1">
+            </div>
+
+            <div id="app-keyboard" class="keyboard"></div>
+        </main>
+
+        <main class="screen hidden" id="result-screen" style="justify-content: center; text-align: center;">
+            <h1 style="font-size: 2.5rem; color: var(--secondary);">Session Complete</h1>
+            <p style="margin: 20px 0; color: var(--text-muted);">You've mastered the passage.</p>
+            <button onclick="location.reload()" style="background: var(--primary); color: white; border: none; padding: 15px 30px; border-radius: 10px; font-weight: bold; font-size: 1.1rem;">Restart Grinder</button>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
