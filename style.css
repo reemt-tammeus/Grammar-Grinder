@@ -1,0 +1,141 @@
+:root {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-main: #ffffff;
+    --text-muted: #888;
+    --primary: #4A90E2;
+    --secondary: #50E3C2;
+    --danger: #FF5252;
+    --success: #4CAF50;
+    --keyboard-btn: #333;
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+    -webkit-tap-highlight-color: transparent; 
+    user-select: none; 
+    -webkit-user-select: none; 
+}
+
+body { 
+    background-color: var(--bg-color); 
+    color: var(--text-main); 
+    height: 100vh; 
+    height: 100dvh; 
+    width: 100vw; 
+    overflow: hidden; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+#flash-overlay { 
+    position: fixed; 
+    top: 0; left: 0; width: 100%; height: 100%; 
+    pointer-events: none; opacity: 0; 
+    transition: opacity 0.3s, background-color 0.3s; 
+    z-index: 9999; 
+}
+
+.flash-success { background-color: var(--success); opacity: 0.3 !important; }
+.flash-error { background-color: var(--danger); opacity: 0.4 !important; }
+
+#app-container { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    width: 100%; 
+    max-width: 600px; 
+    margin: 0 auto; 
+}
+
+header {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.app-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--primary);
+    text-transform: uppercase;
+}
+
+.screen { 
+    display: flex; 
+    flex-direction: column; 
+    flex: 1; 
+    padding: 20px; 
+}
+
+.text-box {
+    background: var(--card-bg); 
+    padding: 30px 20px; 
+    border-radius: 12px;
+    font-size: 1.4rem; 
+    font-weight: bold; 
+    text-align: center; 
+    margin-top: 10px;
+    margin-bottom: 20px;
+    min-height: 140px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border: 1px solid #333;
+}
+
+.input-section { margin-bottom: 20px; text-align: center; }
+
+.label { 
+    font-size: 0.85rem; 
+    color: var(--text-muted); 
+    margin-bottom: 10px; 
+    text-transform: uppercase; 
+    letter-spacing: 1.5px; 
+}
+
+.app-input {
+    width: 100%; 
+    background: #000; 
+    border: 2px solid #333;
+    color: var(--secondary); 
+    font-size: 1.6rem; 
+    font-weight: bold;
+    text-align: center; 
+    padding: 15px; 
+    border-radius: 12px;
+    outline: none;
+}
+
+.keyboard {
+    margin-top: auto; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 7px;
+    padding-bottom: 30px;
+}
+
+.keyboard-row { display: flex; justify-content: center; gap: 5px; }
+
+.key { 
+    flex: 1; max-width: 45px; height: 55px; 
+    background: var(--keyboard-btn); 
+    color: white; border: none; border-radius: 8px; 
+    font-weight: 600; font-size: 1.2rem; 
+    display: flex; justify-content: center; align-items: center; 
+    box-shadow: 0 3px 0 #000;
+}
+
+.key:active { background: var(--primary); transform: translateY(2px); box-shadow: none; }
+.key.action { max-width: 65px; background: #444; font-size: 0.9rem; }
+.key.enter { background: var(--primary); }
+.key.space { max-width: 180px; }
+
+.hidden { display: none !important; }

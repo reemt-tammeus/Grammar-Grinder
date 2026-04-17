@@ -1,0 +1,4967 @@
+[
+  {
+    "block_id": 1,
+    "text": "The Great Wall {1} to protect China from invaders. It is the {2} structure ever built by humans. No one knows exactly {3} it was finished. If tourists visit the wall today, they {4} impressive views. Many parts {5} over the centuries due to erosion. This happened because of {6} forces. The wall consists {7} stone and brick. Workers {8} to work hard to complete it. It is a {9} symbol of strength. The {10} importance is recognized by everyone.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "build",
+        "type": "verb_passive_past",
+        "solution": ["was built"],
+        "specific_feedback": {
+          "built": "Vergiss nicht das Hilfsverb für das Passiv (to be).",
+          "is built": "Achte auf die Zeitform. Die Mauer wurde in der Vergangenheit gebaut.",
+          "was build": "Achtung, unregelmäßiges Verb: build - built - built."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "long",
+        "type": "adjective_superlative",
+        "solution": ["longest"],
+        "specific_feedback": {
+          "longer": "Hier wird ein Superlativ (Höchststufe) gebraucht, kein Komparativ.",
+          "most long": "Einsilbige Adjektive steigert man mit -est, nicht mit 'most'."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "???",
+        "type": "question_word",
+        "solution": ["when"],
+        "specific_feedback": {
+          "where": "Lies genau: Es geht um den Zeitpunkt der Fertigstellung, nicht um den Ort.",
+          "how": "Es geht nicht darum 'wie' sie fertiggestellt wurde, sondern wann."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "see",
+        "type": "if_clause_type_1",
+        "solution": ["will see", "'ll see"],
+        "specific_feedback": {
+          "see": "Das ist ein If-Satz Typ 1. Im Hauptsatz brauchst du das will-Future.",
+          "would see": "Achte auf den If-Satz ('visit' = Präsens). Das ist Typ 1, nicht Typ 2."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "already/disappear",
+        "type": "verb_present_perfect",
+        "solution": ["have already disappeared", "'ve already disappeared"],
+        "specific_feedback": {
+          "already disappeared": "Mit dem Signalwort 'over the centuries' (bis heute) brauchst du das Present Perfect.",
+          "have already disappear": "Vergiss nicht das -ed für das Partizip Perfekt (Past Participle)."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "nature",
+        "type": "adjective",
+        "solution": ["natural"],
+        "specific_feedback": {
+          "naturel": "Achte auf die korrekte englische Schreibweise (ohne e am Ende).",
+          "naturally": "Hier brauchst du ein Adjektiv, um das Nomen 'forces' zu beschreiben, kein Adverb."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "???",
+        "type": "preposition",
+        "solution": ["of"],
+        "specific_feedback": {
+          "from": "Falsche Präposition. Das Verb 'consist' steht im Englischen immer mit 'of'.",
+          "in": "Denke an 'bestehen aus' = 'consist of'."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "have",
+        "type": "verb_simple_past",
+        "solution": ["had"],
+        "specific_feedback": {
+          "have": "Der Text beschreibt die Vergangenheit (als sie gebaut wurde).",
+          "must": "Das Modalverb 'must' hat keine eigene Vergangenheitsform, man weicht auf 'had to' aus."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "nation",
+        "type": "adjective",
+        "solution": ["national"],
+        "specific_feedback": {
+          "nationally": "Du brauchst ein Adjektiv, das 'symbol' beschreibt, kein Adverb auf -ly."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "history",
+        "type": "adjective",
+        "solution": ["historical", "historic"],
+        "specific_feedback": {
+          "historically": "Du brauchst ein Adjektiv, das 'importance' beschreibt, kein Adverb auf -ly.",
+          "history": "Du musst aus dem Nomen 'history' ein Adjektiv machen."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 2,
+    "text": "Van Gogh {1} for his emotional paintings. While he lived in France, he {2} many works. He created paintings {3} are now worth millions. If he {4} alive today, he would be surprised. He only {5} one painting during his life. His style was {6} from anything else. He is {7} famous for his use of color. He {8} much success back then. Today, his works {9} in museums. Many people are {10} in his life.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "know",
+        "type": "verb_passive_present",
+        "solution": ["is known"],
+        "specific_feedback": {
+          "known": "Vergiss nicht das Hilfsverb 'to be' für das Passiv.",
+          "was known": "Er ist HEUTE immer noch dafür bekannt -> Present Passive.",
+          "knows": "Das ist Passiv. Er kennt nicht selbst, er WIRD gekannt."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "paint",
+        "type": "verb_simple_past",
+        "solution": ["painted"],
+        "specific_feedback": {
+          "paint": "Die Handlung liegt in der Vergangenheit (While he lived...).",
+          "has painted": "Der Zeitraum 'While he lived in France' ist exakt abgeschlossen -> Simple Past."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "???",
+        "type": "relative_pronoun",
+        "solution": ["which", "that"],
+        "specific_feedback": {
+          "who": "Relativpronomen: 'Paintings' sind Dinge, keine Personen. Nutze 'which' oder 'that'."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "be",
+        "type": "if_clause_type_2",
+        "solution": ["were", "was"],
+        "specific_feedback": {
+          "is": "If-Satz Typ 2 (irreal)! Da er tot ist, musst du die Vergangenheitsform nutzen.",
+          "would be": "Im If-Teil steht im Englischen nie 'would'!"
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "sell",
+        "type": "verb_simple_past",
+        "solution": ["sold"],
+        "specific_feedback": {
+          "selled": "Achtung, 'sell' ist ein unregelmäßiges Verb (sell - sold - sold)."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "difference",
+        "type": "adjective",
+        "solution": ["different"],
+        "specific_feedback": {
+          "differently": "Nach dem Verb 'to be' (was) steht ein Adjektiv, kein Adverb."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "special",
+        "type": "adverb",
+        "solution": ["especially", "specially"],
+        "specific_feedback": {
+          "special": "Hier wird das Adjektiv 'famous' genauer beschrieben, also brauchst du ein Adverb (-ly)."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "not/have",
+        "type": "verb_simple_past_negative",
+        "solution": ["didn't have", "did not have"],
+        "specific_feedback": {
+          "had not": "Verneinungen im Simple Past bildet man mit 'didn't' + Infinitiv.",
+          "hasn't": "Es geht um die Vergangenheit ('back then')."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "keep",
+        "type": "verb_passive_present",
+        "solution": ["are kept"],
+        "specific_feedback": {
+          "keep": "Die Bilder behalten sich nicht selbst, sie WERDEN behalten (Passiv).",
+          "are keeped": "Unregelmäßiges Verb: keep - kept - kept."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "interest",
+        "type": "adjective",
+        "solution": ["interested"],
+        "specific_feedback": {
+          "interesting": "Die Leute sind 'interessiert' (passivisch), nicht 'interessant' (aktiv)."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 3,
+    "text": "The Internet {1} our lives since its creation. It {2} to share data efficiently. This happened {3} different military locations. If the military {4} the network, it would not have existed. Since the 1990s, the number of users {5} rapidly. We use it to communicate {6} friends every day. It is the {7} tool created by mankind. Most people {8} imagine life without it. Information {9} easily across the globe now. We must use this technology {10} in the future.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "change",
+        "type": "verb_present_perfect",
+        "solution": ["has changed"],
+        "specific_feedback": {
+          "changed": "Signalwort 'since'! Die Handlung hat Auswirkungen bis heute -> Present Perfect.",
+          "have changed": "Das Internet ist Singular (it), also 'has' statt 'have'."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "design",
+        "type": "verb_passive_past",
+        "solution": ["was designed"],
+        "specific_feedback": {
+          "designed": "Passiv! Das Internet hat nicht selbst entworfen, es WURDE entworfen."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "???",
+        "type": "preposition",
+        "solution": ["in", "at", "between"],
+        "specific_feedback": {
+          "on": "Für 'locations' (Orte) benutzt man im Englischen in der Regel 'in' oder 'at'."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "not/invent",
+        "type": "if_clause_type_3",
+        "solution": ["hadn't invented", "had not invented"],
+        "specific_feedback": {
+          "didn't invent": "If-Satz Typ 3! Der Hauptsatz hat 'would not have existed', also brauchst du das Past Perfect (had + 3. Form).",
+          "wouldn't invent": "Im If-Teil steht im Englischen nie 'would'!"
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "increase",
+        "type": "verb_present_perfect",
+        "solution": ["has increased"],
+        "specific_feedback": {
+          "increased": "Signalwort 'Since the 1990s'! Du brauchst das Present Perfect.",
+          "is increasing": "Bei 'since' nutzt man Present Perfect, nicht Present Progressive."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "???",
+        "type": "preposition",
+        "solution": ["with"],
+        "specific_feedback": {
+          "to": "Man sagt auf Englisch 'communicate WITH someone'."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "powerful",
+        "type": "adjective_superlative",
+        "solution": ["most powerful"],
+        "specific_feedback": {
+          "powerfulest": "Mehrsilbige Adjektive werden mit 'most' gesteigert, nicht mit -est."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "not/can",
+        "type": "modal_verb",
+        "solution": ["cannot", "can't", "can not"],
+        "specific_feedback": {
+          "couldn't": "Es geht um einen Zustand in der Gegenwart, nicht in der Vergangenheit."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "distribute",
+        "type": "verb_passive_present",
+        "solution": ["is distributed"],
+        "specific_feedback": {
+          "distributes": "Passiv! Die Information verteilt sich nicht selbst, sie WIRD verteilt."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "responsible",
+        "type": "adverb",
+        "solution": ["responsibly"],
+        "specific_feedback": {
+          "responsible": "Du beschreibst das Verb 'use' (WIE müssen wir sie nutzen?). Dafür brauchst du das Adverb auf -ly."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 4,
+    "text": "Honeybees {1} an important role in our ecosystem. They {2} nectar from flowers every day. They also {3} plants at the same time. If the bees disappear, many crops {4} anymore. Farmers {5} by the loss of these insects. We {6} to protect their natural habitat. The bees depend {7} a healthy environment. This is one of the {8} environmental challenges. Many people {9} how useful bees are. Protecting them is a {10} task.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "play",
+        "type": "verb_simple_present",
+        "solution": ["play"],
+        "specific_feedback": {
+          "plays": "Honeybees ist Plural (they), also ohne 's'."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "collect",
+        "type": "verb_simple_present",
+        "solution": ["collect"],
+        "specific_feedback": {
+          "collects": "Plural, also ohne 's' am Ende."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "pollinate",
+        "type": "verb_simple_present",
+        "solution": ["pollinate"],
+        "specific_feedback": {
+          "are pollinating": "Allgemeingültige Fakten stehen im Simple Present, nicht im Progressive."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "not/grow",
+        "type": "if_clause_type_1",
+        "solution": ["will not grow", "won't grow"],
+        "specific_feedback": {
+          "don't grow": "If-Satz Typ 1! Im Hauptsatz brauchst du das will-Future."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "threaten",
+        "type": "verb_passive_present",
+        "solution": ["are threatened"],
+        "specific_feedback": {
+          "threaten": "Passiv! Die Farmer bedrohen nicht, sie WERDEN bedroht."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "need",
+        "type": "verb_simple_present",
+        "solution": ["need"],
+        "specific_feedback": {
+          "needs": "We ist Plural, also ohne 's'."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "???",
+        "type": "preposition",
+        "solution": ["on", "upon"],
+        "specific_feedback": {
+          "from": "Falsche Präposition! Auf Englisch heißt es immer 'depend ON something'."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "big",
+        "type": "adjective_superlative",
+        "solution": ["biggest"],
+        "specific_feedback": {
+          "biger": "Vergiss nicht, den Mitlaut 'g' nach einem kurzen Vokal zu verdoppeln.",
+          "most big": "Einsilbige Adjektive steigert man mit -est."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "not/realize",
+        "type": "verb_simple_present_negative",
+        "solution": ["don't realize", "do not realize"],
+        "specific_feedback": {
+          "not realize": "Im Englischen brauchst du das Hilfsverb 'do' für Verneinungen im Präsens.",
+          "doesn't realize": "'People' ist Plural, also 'don't'."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "globe",
+        "type": "adjective",
+        "solution": ["global"],
+        "specific_feedback": {
+          "globally": "Du brauchst hier ein Adjektiv für 'task', kein Adverb auf -ly."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 5,
+    "text": "The Titanic {1} in Belfast a long time ago. It was {2} to be unsinkable by its creators. However, it {3} an iceberg during its first voyage. If the ship {4} so fast, it would be safer. More {5} 1,500 people died in the water. The tragedy happened {6} April 1912. The wreck {7} until 1985. Since then, many expeditions {8} the site. They work {9} to protect the area. The story {10} famous in history.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "build",
+        "type": "verb_passive_past",
+        "solution": ["was built"],
+        "specific_feedback": {
+          "built": "Passiv! Das Schiff hat nicht selbst gebaut, es WURDE gebaut (to be + 3. Form)."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "consider",
+        "type": "verb_passive_past",
+        "solution": ["considered"],
+        "specific_feedback": {
+          "consider": "Hier steht bereits 'was'. Du brauchst nur noch die 3. Form (Past Participle) für das Passiv."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "hit",
+        "type": "verb_simple_past",
+        "solution": ["hit"],
+        "specific_feedback": {
+          "hitted": "Achtung: 'hit' ist ein unregelmäßiges Verb (hit - hit - hit)."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "not/travel",
+        "type": "if_clause_type_2",
+        "solution": ["didn't travel", "did not travel", "was not traveling", "wasn't traveling"],
+        "specific_feedback": {
+          "hadn't traveled": "Achte auf den Hauptsatz ('would be'). Das ist Typ 2, also brauchst du im If-Teil das Simple Past, nicht das Past Perfect."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "???",
+        "type": "preposition",
+        "solution": ["than"],
+        "specific_feedback": {
+          "then": "Achtung Rechtschreibung: Bei Vergleichen benutzt man 'thAn' mit A."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "???",
+        "type": "preposition",
+        "solution": ["in"],
+        "specific_feedback": {
+          "on": "Bei Monaten und Jahren benutzt man im Englischen die Präposition 'in'."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "not/find",
+        "type": "verb_passive_past_negative",
+        "solution": ["was not found", "wasn't found"],
+        "specific_feedback": {
+          "didn't find": "Das Wrack hat nicht selbst gesucht, es WURDE nicht gefunden (Passiv)."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "explore",
+        "type": "verb_present_perfect",
+        "solution": ["have explored"],
+        "specific_feedback": {
+          "explored": "Signalwort 'Since then'! Die Handlung hat Auswirkungen bis heute -> Present Perfect."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "careful",
+        "type": "adverb",
+        "solution": ["carefully"],
+        "specific_feedback": {
+          "careful": "Du beschreibst das Verb 'work' (WIE arbeiten sie?), also brauchst du das Adverb auf -ly."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "remain",
+        "type": "verb_simple_present",
+        "solution": ["remains"],
+        "specific_feedback": {
+          "remain": "The story ist Singular (it), also vergiss das 's' am Ende nicht."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 6,
+    "text": "Alexander Fleming {1} in his laboratory. He suddenly noticed something {2} in a petri dish. A certain mold {3} the bacteria in the experiment. He looked at each {4} in his lab very carefully. If Fleming {5} the mold away, he would never have discovered penicillin. This {6} breakthrough changed the whole world. It {7} millions of lives since its first discovery. Many people have been helped {8} then. Before antibiotics {9}, many diseases were deadly. Even small infections {10} often fatal back then.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "work",
+        "type": "verb_past_progressive",
+        "solution": ["was working"],
+        "specific_feedback": {
+          "worked": "Hier wird eine Hintergrundhandlung beschrieben, die gerade andauerte, als plötzlich etwas passierte -> Past Progressive (was/were + -ing).",
+          "has worked": "Die Geschichte spielt komplett in der Vergangenheit."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "unusual",
+        "type": "adjective",
+        "solution": ["unusual"],
+        "specific_feedback": {
+          "unusually": "Nach Wörtern wie 'something', 'anything' oder 'nothing' folgt im Englischen das normale Adjektiv, kein Adverb."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "kill",
+        "type": "verb_past_progressive",
+        "solution": ["was killing", "had killed"],
+        "specific_feedback": {
+          "kills": "Der gesamte Text steht in der Vergangenheit.",
+          "is killing": "Achte auf die Zeitform (Vergangenheit)."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "dish",
+        "type": "noun_singular",
+        "solution": ["dish"],
+        "specific_feedback": {
+          "dishes": "Nach 'each' (jeder/jede/jedes) steht im Englischen immer der Singular."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "throw",
+        "type": "if_clause_type_3",
+        "solution": ["had thrown"],
+        "specific_feedback": {
+          "threw": "If-Satz Typ 3! Der Hauptsatz hat 'would never have discovered', also brauchst du im If-Teil das Past Perfect (had + 3. Form).",
+          "had throwed": "Unregelmäßiges Verb: throw - threw - thrown."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "medicine",
+        "type": "adjective",
+        "solution": ["medical"],
+        "specific_feedback": {
+          "medicinal": "Achtung: 'medical' (medizinisch) passt hier besser für einen Durchbruch als 'medicinal' (heilend/arzneilich)."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "save",
+        "type": "verb_present_perfect",
+        "solution": ["has saved"],
+        "specific_feedback": {
+          "saved": "Signalwort 'since'! Die Auswirkung ('millions of lives') reicht bis in die Gegenwart -> Present Perfect."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "???",
+        "type": "preposition_time",
+        "solution": ["since"],
+        "specific_feedback": {
+          "from": "'Seit damals' heißt auf Englisch 'since then'."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "invent",
+        "type": "verb_passive_past",
+        "solution": ["were invented"],
+        "specific_feedback": {
+          "invented": "Passiv! Antibiotika haben sich nicht selbst erfunden, sie WURDEN erfunden.",
+          "was invented": "Antibiotics ist Plural, also brauchst du 'were'."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "be",
+        "type": "verb_simple_past",
+        "solution": ["were"],
+        "specific_feedback": {
+          "was": "Infections ist Plural, also brauchst du 'were'.",
+          "are": "Das war in der Vergangenheit ('back then')."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 7,
+    "text": "Electric cars {1} more common on our roads. They are {2} popular in recent years. Many people choose {3} them to help the environment. They {4} any exhaust fumes while they are driving. If you buy an electric car now, you {5} money in the long run. You will spend less {6} fuel every month. However, the {7} of batteries is still a problem. This process often {8} a negative effect on nature. It can have a {9} negative impact on our planet. Scientists {10} on better solutions {11} many years now.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "become",
+        "type": "verb_present_progressive",
+        "solution": ["are becoming"],
+        "specific_feedback": {
+          "become": "Es handelt sich um einen anhaltenden Trend, der genau jetzt stattfindet -> Present Progressive (are becoming)."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "increase",
+        "type": "adverb",
+        "solution": ["increasingly"],
+        "specific_feedback": {
+          "increasing": "Du brauchst ein Adverb, um das Adjektiv 'popular' zu verstärken (zunehmend beliebt)."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "buy",
+        "type": "infinitive_with_to",
+        "solution": ["to buy"],
+        "specific_feedback": {
+          "buying": "Nach dem Verb 'choose' (sich entscheiden) folgt immer der Infinitiv mit 'to'."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "not/produce",
+        "type": "verb_simple_present_negative",
+        "solution": ["do not produce", "don't produce"],
+        "specific_feedback": {
+          "doesn't produce": "'They' ist Plural, also musst du mit 'don't' verneinen."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "save",
+        "type": "if_clause_type_1",
+        "solution": ["will save", "'ll save"],
+        "specific_feedback": {
+          "would save": "If-Satz Typ 1 (reale Bedingung)! Im If-Teil steht Präsens ('buy'), also folgt im Hauptsatz das will-Future."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "???",
+        "type": "preposition",
+        "solution": ["on"],
+        "specific_feedback": {
+          "for": "Falsche Präposition. Auf Englisch gibt man Geld 'ON' etwas aus ('spend money on...')."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "produce",
+        "type": "noun",
+        "solution": ["production"],
+        "specific_feedback": {
+          "producing": "Hier wird das echte Nomen ('die Produktion') gesucht, nicht das Gerundium."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "have",
+        "type": "verb_simple_present",
+        "solution": ["has"],
+        "specific_feedback": {
+          "have": "'This process' ist Singular (it), also denk an das 's' bei he/she/it!"
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "negative",
+        "type": "adjective",
+        "solution": ["negative"],
+        "specific_feedback": {
+          "negatively": "Du brauchst hier ein Adjektiv, um das Nomen 'impact' zu beschreiben, kein Adverb."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "work",
+        "type": "verb_present_perfect_progressive",
+        "solution": ["have been working"],
+        "specific_feedback": {
+          "are working": "Signalwort 'for many years'! Wenn eine Handlung in der Vergangenheit begann und andauert, nutzt man Present Perfect Progressive.",
+          "worked": "Sie arbeiten immer noch daran, die Handlung ist nicht abgeschlossen."
+        }
+      },
+      {
+        "id": "11",
+        "base_word": "???",
+        "type": "preposition_time",
+        "solution": ["for"],
+        "specific_feedback": {
+          "since": "'Many years' ist ein Zeitraum (Wie lange?), daher nutzt du 'for'. 'Since' ist für konkrete Startpunkte."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 8,
+    "text": "Marie Curie was the first woman {1} win a Nobel Prize. She {2} physics in Paris when she was young. She was very {3} to succeed. If she {4} such a strong will, she would not have succeeded. She {5} radioactive elements during her career. One of {6} was named polonium. Unfortunately, she {7} because of her research. She {8} to radiation for too many years. Her {9} are still admired today. She is {10} an inspiration for many.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "???",
+        "type": "infinitive_particle",
+        "solution": ["to"],
+        "specific_feedback": {
+          "that": "Nach Ausdrücken wie 'the first', 'the second' oder 'the only' folgt im Englischen der Infinitiv mit 'to' (the first to win)."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "study",
+        "type": "verb_simple_past",
+        "solution": ["studied"],
+        "specific_feedback": {
+          "studyed": "Achtung Rechtschreibung: Wenn ein Konsonant vor dem 'y' steht, wird das 'y' beim Anhängen von -ed zu 'i' (studied).",
+          "has studied": "Der Nebensatz 'when she was young' markiert einen exakt abgeschlossenen Zeitraum in der Vergangenheit -> Simple Past."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "determine",
+        "type": "adjective",
+        "solution": ["determined"],
+        "specific_feedback": {
+          "determine": "Du brauchst hier das Adjektiv ('entschlossen'), um ihren Zustand zu beschreiben."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "not/have",
+        "type": "if_clause_type_3",
+        "solution": ["hadn't had", "had not had"],
+        "specific_feedback": {
+          "didn't have": "If-Satz Typ 3! Der Hauptsatz hat 'would not have succeeded', also brauchst du das Past Perfect (had + 3. Form von have).",
+          "hadn't": "Du brauchst das Hilfsverb 'had' für die Verneinung PLUS das Vollverb 'had'."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "discover",
+        "type": "verb_simple_past",
+        "solution": ["discovered"],
+        "specific_feedback": {
+          "has discovered": "Ihre Karriere ist beendet (historischer Fakt), also brauchst du das Simple Past."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "they",
+        "type": "object_pronoun",
+        "solution": ["them"],
+        "specific_feedback": {
+          "their": "Nach Präpositionen wie 'of' steht das Objektpronomen (them), nicht das Possessivpronomen."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "die",
+        "type": "verb_simple_past",
+        "solution": ["died"],
+        "specific_feedback": {
+          "was died": "'Sterben' ist ein aktiver Vorgang im Englischen, kein Passiv!"
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "expose",
+        "type": "verb_passive_past_perfect",
+        "solution": ["had been exposed", "was exposed"],
+        "specific_feedback": {
+          "exposed": "Sie hat nicht selbst ausgesetzt, sie WURDE der Strahlung ausgesetzt (Passiv)."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "achieve",
+        "type": "noun_plural",
+        "solution": ["achievements"],
+        "specific_feedback": {
+          "achievement": "Achte auf das Verb 'are' direkt dahinter. Du brauchst zwingend die Pluralform."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "certain",
+        "type": "adverb",
+        "solution": ["certainly"],
+        "specific_feedback": {
+          "certain": "Du brauchst hier ein Adverb auf -ly, um den ganzen Satz zu modifizieren ('sie ist sicherlich...')."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 9,
+    "text": "Chocolate {1} from the seeds of the cacao tree. This tree {2} grows in tropical regions. In the past, it {3} as a bitter drink. If you {4} dark chocolate, you will feel energetic. The Swiss are {5} famous for chocolate. They {6} high-quality sweets for a long time. Today, the industry {7} on fair trade. Many people {8} eating it as a treat. It is the {9} sweet in the world. Most children love the taste {10} chocolate.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "come",
+        "type": "verb_simple_present",
+        "solution": ["comes"],
+        "specific_feedback": {
+          "come": "Chocolate ist unzählbar (Singular, it), vergiss das 's' nicht!"
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "???",
+        "type": "adverb",
+        "solution": ["mostly", "only", "usually"],
+        "specific_feedback": {
+          "always": "Der Baum wächst fast ausschließlich in den Tropen, aber 'always' ist hier unnatürlich."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "consume",
+        "type": "verb_passive_past",
+        "solution": ["was consumed"],
+        "specific_feedback": {
+          "consumed": "Passiv! Schokolade konsumiert nicht selbst, sie WURDE konsumiert.",
+          "is consumed": "Achte auf das Signalwort 'In the past' -> Simple Past."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "eat",
+        "type": "if_clause_type_1",
+        "solution": ["eat"],
+        "specific_feedback": {
+          "will eat": "Im If-Teil steht kein 'will' (außer bei sehr speziellen Höflichkeitsformen, die hier nicht passen)."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "special",
+        "type": "adverb",
+        "solution": ["especially"],
+        "specific_feedback": {
+          "special": "Du beschreibst das Adjektiv 'famous' näher. Dafür brauchst du ein Adverb (-ly)."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "produce",
+        "type": "verb_present_perfect",
+        "solution": ["have produced", "have been producing"],
+        "specific_feedback": {
+          "produce": "Signalwort 'for a long time'! Der Vorgang reicht aus der Vergangenheit bis heute -> Present Perfect."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "depend",
+        "type": "verb_simple_present",
+        "solution": ["depends"],
+        "specific_feedback": {
+          "depend": "The industry ist Singular (it), he/she/it das 's' muss mit!"
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "enjoy",
+        "type": "verb_simple_present",
+        "solution": ["enjoy"],
+        "specific_feedback": {
+          "enjoys": "'People' ist immer Plural, also ohne 's' am Ende."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "popular",
+        "type": "adjective_superlative",
+        "solution": ["most popular"],
+        "specific_feedback": {
+          "popularer": "Mehrsilbige Adjektive werden mit 'most' gesteigert, nicht mit -er oder -est."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "???",
+        "type": "preposition",
+        "solution": ["of"],
+        "specific_feedback": {
+          "from": "Der Geschmack 'von' etwas wird im Englischen meist mit 'of' übersetzt, nicht mit 'from'."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 10,
+    "text": "The Romans {1} over a vast area for years. They {2} {3} roads across Europe. Many of these structures {4} today. If the empire {5} a powerful army, it would collapse. Latin {6} was the official language back then. This language {7} many modern cultures. While they expanded, they {8} their laws. The {9} army was very well organized. They {10} {11} buildings like the Colosseum. History is {12} studied by scholars.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "rule",
+        "type": "verb_simple_past",
+        "solution": ["ruled"],
+        "specific_feedback": {
+          "have ruled": "Das Römische Reich existiert nicht mehr, es ist ein historischer Fakt -> Simple Past."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "build",
+        "type": "verb_simple_past",
+        "solution": ["built"],
+        "specific_feedback": {
+          "builded": "Unregelmäßiges Verb! build - built - built."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "impressive",
+        "type": "adjective",
+        "solution": ["impressive"],
+        "specific_feedback": {
+          "impressively": "Du beschreibst ein Nomen ('roads'), also brauchst du ein Adjektiv, kein Adverb."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "still/see",
+        "type": "verb_passive_present_modal",
+        "solution": ["can still be seen", "are still seen"],
+        "specific_feedback": {
+          "still see": "Passiv! Die Straßen sehen nicht selbst, sie WERDEN noch heute gesehen."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "not/have",
+        "type": "if_clause_type_2",
+        "solution": ["didn't have", "did not have"],
+        "specific_feedback": {
+          "hadn't had": "Achte auf den Hauptsatz ('would collapse'). Das ist Typ 2, also brauchst du das Simple Past, kein Past Perfect."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "???",
+        "type": "adverb",
+        "solution": ["also"],
+        "specific_feedback": {
+          "too": "Wenn es mitten im Satz steht, ist 'also' in der Regel die bessere und flüssigere Wahl als 'too'."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "influence",
+        "type": "verb_present_perfect",
+        "solution": ["has influenced", "influenced"],
+        "specific_feedback": {
+          "influence": "Die Sprache (Singular) beeinflusst noch heute, also he/she/it das 's' muss mit oder nutze Present Perfect."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "spread",
+        "type": "verb_simple_past",
+        "solution": ["spread"],
+        "specific_feedback": {
+          "spreaded": "Achtung: 'spread' ist unregelmäßig und verändert sich im Simple Past nicht (spread - spread - spread)."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "Rome",
+        "type": "adjective",
+        "solution": ["Roman"],
+        "specific_feedback": {
+          "Rome": "Du musst aus dem Nomen ein Adjektiv machen (die römische Armee)."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "create",
+        "type": "verb_simple_past",
+        "solution": ["created"],
+        "specific_feedback": {
+          "have created": "Abgeschlossene historische Handlung -> Simple Past."
+        }
+      },
+      {
+        "id": "11",
+        "base_word": "wonder",
+        "type": "adjective",
+        "solution": ["wonderful"],
+        "specific_feedback": {
+          "wonder": "Du brauchst ein Adjektiv, um 'buildings' zu beschreiben."
+        }
+      },
+      {
+        "id": "12",
+        "base_word": "careful",
+        "type": "adverb",
+        "solution": ["carefully"],
+        "specific_feedback": {
+          "careful": "Du beschreibst das Verb 'studied' (WIE wird sie studiert?). Dafür brauchst du das Adverb."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 11,
+    "text": "AI {1} very fast in the 21st century. Many tasks {2} by smart machines. This often happens instead {3} using human workers. If the technology {4} even smarter, it would have been dangerous. Experts {5} {6} the ethics for a long time. Some people {7} the loss of their jobs. We {8} control over these systems soon. The {9} software learns from its mistakes. It {10} is a fascinating field. Future {11} are waiting for us.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "develop",
+        "type": "verb_present_perfect",
+        "solution": ["has developed", "is developing"],
+        "specific_feedback": {
+          "develop": "AI ist Singular, das 's' würde fehlen, aber hier passt eine Verlaufsform (is developing) oder das Perfekt besser."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "now/perform",
+        "type": "verb_passive_present",
+        "solution": ["are now performed", "are now being performed"],
+        "specific_feedback": {
+          "now perform": "Passiv! Die Aufgaben führen nicht selbst aus, sie WERDEN ausgeführt."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "???",
+        "type": "preposition",
+        "solution": ["of"],
+        "specific_feedback": {
+          "for": "Feste Wendung: 'instead of' (anstatt)."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "become",
+        "type": "if_clause_type_3",
+        "solution": ["had become"],
+        "specific_feedback": {
+          "became": "If-Satz Typ 3! Der Hauptsatz hat 'would have been', also brauchst du im If-Teil das Past Perfect.",
+          "had became": "Unregelmäßiges Verb: become - became - become. Die 3. Form ist wieder 'become'."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "argue",
+        "type": "verb_present_perfect_progressive",
+        "solution": ["have argued", "have been arguing"],
+        "specific_feedback": {
+          "are arguing": "Signalwort 'for a long time'! Eine Handlung, die in der Vergangenheit begann und noch andauert, erfordert das Perfekt."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "???",
+        "type": "preposition",
+        "solution": ["about"],
+        "specific_feedback": {
+          "for": "Auf Englisch argumentiert man 'ABOUT something' (über etwas streiten)."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "fear",
+        "type": "verb_simple_present",
+        "solution": ["fear"],
+        "specific_feedback": {
+          "fears": "'People' ist immer Plural, also kein 's' am Ende!"
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "lose",
+        "type": "verb_future",
+        "solution": ["will lose", "might lose", "could lose"],
+        "specific_feedback": {
+          "lose": "Das Wort 'soon' weist auf eine Prognose in der Zukunft hin. Benutze das will-Future."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "intelligence",
+        "type": "adjective",
+        "solution": ["intelligent"],
+        "specific_feedback": {
+          "intelligence": "Du brauchst ein Adjektiv, um 'software' zu beschreiben."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "certain",
+        "type": "adverb",
+        "solution": ["certainly"],
+        "specific_feedback": {
+          "certain": "Du brauchst ein Adverb, um den gesamten Satzteil zu modifizieren ('sie ist sicherlich...')."
+        }
+      },
+      {
+        "id": "11",
+        "base_word": "develop",
+        "type": "noun_plural",
+        "solution": ["developments"],
+        "specific_feedback": {
+          "development": "Achte auf das 'are waiting'. Das Subjekt muss im Plural stehen."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 12,
+    "text": "Alexander {1} a king who conquered a large empire. He was {2} for his military strategy. He was {3} by Aristotle when he was a teenager. If he {4} to expand further, he will reach the ocean. During {5} life, he never lost a battle. He died {6} at the age of 32. His {7} success is still studied. He {8} many cities with his name. His soldiers {9} him for years. He remains one of the {10} leaders.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "be",
+        "type": "verb_simple_past",
+        "solution": ["was"],
+        "specific_feedback": {
+          "is": "Historische Persönlichkeiten, die tot sind, stehen immer im Simple Past."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "know",
+        "type": "verb_passive_past",
+        "solution": ["known"],
+        "specific_feedback": {
+          "knew": "Das ist Passiv. Er WURDE gekannt (3. Form von know = known)."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "train",
+        "type": "verb_passive_past",
+        "solution": ["trained"],
+        "specific_feedback": {
+          "train": "Vergiss nicht das -ed für die dritte Form im Passiv."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "want",
+        "type": "if_clause_type_1",
+        "solution": ["wants"],
+        "specific_feedback": {
+          "wanted": "Achte auf den Hauptsatz ('will reach'). Das ist Typ 1, du brauchst also das Präsens im If-Teil."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "he",
+        "type": "possessive_pronoun",
+        "solution": ["his"],
+        "specific_feedback": {
+          "him": "Du brauchst hier das Possessivbegleiter ('während SEINES Lebens')."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "sudden",
+        "type": "adverb",
+        "solution": ["suddenly"],
+        "specific_feedback": {
+          "sudden": "Du beschreibst das Verb 'died' (WIE ist er gestorben?). Dafür brauchst du das Adverb."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "military",
+        "type": "adjective",
+        "solution": ["military"],
+        "specific_feedback": {
+          "militant": "Military bleibt military (militärischer Erfolg)."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "found",
+        "type": "verb_simple_past",
+        "solution": ["founded"],
+        "specific_feedback": {
+          "found": "Achtung: 'gründen' heißt to found (regelmäßig: founded). Es ist nicht die Vergangenheit von 'finden'!"
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "follow",
+        "type": "verb_simple_past",
+        "solution": ["followed", "had followed"],
+        "specific_feedback": {
+          "follow": "Die Handlung liegt in der abgeschlossenen Vergangenheit."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "great",
+        "type": "adjective_superlative",
+        "solution": ["greatest"],
+        "specific_feedback": {
+          "most great": "Einsilbige Adjektive steigert man mit -est."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 13,
+    "text": "Wind energy {1} a very clean way to produce power. This technology {2} helps to reduce CO2 emissions. Many countries {3} in wind farms recently. If a country used more wind power, it {4} nature better. In the past, it was {5} to build turbines. Many people have {6} to green energy. However, some {7} complain about the noise. They think the turbines {8} ugly. The {9} of electricity depends on the weather. It {10} is a sustainable solution.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "consider",
+        "type": "verb_passive_present",
+        "solution": ["is considered"],
+        "specific_feedback": {
+          "considers": "Passiv! Die Windenergie 'betrachtet' nicht selbst, sie WIRD als saubere Methode betrachtet.",
+          "considered": "Vergiss das Hilfsverb 'is' nicht (Present Passive)."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "???",
+        "type": "adverb",
+        "solution": ["also", "really", "certainly"],
+        "specific_feedback": {
+          "too": "'Too' steht normalerweise am Ende des Satzes, nicht zwischen Subjekt und Verb."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "invest",
+        "type": "verb_present_perfect",
+        "solution": ["have invested", "have been investing"],
+        "specific_feedback": {
+          "invested": "Signalwort 'recently'! Das verlangt nach dem Present Perfect (Vergangenheit mit Auswirkung auf die Gegenwart)."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "protect",
+        "type": "if_clause_type_2",
+        "solution": ["would protect", "could protect"],
+        "specific_feedback": {
+          "will protect": "Achte auf den If-Teil ('used' = Simple Past). Es ist Typ 2, also brauchst du 'would' im Hauptsatz."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "expensive",
+        "type": "adjective",
+        "solution": ["expensive", "more expensive"],
+        "specific_feedback": {
+          "expensively": "Nach 'was' (Form von to be) steht das Adjektiv, kein Adverb."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "already/switch",
+        "type": "verb_present_perfect",
+        "solution": ["already switched"],
+        "specific_feedback": {
+          "already switch": "Du brauchst die 3. Form (Past Participle) für das Present Perfect. Hänge ein '-ed' an."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "resident",
+        "type": "noun_plural",
+        "solution": ["residents"],
+        "specific_feedback": {
+          "resident": "Das Wort 'some' (einige) verlangt den Plural. Setze ein 's' ans Ende."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "look",
+        "type": "verb_simple_present",
+        "solution": ["look"],
+        "specific_feedback": {
+          "looks": "'The turbines' ist Plural (they), also ohne 's' am Ende!"
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "produce",
+        "type": "noun",
+        "solution": ["production"],
+        "specific_feedback": {
+          "producing": "Du brauchst das Nomen für 'Die Produktion' (production), kein Gerundium."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "certain",
+        "type": "adverb",
+        "solution": ["certainly"],
+        "specific_feedback": {
+          "certain": "Du brauchst hier ein Adverb auf -ly, um die Gewissheit des Satzes auszudrücken."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 14,
+    "text": "The Beatles {1} in Liverpool in 1960. They {2} the most successful band in history. No other group {3} sold so many records. If the members {4} each other, the music would have been different. They {5} many albums that are still loved. While they were touring, they {6} a phenomenon. Their {7} influence remains huge today. Many fans {8} to their songs. They {9} up in 1970. This happened {10} and shocked the world.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "form",
+        "type": "verb_passive_past",
+        "solution": ["were formed"],
+        "specific_feedback": {
+          "formed": "Passiv! Eine Band 'gründet' nicht selbst, sie WURDE gegründet.",
+          "was formed": "'The Beatles' ist ein Plural-Name, daher nutzt man 'were'."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "become",
+        "type": "verb_simple_past",
+        "solution": ["became"],
+        "specific_feedback": {
+          "become": "Achtung, die Vergangenheitsform ist 'became' (become - became - become)."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "???",
+        "type": "auxiliary_verb",
+        "solution": ["has"],
+        "specific_feedback": {
+          "have": "'No other group' ist Singular, deshalb brauchst du 'has' für das Present Perfect ('has sold')."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "not/meet",
+        "type": "if_clause_type_3",
+        "solution": ["hadn't met", "had not met"],
+        "specific_feedback": {
+          "didn't meet": "If-Satz Typ 3! Der Hauptsatz hat 'would have been', also brauchst du im If-Teil das Past Perfect (had + 3. Form)."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "record",
+        "type": "verb_simple_past",
+        "solution": ["recorded"],
+        "specific_feedback": {
+          "have recorded": "Historisch abgeschlossene Handlung der Band in der Vergangenheit -> Simple Past."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "create",
+        "type": "verb_simple_past",
+        "solution": ["created"],
+        "specific_feedback": {
+          "were creating": "Hier ist eine kurze, abgeschlossene Handlung während der Tour gemeint -> Simple Past."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "music",
+        "type": "adjective",
+        "solution": ["musical"],
+        "specific_feedback": {
+          "music": "Du musst aus dem Nomen 'music' ein Adjektiv machen, das 'influence' beschreibt."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "still/listen",
+        "type": "verb_present_progressive",
+        "solution": ["are still listening", "still listen"],
+        "specific_feedback": {
+          "still listening": "Vergiss das Hilfsverb 'are' nicht, wenn du die -ing Form benutzt."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "split",
+        "type": "verb_simple_past",
+        "solution": ["split"],
+        "specific_feedback": {
+          "splitted": "Achtung: 'split' ist unregelmäßig und verändert sich im Simple Past nicht (split - split - split)."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "sudden",
+        "type": "adverb",
+        "solution": ["suddenly"],
+        "specific_feedback": {
+          "sudden": "Du beschreibst das Verb 'happened' (WIE passierte es?). Dafür brauchst du das Adverb auf -ly."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 15,
+    "text": "The Amazon {1} a huge part of South America. It {2} the 'lungs of the planet'. This is because {3} the oxygen it produces. If we continue to destroy the forest, we {4} many species. Environmentalists {5} against logging for decades. The rainforest {6} by climate change. We {7} learn to protect this ecosystem. Many {8} animals live there. The situation is {9} extremely serious. We {10} to act before it is late.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "cover",
+        "type": "verb_simple_present",
+        "solution": ["covers"],
+        "specific_feedback": {
+          "cover": "Der Amazonas ist Singular (it). He/she/it das 's' muss mit!"
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "often/call",
+        "type": "verb_passive_present",
+        "solution": ["is often called"],
+        "specific_feedback": {
+          "often calls": "Passiv! Der Wald nennt sich nicht selbst, er WIRD so genannt."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "???",
+        "type": "preposition",
+        "solution": ["of"],
+        "specific_feedback": {
+          "from": "Der feste Ausdruck auf Englisch heißt 'because OF'."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "lose",
+        "type": "if_clause_type_1",
+        "solution": ["will lose", "'ll lose"],
+        "specific_feedback": {
+          "would lose": "If-Satz Typ 1! Im If-Teil steht Präsens ('continue'), also folgt im Hauptsatz das will-Future."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "fight",
+        "type": "verb_present_perfect_progressive",
+        "solution": ["have been fighting", "have fought"],
+        "specific_feedback": {
+          "are fighting": "Signalwort 'for decades'! Wenn etwas in der Vergangenheit anfing und andauert, nutzt man Present Perfect (Progressive)."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "threaten",
+        "type": "verb_passive_present",
+        "solution": ["is threatened", "is being threatened"],
+        "specific_feedback": {
+          "threatens": "Passiv! Der Regenwald bedroht nicht selbst, er WIRD bedroht."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "must",
+        "type": "modal_verb",
+        "solution": ["must", "have to"],
+        "specific_feedback": {
+          "must to": "Nach Modalverben wie 'must' folgt immer der reine Infinitiv ohne 'to'."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "rare",
+        "type": "adjective",
+        "solution": ["rare"],
+        "specific_feedback": {
+          "rarely": "Du brauchst ein Adjektiv, um das Nomen 'animals' (seltene Tiere) zu beschreiben, kein Adverb (selten tun)."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "become",
+        "type": "verb_present_progressive",
+        "solution": ["becoming"],
+        "specific_feedback": {
+          "become": "Die 'is' Form steht schon da. Es beschreibt einen Vorgang, der gerade passiert -> Present Progressive (-ing)."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "need",
+        "type": "verb_simple_present",
+        "solution": ["need"],
+        "specific_feedback": {
+          "needs": "'We' ist Plural, also kein 's' am Ende!"
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 16,
+    "text": "Einstein {1} in a patent office when he was young. This is {2} he developed his theories. He was a {3} thinker who loved physics. If he {4} so smart, we would not understand the universe. He {5} the Nobel Prize in 1921. While he was living in Germany, the situation {6}. He {7} to leave the country suddenly. He spent the {8} years of his life in the USA. His {9} work changed everything. He is still {10} by people.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "work",
+        "type": "verb_past_progressive",
+        "solution": ["was working", "worked"],
+        "specific_feedback": {
+          "has worked": "Die Geschichte spielt in seiner Jugend, einem abgeschlossenen Zeitraum -> Simple Past oder Past Progressive."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "???",
+        "type": "conjunction",
+        "solution": ["where", "how", "when"],
+        "specific_feedback": {
+          "there": "Hier braucht man ein Fragewort als Verbindung (This is WHERE...).",
+          "why": "Er entwickelte seine Theorien nicht 'warum' er im Patentamt war, sondern 'dort wo' er war."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "brilliant",
+        "type": "adjective",
+        "solution": ["brilliant"],
+        "specific_feedback": {
+          "brilliantly": "Du brauchst hier ein Adjektiv, um das Nomen 'thinker' zu beschreiben."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "not/be",
+        "type": "if_clause_type_2",
+        "solution": ["weren't", "were not", "wasn't", "was not", "hadn't been"],
+        "specific_feedback": {
+          "isn't": "Achte auf den Hauptsatz ('would not understand'). Das verlangt eine Vergangenheitsform im If-Teil."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "award",
+        "type": "verb_passive_past",
+        "solution": ["was awarded"],
+        "specific_feedback": {
+          "awarded": "Passiv! Er hat den Preis nicht selbst vergeben, er WURDE ihm verliehen."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "change",
+        "type": "verb_simple_past",
+        "solution": ["changed"],
+        "specific_feedback": {
+          "was changing": "Die Veränderung trat während seiner Zeit in Deutschland als neue Handlung ein -> Simple Past ist besser als Progressive."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "have",
+        "type": "verb_simple_past",
+        "solution": ["had"],
+        "specific_feedback": {
+          "must": "'Must' hat keine Vergangenheitsform, du musst auf 'had to' ausweichen."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "late",
+        "type": "adjective_comparative",
+        "solution": ["later"],
+        "specific_feedback": {
+          "latest": "Die 'späteren Jahre' heißt auf Englisch 'the later years'."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "science",
+        "type": "adjective",
+        "solution": ["scientific"],
+        "specific_feedback": {
+          "scientist": "Du brauchst ein Adjektiv (wissenschaftlich), nicht das Nomen für Wissenschaftler."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "admire",
+        "type": "verb_passive_present",
+        "solution": ["admired"],
+        "specific_feedback": {
+          "admiring": "Passiv! Er wird bewundert (3. Form = admired), er bewundert nicht selbst."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 17,
+    "text": "The Revolution {1} in 1789 in Paris. The people {2} extremely unhappy with the king. They wanted {3} have more rights. If the revolution {4}, the old structure would have stayed. Many people {5} during the conflict. It {6} to the end of the monarchy. The ideals {7} quickly to other countries. This {8} influenced many people. New {9} ideas were born then. It was a {10} but important time.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "start",
+        "type": "verb_simple_past",
+        "solution": ["started"],
+        "specific_feedback": {
+          "has started": "Abgeschlossener historischer Zeitpunkt (1789) -> zwingend Simple Past."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "be",
+        "type": "verb_simple_past",
+        "solution": ["were"],
+        "specific_feedback": {
+          "was": "'People' ist im Englischen immer Plural. Deshalb 'were' statt 'was'."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "???",
+        "type": "infinitive_particle",
+        "solution": ["to"],
+        "specific_feedback": {
+          "that": "Nach Verben wie 'want' folgt im Englischen der Infinitiv mit 'to' (wanted to have)."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "not/happen",
+        "type": "if_clause_type_3",
+        "solution": ["hadn't happened", "had not happened"],
+        "specific_feedback": {
+          "didn't happen": "If-Satz Typ 3! Der Hauptsatz hat 'would have stayed', also brauchst du im If-Teil das Past Perfect (had + 3. Form)."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "kill",
+        "type": "verb_passive_past",
+        "solution": ["were killed"],
+        "specific_feedback": {
+          "killed": "Passiv! Die Leute haben nicht selbst getötet, sie WURDEN getötet.",
+          "was killed": "People ist Plural, also brauchst du 'were'."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "lead",
+        "type": "verb_simple_past",
+        "solution": ["led"],
+        "specific_feedback": {
+          "leaded": "Achtung: 'lead' (führen) ist ein unregelmäßiges Verb (lead - led - led)."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "spread",
+        "type": "verb_simple_past",
+        "solution": ["spread"],
+        "specific_feedback": {
+          "spreaded": "Achtung: 'spread' bleibt in allen Zeitformen gleich (spread - spread - spread)."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "???",
+        "type": "adverb",
+        "solution": ["also"],
+        "specific_feedback": {
+          "too": "Wenn es mitten im Satz steht, ist 'also' in der Regel die bessere und flüssigere Wahl als 'too'."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "politics",
+        "type": "adjective",
+        "solution": ["political"],
+        "specific_feedback": {
+          "politic": "Aus dem Nomen 'politics' wird das Adjektiv 'political'."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "terrible",
+        "type": "adjective",
+        "solution": ["terrible"],
+        "specific_feedback": {
+          "terribly": "Du brauchst ein Adjektiv, um das Nomen 'time' zu beschreiben, kein Adverb."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 18,
+    "text": "Traveling {1} much easier than in the past. Most people {2} {3} on holiday by plane. However, flights {4} a negative impact. If you book your flight now, you {5} a discount. We {6} ask {7} if it is necessary. The {8} number of tourists is a problem. Many {9} places that are visited are now crowded. We {10} to {11} better ways to travel. Trains are {12} than planes for nature. It {13} on our choices.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "become",
+        "type": "verb_present_perfect",
+        "solution": ["has become"],
+        "specific_feedback": {
+          "became": "Signalwort 'than in the past'! Ein Zustand, der sich aus der Vergangenheit bis ins Jetzt entwickelt hat, erfordert das Present Perfect.",
+          "is become": "Das Present Perfect bildet man mit 'have/has' + 3. Form, nicht mit 'to be'."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "prefer",
+        "type": "verb_simple_present",
+        "solution": ["prefer"],
+        "specific_feedback": {
+          "prefers": "'People' ist im Englischen immer Plural, deshalb darf hier kein 's' stehen!"
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "go",
+        "type": "infinitive_with_to_or_gerund",
+        "solution": ["to go", "going"],
+        "specific_feedback": {
+          "go": "Nach Verben der Vorliebe wie 'prefer', 'like' oder 'hate' folgt entweder der Infinitiv mit 'to' oder das Gerundium (-ing)."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "have",
+        "type": "verb_simple_present",
+        "solution": ["have"],
+        "specific_feedback": {
+          "has": "'Flights' ist Plural, also brauchst du 'have'."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "get",
+        "type": "if_clause_type_1",
+        "solution": ["will get", "'ll get"],
+        "specific_feedback": {
+          "would get": "If-Satz Typ 1! Im If-Teil steht das Präsens ('book'), also muss im Hauptsatz das will-Future stehen."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "should",
+        "type": "modal_verb",
+        "solution": ["should"],
+        "specific_feedback": {
+          "should to": "Nach Modalverben wie 'should' oder 'must' folgt niemals ein 'to'!"
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "we",
+        "type": "reflexive_pronoun",
+        "solution": ["ourselves"],
+        "specific_feedback": {
+          "us": "Du brauchst das Reflexivpronomen (wir fragen UNS SELBST = ourselves)."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "grow",
+        "type": "present_participle",
+        "solution": ["growing"],
+        "specific_feedback": {
+          "grown": "Die Zahl WÄCHST aktiv (wachsende Zahl), daher brauchst du das Present Participle auf -ing."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "beauty",
+        "type": "adjective",
+        "solution": ["beautiful"],
+        "specific_feedback": {
+          "beautifully": "Du beschreibst ein Nomen ('places'), also brauchst du ein Adjektiv, kein Adverb."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "need",
+        "type": "verb_simple_present",
+        "solution": ["need"],
+        "specific_feedback": {
+          "needs": "'We' ist Plural, also kein 's' am Ende!"
+        }
+      },
+      {
+        "id": "11",
+        "base_word": "find",
+        "type": "infinitive",
+        "solution": ["find"],
+        "specific_feedback": {
+          "found": "Nach dem 'to' muss der reine Infinitiv stehen."
+        }
+      },
+      {
+        "id": "12",
+        "base_word": "good",
+        "type": "adjective_comparative",
+        "solution": ["better"],
+        "specific_feedback": {
+          "gooder": "Unregelmäßige Steigerung! good - better - best."
+        }
+      },
+      {
+        "id": "13",
+        "base_word": "depend",
+        "type": "verb_simple_present",
+        "solution": ["depends"],
+        "specific_feedback": {
+          "depend": "'It' ist Singular! He, she, it - das 's' muss mit!"
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 19,
+    "text": "Shakespeare {1} many plays during his life. These works {2} in theaters today. He is {3} the greatest English writer. If he {4}, many expressions {5} in our language. While he was working in London, he {6} wealthy. His plays {7} into almost every language. This happened {8} his death. His {9} work is famous worldwide. Many students {10} his plays at school. He remains a {11} legend.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "write",
+        "type": "verb_simple_past",
+        "solution": ["wrote"],
+        "specific_feedback": {
+          "has written": "Shakespeare ist tot. Historische Fakten über verstorbene Personen stehen zwingend im Simple Past.",
+          "writed": "Unregelmäßiges Verb! write - wrote - written."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "still/perform",
+        "type": "verb_passive_present",
+        "solution": ["are still performed", "are still being performed"],
+        "specific_feedback": {
+          "still perform": "Passiv! Die Stücke führen nicht selbst auf, sie WERDEN aufgeführt."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "consider",
+        "type": "verb_passive_present",
+        "solution": ["considered"],
+        "specific_feedback": {
+          "consider": "Hier steht bereits 'is'. Du brauchst nur noch die 3. Form (Past Participle) für das Passiv."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "not/exist",
+        "type": "if_clause_type_3",
+        "solution": ["hadn't existed", "had not existed", "didn't exist", "did not exist"],
+        "specific_feedback": {
+          "wouldn't exist": "Im If-Teil eines Bedingungssatzes steht im Englischen niemals 'would'!"
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "not/be",
+        "type": "if_clause_type_2",
+        "solution": ["would not be", "wouldn't be"],
+        "specific_feedback": {
+          "were not": "Dies ist der Hauptsatz eines irrealen Bedingungssatzes. Du brauchst 'would' + Infinitiv."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "become",
+        "type": "verb_simple_past",
+        "solution": ["became"],
+        "specific_feedback": {
+          "become": "Achtung: Die Vergangenheitsform ist 'became' (become - became - become)."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "translate",
+        "type": "verb_passive_present_perfect",
+        "solution": ["have been translated", "are translated"],
+        "specific_feedback": {
+          "translated": "Passiv! Die Stücke übersetzen nicht selbst, sie WURDEN/WERDEN übersetzt."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "???",
+        "type": "preposition_time",
+        "solution": ["after"],
+        "specific_feedback": {
+          "behind": "'Behind' benutzt man nur für Orte (hinter dem Haus). Für die Zeit (nach dem Tod) nutzt man 'after'."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "poet",
+        "type": "adjective",
+        "solution": ["poetic"],
+        "specific_feedback": {
+          "poetry": "Du musst aus dem Nomen ein Adjektiv ('poetisch') machen, um 'work' zu beschreiben."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "must/read",
+        "type": "modal_verb",
+        "solution": ["must read", "have to read"],
+        "specific_feedback": {
+          "must to read": "Nach dem Modalverb 'must' folgt immer der reine Infinitiv ohne 'to'!"
+        }
+      },
+      {
+        "id": "11",
+        "base_word": "wonder",
+        "type": "adjective",
+        "solution": ["wonderful"],
+        "specific_feedback": {
+          "wonder": "Du brauchst ein Adjektiv ('wunderbar'), um das Nomen 'legend' zu beschreiben."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 20,
+    "text": "In 1953, the {1} of DNA was discovered. This was done {2} Watson and Crick. They {3} together for several years. If they {4}, they would never have found the secret. This {5} breakthrough revolutionized biology. Since then, doctors {6} able to treat diseases better. They can now {7} specific problems. These problems {8} are often genetic. It is one of the {9} discoveries in history. Everyone {10} about this impressive fact.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "structure",
+        "type": "noun",
+        "solution": ["structure"],
+        "specific_feedback": {
+          "structural": "Nach dem Artikel 'the' brauchst du das Nomen (Struktur), nicht das Adjektiv."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "???",
+        "type": "preposition",
+        "solution": ["by"],
+        "specific_feedback": {
+          "from": "Im Passivsatz wird der Urheber ('von wem?') im Englischen immer mit 'by' angeschlossen."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "work",
+        "type": "verb_past_perfect",
+        "solution": ["had worked", "worked"],
+        "specific_feedback": {
+          "have worked": "Der Text beschreibt eine historische Epoche (1953), die abgeschlossen ist -> kein Present Perfect."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "not/collaborate",
+        "type": "if_clause_type_3",
+        "solution": ["hadn't collaborated", "had not collaborated"],
+        "specific_feedback": {
+          "didn't collaborate": "If-Satz Typ 3! Der Hauptsatz hat 'would never have found', also brauchst du im If-Teil das Past Perfect (had + 3. Form)."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "science",
+        "type": "adjective",
+        "solution": ["scientific"],
+        "specific_feedback": {
+          "scientist": "Du brauchst hier das Adjektiv ('wissenschaftlich'), um den Durchbruch zu beschreiben, nicht das Wort für 'Wissenschaftler'."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "be",
+        "type": "verb_present_perfect",
+        "solution": ["have been"],
+        "specific_feedback": {
+          "are": "Signalwort 'Since then'! Ein Zustand, der bis heute anhält, verlangt das Present Perfect.",
+          "were": "Es geht um die Zeit von 1953 bis heute ('since then'), also Present Perfect."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "identify",
+        "type": "infinitive",
+        "solution": ["identify"],
+        "specific_feedback": {
+          "identifying": "Nach Modalverben (wie 'can') folgt immer der reine Infinitiv!"
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "???",
+        "type": "relative_pronoun",
+        "solution": ["which", "that"],
+        "specific_feedback": {
+          "who": "Relativpronomen: 'Problems' sind Sachen, keine Personen. Nutze 'which' oder 'that'."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "important",
+        "type": "adjective_superlative",
+        "solution": ["most important"],
+        "specific_feedback": {
+          "importanter": "Mehrsilbige Adjektive bildet man mit 'most', nicht mit der Endung -er oder -est."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "should/know",
+        "type": "modal_verb",
+        "solution": ["should know"],
+        "specific_feedback": {
+          "should to know": "Nach 'should' darf im Englischen niemals ein 'to' stehen!"
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 21,
+    "text": "E-Sports {1} into a phenomenon recently. Many young people {2} of becoming {3} gamers. It {4} a lot of {5} and practice. If a player practices enough, he {6} a professional. Thousands of fans {7} the tournaments {8}. The {9} can earn millions of dollars. This happens {10} big prize money. Some people {11} it is a {12} sport. However, the {13} of gaming is increasing. It {14} is an interesting development.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "grow",
+        "type": "verb_present_perfect",
+        "solution": ["has grown"],
+        "specific_feedback": {
+          "grew": "Signalwort 'recently'! Das verlangt das Present Perfect (Vergangenheit mit Auswirkung auf das Jetzt).",
+          "is growing": "Bei 'recently' ist das Present Perfect die korrekte Wahl."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "dream",
+        "type": "verb_simple_present",
+        "solution": ["dream"],
+        "specific_feedback": {
+          "dreams": "'People' ist im Englischen immer Plural, deshalb darf hier kein 's' stehen!"
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "???",
+        "type": "adjective",
+        "solution": ["professional", "pro"],
+        "specific_feedback": {
+          "profession": "Du brauchst hier ein Adjektiv ('professionelle Gamers'), nicht das Nomen für Beruf."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "require",
+        "type": "verb_simple_present",
+        "solution": ["requires"],
+        "specific_feedback": {
+          "require": "Das Subjekt 'It' ist Singular! He/she/it - das 's' muss mit!"
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "discipline",
+        "type": "noun",
+        "solution": ["discipline"],
+        "specific_feedback": {
+          "disciplined": "Nach 'a lot of' brauchst du das Nomen (Disziplin), nicht das Adjektiv (diszipliniert)."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "become",
+        "type": "if_clause_type_1",
+        "solution": ["will become", "'ll become"],
+        "specific_feedback": {
+          "becomes": "If-Satz Typ 1! Im If-Teil steht das Präsens ('practices'), also muss im Hauptsatz das will-Future stehen."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "watch",
+        "type": "verb_simple_present",
+        "solution": ["watch"],
+        "specific_feedback": {
+          "watches": "Thousands of fans = Plural. Lass das 's' weg!"
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "live",
+        "type": "adverb",
+        "solution": ["live"],
+        "specific_feedback": {
+          "lively": "Das Wort 'live' (wie in 'Live-Übertragung') bleibt im Englischen als Adverb ohne -ly!"
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "win",
+        "type": "noun_plural",
+        "solution": ["winners"],
+        "specific_feedback": {
+          "winner": "Es geht um alle Turniere, also setze 'winner' in den Plural."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "???",
+        "type": "preposition",
+        "solution": ["because of"],
+        "specific_feedback": {
+          "because": "Da ein Nomen ('big prize money') folgt, musst du 'because OF' (wegen) benutzen. 'Because' verlangt einen ganzen Satz."
+        }
+      },
+      {
+        "id": "11",
+        "base_word": "not/think",
+        "type": "verb_simple_present_negative",
+        "solution": ["do not think", "don't think"],
+        "specific_feedback": {
+          "doesn't think": "'People' ist Plural, also brauchst du 'don't'."
+        }
+      },
+      {
+        "id": "12",
+        "base_word": "real",
+        "type": "adjective",
+        "solution": ["real"],
+        "specific_feedback": {
+          "really": "Hier wird ein Nomen ('sport') beschrieben, also brauchst du das Adjektiv, kein Adverb."
+        }
+      },
+      {
+        "id": "13",
+        "base_word": "popular",
+        "type": "noun",
+        "solution": ["popularity"],
+        "specific_feedback": {
+          "popular": "Nach dem Artikel 'the' brauchst du zwingend das Nomen ('Popularität')."
+        }
+      },
+      {
+        "id": "14",
+        "base_word": "certain",
+        "type": "adverb",
+        "solution": ["certainly"],
+        "specific_feedback": {
+          "certain": "Du brauchst ein Adverb auf -ly, um den ganzen Satz ('es ist sicherlich...') zu modifizieren."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 22,
+    "text": "The Revolution {1} in Britain in the 18th century. The {2} of the steam engine changed everything. The transition to {3} industry was fast. If the machine {4}, the process {5} slower. {6} conditions in the first factories were dangerous. People {7} from the country to cities. They {8} for better jobs. This {9} happened because of the new industry. New {10} methods developed quickly. It {11} to the world we know today.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "begin",
+        "type": "verb_simple_past",
+        "solution": ["began"],
+        "specific_feedback": {
+          "has begun": "Der Zeitpunkt (18th century) ist exakt in der Vergangenheit abgeschlossen -> Simple Past.",
+          "begun": "Unregelmäßiges Verb! begin - began - begun. Du brauchst die 2. Form."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "invent",
+        "type": "noun",
+        "solution": ["invention"],
+        "specific_feedback": {
+          "inventing": "Nach dem Artikel 'the' brauchst du das echte Nomen ('die Erfindung'), kein Gerundium."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "modern",
+        "type": "adjective",
+        "solution": ["modern"],
+        "specific_feedback": {
+          "modernly": "Du beschreibst ein Nomen ('industry'), also brauchst du ein Adjektiv, kein Adverb."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "not/exist",
+        "type": "if_clause_type_3",
+        "solution": ["hadn't existed", "had not existed"],
+        "specific_feedback": {
+          "didn't exist": "Es ist eine rein theoretische Gedankenspielerei in der Vergangenheit. Du brauchst das Past Perfect (had + 3. Form)."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "be",
+        "type": "if_clause_type_3_main",
+        "solution": ["would have been"],
+        "specific_feedback": {
+          "would be": "Da es sich auf die Vergangenheit bezieht (Typ 3), brauchst du 'would have' + 3. Form."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "work",
+        "type": "noun_compound",
+        "solution": ["Working"],
+        "specific_feedback": {
+          "Work": "Auf Englisch sagt man 'working conditions' (Arbeitsbedingungen)."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "move",
+        "type": "verb_simple_past",
+        "solution": ["moved"],
+        "specific_feedback": {
+          "have moved": "Es ist eine historische, abgeschlossene Handlung -> Simple Past."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "search",
+        "type": "verb_simple_past",
+        "solution": ["searched"],
+        "specific_feedback": {
+          "were searching": "Einfache historische Handlungen werden meist im Simple Past wiedergegeben."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "???",
+        "type": "adverb",
+        "solution": ["also", "mostly", "mainly"],
+        "specific_feedback": {
+          "too": "'Too' (auch) steht im Englischen meist ganz am Ende des Satzes."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "technology",
+        "type": "adjective",
+        "solution": ["technological"],
+        "specific_feedback": {
+          "technology": "Aus dem Nomen 'technology' musst du das Adjektiv 'technological' machen."
+        }
+      },
+      {
+        "id": "11",
+        "base_word": "lead",
+        "type": "verb_simple_past",
+        "solution": ["led"],
+        "specific_feedback": {
+          "leaded": "Achtung: 'lead' (führen) ist ein unregelmäßiges Verb (lead - led - led)."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 23,
+    "text": "The deep ocean {1} remains largely unexplored. It is home to the {2} creatures on Earth. Scientists {3} these ecosystems carefully for years. If technology {4} in the past, we would never have seen these fish. These animals {5} to extreme pressure. They live in {6} temperatures without any light. Light {7} these depths at all. The fish {8} their own light. It is a {9} world that still hides secrets. We {10} very little about the sea.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "???",
+        "type": "relative_pronoun",
+        "solution": ["which", "that"],
+        "specific_feedback": {
+          "who": "Relativpronomen! 'The deep ocean' ist ein Ort/eine Sache, keine Person. Nutze 'which' oder 'that'."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "strange",
+        "type": "adjective_superlative",
+        "solution": ["strangest"],
+        "specific_feedback": {
+          "most strange": "Einsilbige Adjektive (strange) werden mit -est gesteigert, nicht mit 'most'."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "study",
+        "type": "verb_present_perfect_progressive",
+        "solution": ["have been studying", "have studied"],
+        "specific_feedback": {
+          "are studying": "Signalwort 'for years'! Wenn etwas in der Vergangenheit begann und bis heute andauert, brauchst du das Present Perfect (Progressive)."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "not/improve",
+        "type": "if_clause_type_3",
+        "solution": ["hadn't improved", "had not improved"],
+        "specific_feedback": {
+          "didn't improve": "If-Satz Typ 3! Der Hauptsatz steht mit 'would never have seen', also muss im If-Teil das Past Perfect (had + 3. Form) stehen."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "must/adapt",
+        "type": "modal_verb",
+        "solution": ["must adapt", "have to adapt"],
+        "specific_feedback": {
+          "must to adapt": "Nach Modalverben wie 'must' folgt immer der reine Infinitiv ohne 'to'."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "freeze",
+        "type": "present_participle",
+        "solution": ["freezing"],
+        "specific_feedback": {
+          "frozen": "Die Temperaturen selbst sind 'frierend/eiskalt' (aktiv), daher brauchst du die -ing Form (freezing)."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "not/reach",
+        "type": "verb_simple_present_negative",
+        "solution": ["does not reach", "doesn't reach"],
+        "specific_feedback": {
+          "don't reach": "'Light' ist Singular (unzählbar). Du musst mit 'doesn't' verneinen."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "develop",
+        "type": "verb_present_perfect",
+        "solution": ["have developed", "developed"],
+        "specific_feedback": {
+          "has developed": "'The fish' ist hier im Plural gemeint (die Fische allgemein), daher brauchst du 'have'."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "fascinate",
+        "type": "present_participle",
+        "solution": ["fascinating"],
+        "specific_feedback": {
+          "fascinated": "Die Welt selbst ist 'faszinierend' (aktiv), du bist 'fasziniert' (passiv). Nutze -ing!"
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "know",
+        "type": "verb_simple_present",
+        "solution": ["know"],
+        "specific_feedback": {
+          "knows": "'We' ist Plural, also kein 's' am Ende!"
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 24,
+    "text": "Virtual Reality {1} an extremely popular tool. It {2} users to experience new worlds. Some of these environments {3} impossible to visit. If the equipment {4} cheaper, more schools will use it. Currently, headsets {5} by wealthy gamers. Since the technology was first introduced, it {6} rapidly. Many believe that VR {7} our future. It {8} offers many interesting possibilities. We {9} it in different ways soon. This {10} progress is very impressive.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "become",
+        "type": "verb_present_perfect",
+        "solution": ["has become"],
+        "specific_feedback": {
+          "became": "Es ist ein Zustand, der sich bis in die Gegenwart ('extremely popular') aufgebaut hat -> Present Perfect.",
+          "is become": "Das Perfekt bildet man mit 'has' + 3. Form, nicht mit 'is'."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "allow",
+        "type": "verb_simple_present",
+        "solution": ["allows"],
+        "specific_feedback": {
+          "allow": "Virtual Reality ist Singular (it). He, she, it - das 's' muss mit!"
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "be",
+        "type": "verb_simple_present",
+        "solution": ["are", "would be"],
+        "specific_feedback": {
+          "is": "'Environments' ist Plural, also brauchst du 'are'."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "be",
+        "type": "if_clause_type_1",
+        "solution": ["is"],
+        "specific_feedback": {
+          "was": "Achte auf den Hauptsatz ('will use'). Das ist Typ 1 (reale Möglichkeit), also brauchst du das Präsens (is)."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "mostly/use",
+        "type": "verb_passive_present",
+        "solution": ["are mostly used"],
+        "specific_feedback": {
+          "mostly use": "Passiv! Die Headsets nutzen nicht selbst, sie WERDEN genutzt."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "develop",
+        "type": "verb_present_perfect",
+        "solution": ["has developed", "has been developing"],
+        "specific_feedback": {
+          "developed": "Signalwort 'Since'! Die Entwicklung hält bis heute an -> Present Perfect."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "change",
+        "type": "verb_future",
+        "solution": ["will change"],
+        "specific_feedback": {
+          "changes": "Bei Vorhersagen für die Zukunft ('believe that') benutzt man im Englischen das will-Future."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "certain",
+        "type": "adverb",
+        "solution": ["certainly"],
+        "specific_feedback": {
+          "certain": "Du brauchst ein Adverb auf -ly, um die Wahrscheinlichkeit ('sicherlich') im Satz auszudrücken."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "use",
+        "type": "verb_future",
+        "solution": ["will use", "'ll use"],
+        "specific_feedback": {
+          "use": "Signalwort 'soon' (bald). Es handelt sich um eine Vorhersage für die Zukunft -> will-Future."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "technology",
+        "type": "adjective",
+        "solution": ["technological"],
+        "specific_feedback": {
+          "technology": "Du brauchst hier ein Adjektiv ('technologischer' Fortschritt), nicht das Nomen."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 25,
+    "text": "Before the 19th century, people {1} on candles. They {2} them to light their homes. This changed {3} Thomas Edison improved the bulb. If Edison {4} so persistently, the world would be darker. His {5} soon spread across the world. By the early 20th century, cities {6}. This happened because {7} electricity. It {8} a significant milestone. Everyone {9} happy to have light. It {10} life much easier.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "rely",
+        "type": "verb_simple_past",
+        "solution": ["relied"],
+        "specific_feedback": {
+          "relyed": "Rechtschreibung: Ein Konsonant vor dem 'y' macht das 'y' bei -ed zu einem 'i' (relied)."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "need",
+        "type": "verb_simple_past",
+        "solution": ["needed"],
+        "specific_feedback": {
+          "have needed": "Die Handlung ist historisch abgeschlossen -> Simple Past."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "???",
+        "type": "conjunction",
+        "solution": ["when", "after"],
+        "specific_feedback": {
+          "where": "'Where' ist für Orte (wo). Hier geht es um einen Zeitpunkt (als)."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "not/work",
+        "type": "if_clause_type_3_mixed",
+        "solution": ["hadn't worked", "had not worked", "didn't work", "did not work"],
+        "specific_feedback": {
+          "wouldn't work": "Im If-Teil steht niemals 'would'!"
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "invent",
+        "type": "noun",
+        "solution": ["invention"],
+        "specific_feedback": {
+          "inventing": "Du brauchst das Nomen für 'Die Erfindung', also 'invention'."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "already/transform",
+        "type": "verb_past_perfect_passive",
+        "solution": ["had already been transformed", "had already transformed"],
+        "specific_feedback": {
+          "were already transformed": "Signalwort 'By the early 20th century'. Hier blickt man von der Vergangenheit noch weiter zurück -> Past Perfect."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "???",
+        "type": "preposition",
+        "solution": ["of"],
+        "specific_feedback": {
+          "from": "Der feste Ausdruck heißt 'because OF' (wegen)."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "consider",
+        "type": "verb_passive_past",
+        "solution": ["was considered", "is considered"],
+        "specific_feedback": {
+          "considered": "Passiv! Es betrachtete nicht selbst, es WURDE betrachtet. Vergiss das Hilfsverb nicht."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "be",
+        "type": "verb_simple_past",
+        "solution": ["was"],
+        "specific_feedback": {
+          "were": "'Everyone' ist im Englischen immer Singular. Daher 'was', nicht 'were'."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "make",
+        "type": "verb_simple_past",
+        "solution": ["made"],
+        "specific_feedback": {
+          "maked": "Achtung: 'make' ist ein unregelmäßiges Verb (make - made - made)."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 26,
+    "text": "Microplastics {1} are now found in every ocean. They {2} when larger waste breaks down. This {3} happens over a long period. If we {4} so much plastic in the past, the oceans would have been cleaner. Marine animals mistake these particles {5} food. This {6} their health systems. Scientists {7} to find solutions for years. It {8} immediate action. We {9} reduce our consumption of plastic. The situation is {10} worse every day.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "???",
+        "type": "relative_pronoun",
+        "solution": ["which", "that"],
+        "specific_feedback": {
+          "who": "Relativpronomen für Dinge! Nutze 'which' oder 'that'."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "produce",
+        "type": "verb_passive_present",
+        "solution": ["are produced"],
+        "specific_feedback": {
+          "produce": "Passiv! Das Mikroplastik produziert sich nicht selbst, es WIRD produziert."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "???",
+        "type": "adverb_frequency",
+        "solution": ["often", "usually", "typically"],
+        "specific_feedback": {
+          "mostly": "Hier passt 'often' oder 'usually' am besten, um eine Häufigkeit (oftmals) auszudrücken."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "not/use",
+        "type": "if_clause_type_3",
+        "solution": ["hadn't used", "had not used"],
+        "specific_feedback": {
+          "didn't use": "If-Satz Typ 3! Der Hauptsatz hat 'would have been', also brauchst du im If-Teil das Past Perfect (had + 3. Form)."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "???",
+        "type": "preposition",
+        "solution": ["for"],
+        "specific_feedback": {
+          "as": "Falsche Präposition. 'Etwas mit etwas verwechseln' heißt auf Englisch 'to mistake something FOR something'."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "harm",
+        "type": "verb_simple_present",
+        "solution": ["harms"],
+        "specific_feedback": {
+          "harm": "'This' ist Singular. He/she/it das 's' muss mit!"
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "try",
+        "type": "verb_present_perfect_progressive",
+        "solution": ["have been trying", "have tried"],
+        "specific_feedback": {
+          "are trying": "Signalwort 'for years'! Die Bemühungen begannen in der Vergangenheit und dauern an -> Present Perfect."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "require",
+        "type": "verb_simple_present",
+        "solution": ["requires"],
+        "specific_feedback": {
+          "require": "'It' ist Singular. He/she/it das 's' muss mit!"
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "must",
+        "type": "modal_verb",
+        "solution": ["must"],
+        "specific_feedback": {
+          "must to": "Nach Modalverben wie 'must' folgt immer direkt der Infinitiv ohne 'to'."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "become",
+        "type": "present_participle",
+        "solution": ["becoming"],
+        "specific_feedback": {
+          "become": "Die Form von 'to be' ('is') steht schon davor. Du brauchst die Verlaufsform auf -ing (Present Progressive)."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 27,
+    "text": "In Ancient Rome, the {1} lived in impressive villas. They {2} beautiful gardens and servants. However, life for the poor was {3} harder. If you live in a crowded apartment today, you {4} more comfort. Most people {5} as farmers then. They {6} to support their families. While the men {7}, the women stayed home. They {8} the house carefully. The society {9} on strict classes. It {10} a very different world.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "wealthy",
+        "type": "noun_collective",
+        "solution": ["wealthy"],
+        "specific_feedback": {
+          "wealthies": "Kollektivbezeichnungen mit 'the' + Adjektiv (the wealthy = die Reichen) bekommen kein Plural-s."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "have",
+        "type": "verb_simple_past",
+        "solution": ["had"],
+        "specific_feedback": {
+          "have": "Die Geschichte spielt im antiken Rom. Nutze das Simple Past."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "much",
+        "type": "adverb_intensifier",
+        "solution": ["much"],
+        "specific_feedback": {
+          "more": "Das Wort 'harder' ist bereits gesteigert (Komparativ). Du brauchst 'much', um es zu verstärken (viel härter)."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "have",
+        "type": "if_clause_type_1",
+        "solution": ["will have"],
+        "specific_feedback": {
+          "would have": "If-Satz Typ 1! Der If-Teil steht im Präsens ('live'), also brauchst du im Hauptsatz das will-Future."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "work",
+        "type": "verb_simple_past",
+        "solution": ["worked"],
+        "specific_feedback": {
+          "were working": "Hier wird ein andauernder Zustand in der Vergangenheit beschrieben, kein zeitgleicher Ablauf -> Simple Past."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "need",
+        "type": "verb_simple_past",
+        "solution": ["needed"],
+        "specific_feedback": {
+          "need": "Die Erzählung ist in der Vergangenheit (then)."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "fight",
+        "type": "verb_past_progressive",
+        "solution": ["were fighting", "fought"],
+        "specific_feedback": {
+          "was fighting": "Men ist der Plural von man. Du brauchst also 'were'."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "manage",
+        "type": "verb_simple_past",
+        "solution": ["managed"],
+        "specific_feedback": {
+          "manage": "Es geschah in der Vergangenheit (Simple Past)."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "depend",
+        "type": "verb_simple_past",
+        "solution": ["depended"],
+        "specific_feedback": {
+          "depends": "Historischer Fakt -> Simple Past."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "be",
+        "type": "verb_simple_past",
+        "solution": ["was"],
+        "specific_feedback": {
+          "were": "'It' ist Singular, also brauchst du 'was'."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 28,
+    "text": "The brothers {1} by flight since they were children. In 1903, they {2} to fly successfully. They {3} for several years on their machine. If they {4} time experimenting, they would not be famous today. Their {5} changed the world completely. Since that day, aviation {6} unbelievably. Today, millions {7} by air every day. It {8} impossible to imagine life without planes. The first flight {9} for a long time. However, it {10} the beginning of an era.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "fascinate",
+        "type": "verb_past_perfect_passive",
+        "solution": ["had been fascinated", "were fascinated"],
+        "specific_feedback": {
+          "fascinated": "Passiv! Sie haben nicht selbst fasziniert, sie WURDEN fasziniert.",
+          "have been fascinated": "Die Geschichte spielt in der Vergangenheit und blickt von dort noch weiter zurück (since they were children) -> Past Perfect Passive."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "manage",
+        "type": "verb_simple_past",
+        "solution": ["managed"],
+        "specific_feedback": {
+          "have managed": "Ein exakter Zeitpunkt in der Vergangenheit (In 1903) erfordert immer das Simple Past."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "work",
+        "type": "verb_past_perfect",
+        "solution": ["had worked", "worked"],
+        "specific_feedback": {
+          "have worked": "Der Text beschreibt eine historische Epoche, die komplett abgeschlossen ist -> kein Present Perfect."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "not/spend",
+        "type": "if_clause_mixed",
+        "solution": ["hadn't spent", "had not spent"],
+        "specific_feedback": {
+          "didn't spend": "Mixed Conditional! Die Bedingung liegt in der Vergangenheit (Past Perfect), das Resultat im Heute ('would not be famous today').",
+          "hadn't spended": "Achtung: unregelmäßiges Verb! spend - spent - spent."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "achieve",
+        "type": "noun_plural",
+        "solution": ["achievements"],
+        "specific_feedback": {
+          "achievement": "Es waren viele Leistungen und Durchbrüche, setze das Nomen am besten in den Plural."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "advance",
+        "type": "verb_present_perfect",
+        "solution": ["has advanced"],
+        "specific_feedback": {
+          "advanced": "Signalwort 'Since that day'! Die Entwicklung reicht bis heute -> Present Perfect."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "travel",
+        "type": "verb_simple_present",
+        "solution": ["travel"],
+        "specific_feedback": {
+          "travels": "'Millions' ist Plural, also darf hier kein 's' am Ende stehen!"
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "be",
+        "type": "verb_simple_present",
+        "solution": ["is"],
+        "specific_feedback": {
+          "was": "Signalwort 'Today' (vorheriger Satz) und ein allgemeingültiger Fakt -> Simple Present."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "not/last",
+        "type": "verb_simple_past_negative",
+        "solution": ["didn't last", "did not last"],
+        "specific_feedback": {
+          "doesn't last": "Der erste Flug ist ein historisches Event -> Simple Past (didn't)."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "be",
+        "type": "verb_simple_past",
+        "solution": ["was"],
+        "specific_feedback": {
+          "is": "Es 'war' der Beginn einer neuen Ära damals -> Simple Past."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 29,
+    "text": "As the {1} population grows, we need food. Scientists {2} for sustainable ways to produce it. This {3} is very important for nature. If we {4} researching earlier, we would have faced a crisis. Currently, farming {5} for a large amount of emissions. Organizations {6} people to eat less meat. New {7} methods have already been tested recently. This {8} in several countries. We {9} to find a solution soon. The future {10} on our actions.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "world",
+        "type": "adjective",
+        "solution": ["global", "world's"],
+        "specific_feedback": {
+          "worldly": "'Worldly' bedeutet 'weltlich'. Hier brauchst du 'global' oder den Genitiv 'world's'."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "look",
+        "type": "verb_present_progressive",
+        "solution": ["are looking"],
+        "specific_feedback": {
+          "look": "Es ist ein Vorgang, der gerade in dieser Zeitspanne stattfindet -> Present Progressive."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "???",
+        "type": "noun",
+        "solution": ["issue", "topic"],
+        "specific_feedback": {
+          "also": "Nach 'This' passt hier am besten ein Nomen wie 'issue' (Problem/Thema) oder 'topic'."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "not/start",
+        "type": "if_clause_type_3",
+        "solution": ["hadn't started", "had not started"],
+        "specific_feedback": {
+          "didn't start": "If-Satz Typ 3! Hauptsatz hat 'would have faced', also brauchst du im If-Teil das Past Perfect."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "responsible",
+        "type": "adjective_with_be",
+        "solution": ["is responsible"],
+        "specific_feedback": {
+          "responsible": "Vergiss das Verb nicht! Du brauchst eine Form von 'to be' (is responsible)."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "encourage",
+        "type": "verb_present_progressive",
+        "solution": ["are encouraging", "encourage"],
+        "specific_feedback": {
+          "encourages": "'Organizations' ist Plural, also darf hier kein 's' am Ende stehen!"
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "technology",
+        "type": "adjective",
+        "solution": ["technological"],
+        "specific_feedback": {
+          "technology": "Du brauchst ein Adjektiv ('technologische' Methoden), nicht das Nomen."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "happen",
+        "type": "verb_present_perfect",
+        "solution": ["has happened", "is happening"],
+        "specific_feedback": {
+          "happen": "'This' ist Singular, also he/she/it das 's' muss mit (happens) - aber Perfekt oder Progressive ist hier besser."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "need",
+        "type": "verb_simple_present",
+        "solution": ["need"],
+        "specific_feedback": {
+          "needs": "'We' ist Plural, also kein 's' am Ende!"
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "depend",
+        "type": "verb_simple_present",
+        "solution": ["depends"],
+        "specific_feedback": {
+          "depend": "The future ist Singular (it). Vergiss das 's' nicht!"
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 30,
+    "text": "The Library {1} the greatest center of knowledge. It {2} scrolls which were written by scholars. People {3} from far away to study there. If archaeologists find more remains, we {4} more. Many {5} documents were destroyed in the fire. Archaeologists {6} for its remains for years. It {7} a terrible loss. No one knows {8} exactly started the fire. The story is {9} to people today. It {10} a wonderful place.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "be",
+        "type": "verb_simple_past",
+        "solution": ["was"],
+        "specific_feedback": {
+          "is": "Die Bibliothek von Alexandria existiert in dieser Form nicht mehr -> Simple Past."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "contain",
+        "type": "verb_simple_past",
+        "solution": ["contained"],
+        "specific_feedback": {
+          "contains": "Historischer Fakt aus der Vergangenheit -> Simple Past."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "travel",
+        "type": "verb_simple_past",
+        "solution": ["traveled", "travelled"],
+        "specific_feedback": {
+          "travel": "Die Menschen reisten damals dorthin, nicht heute."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "learn",
+        "type": "if_clause_type_1",
+        "solution": ["will learn", "'ll learn"],
+        "specific_feedback": {
+          "would learn": "If-Satz Typ 1! Der If-Teil steht im Präsens ('find'), also brauchst du das will-Future im Hauptsatz."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "value",
+        "type": "adjective",
+        "solution": ["valuable"],
+        "specific_feedback": {
+          "valued": "Du suchst das Adjektiv für 'wertvoll' (valuable)."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "search",
+        "type": "verb_present_perfect_progressive",
+        "solution": ["have been searching", "have searched"],
+        "specific_feedback": {
+          "are searching": "Signalwort 'for years'! Die Suche begann in der Vergangenheit und dauert an -> Present Perfect Progressive."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "consider",
+        "type": "verb_passive_present",
+        "solution": ["is considered"],
+        "specific_feedback": {
+          "considered": "Passiv! Es 'betrachtet' nicht selbst, es WIRD als Verlust betrachtet."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "???",
+        "type": "question_word",
+        "solution": ["who"],
+        "specific_feedback": {
+          "what": "Es wird nach einer Person gefragt (niemand weiß, WER das Feuer legte)."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "fascinate",
+        "type": "present_participle",
+        "solution": ["fascinating"],
+        "specific_feedback": {
+          "fascinated": "Die Geschichte selbst ist 'faszinierend' (aktiv, -ing), nicht fasziniert."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "be",
+        "type": "verb_simple_past",
+        "solution": ["was"],
+        "specific_feedback": {
+          "is": "Die historische Bibliothek war ein wunderbarer Ort (Vergangenheit)."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 31,
+    "text": "The Berlin Wall {1} the city for many years. It {2} in 1961 to prevent people from leaving. The situation {3} extremely difficult for families. If the wall {4}, the city would be divided. People {5} loudly as they danced. Since the {6}, the city has become a symbol of freedom. Many parts of the wall {7} since then. The event {8} history permanently. It {9} a peaceful revolution in 1989. Everyone {10} that historic day.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "divide",
+        "type": "verb_simple_past",
+        "solution": ["divided"],
+        "specific_feedback": {
+          "has divided": "Die Mauer teilt die Stadt heute nicht mehr -> Simple Past."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "build",
+        "type": "verb_passive_past",
+        "solution": ["was built"],
+        "specific_feedback": {
+          "built": "Passiv! Die Mauer hat nicht selbst gebaut, sie WURDE gebaut (to be + 3. Form)."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "be",
+        "type": "verb_simple_past",
+        "solution": ["was"],
+        "specific_feedback": {
+          "is": "Die schwierige Situation bezieht sich auf die Zeit der Teilung -> Simple Past."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "still/stand",
+        "type": "if_clause_type_2",
+        "solution": ["still stood"],
+        "specific_feedback": {
+          "had still stood": "Achte auf den Hauptsatz ('would be'). Das ist Typ 2, also brauchst du im If-Teil das Simple Past."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "cheer",
+        "type": "verb_simple_past",
+        "solution": ["cheered"],
+        "specific_feedback": {
+          "cheer": "Die Handlung fand beim Mauerfall statt -> Simple Past."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "reunite",
+        "type": "noun",
+        "solution": ["reunification", "reunion"],
+        "specific_feedback": {
+          "reuniting": "Nach dem Artikel 'the' brauchst du das offizielle Nomen ('Die Wiedervereinigung')."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "already/remove",
+        "type": "verb_passive_present_perfect",
+        "solution": ["have already been removed"],
+        "specific_feedback": {
+          "already removed": "Passiv! Die Teile haben sich nicht selbst entfernt, sie WURDEN entfernt. Und achte auf das 'since then' -> Present Perfect Passive."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "change",
+        "type": "verb_simple_past",
+        "solution": ["changed"],
+        "specific_feedback": {
+          "changes": "Es ist ein historisch abgeschlossenes Event -> Simple Past."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "be",
+        "type": "verb_simple_past",
+        "solution": ["was"],
+        "specific_feedback": {
+          "is": "Abgeschlossener Zeitpunkt in der Vergangenheit (in 1989)."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "remember",
+        "type": "verb_simple_present",
+        "solution": ["remembers"],
+        "specific_feedback": {
+          "remember": "'Everyone' ist im Englischen immer Singular! He/she/it das 's' muss mit!"
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 32,
+    "text": "In the next decade, {1} to space will become a reality. Several {2} have already developed rockets. They {3} on this purpose for years. If the project {4} funding years ago, it would have failed. The training {5} extremely challenging. Scientists {6} hard to make it safe. The journeys {7} much more than normal holidays. Only {8} people can afford it at first. It {9} is an exciting development. The first tourists {10} into space.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "travel",
+        "type": "gerund_as_subject",
+        "solution": ["traveling", "travelling"],
+        "specific_feedback": {
+          "travel": "Wenn ein Verb als Subjekt des Satzes verwendet wird ('Das Reisen'), brauchst du das Gerundium auf -ing."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "company",
+        "type": "noun_plural",
+        "solution": ["companies"],
+        "specific_feedback": {
+          "companys": "Rechtschreibung: Ein 'y' nach einem Konsonanten wird im Plural zu 'ies' (companies)."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "work",
+        "type": "verb_present_perfect_progressive",
+        "solution": ["have been working", "have worked"],
+        "specific_feedback": {
+          "are working": "Signalwort 'for years'! Wenn sie früher angefangen haben und immer noch arbeiten -> Present Perfect (Progressive)."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "not/receive",
+        "type": "if_clause_type_3",
+        "solution": ["hadn't received", "had not received"],
+        "specific_feedback": {
+          "didn't receive": "If-Satz Typ 3! Der Hauptsatz hat 'would have failed', also brauchst du im If-Teil das Past Perfect (had + 3. Form)."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "be",
+        "type": "verb_future_or_present",
+        "solution": ["is", "will be"],
+        "specific_feedback": {
+          "was": "Es geht um die Ausbildung für diese zukünftigen Flüge. Es muss Präsens oder Zukunft sein."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "work",
+        "type": "verb_present_progressive",
+        "solution": ["are working", "work"],
+        "specific_feedback": {
+          "works": "'Scientists' ist Plural, also kein 's' am Ende!"
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "cost",
+        "type": "verb_future",
+        "solution": ["will cost", "cost"],
+        "specific_feedback": {
+          "costs": "'The journeys' ist Plural, also kein 's' am Ende!"
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "wealthy",
+        "type": "adjective",
+        "solution": ["wealthy"],
+        "specific_feedback": {
+          "wealth": "Du brauchst ein Adjektiv ('reiche' Leute), nicht das Nomen ('Reichtum')."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "certain",
+        "type": "adverb",
+        "solution": ["certainly"],
+        "specific_feedback": {
+          "certain": "Du brauchst hier ein Adverb auf -ly, um die Gewissheit im Satz ('sicherlich') zu unterstreichen."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "already/go",
+        "type": "verb_present_perfect",
+        "solution": ["have already gone"],
+        "specific_feedback": {
+          "already went": "Signalwort 'already'! Das verlangt das Present Perfect (have + 3. Form von go = gone)."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 33,
+    "text": "Modern life depends {1} on power. Our daily routines {2} totally different without it. This happens because of {3} our current lifestyle. If we don't have electricity, we {4} candles. We couldn't use our phones {5} communicate. In the past, people used fire {6} warmth. Since the invention of light, the world {7}. It is {8} to imagine a modern society. Every technological device {9} a charge. Life has become much {10} since then.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "heavy",
+        "type": "adverb",
+        "solution": ["heavily"],
+        "specific_feedback": {
+          "heavy": "Du beschreibst das Verb 'depends' (WIE hängt es davon ab?). Dafür brauchst du zwingend das Adverb auf -ly (heavily)."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "be",
+        "type": "if_clause_type_2_main",
+        "solution": ["would be"],
+        "specific_feedback": {
+          "are": "Das ist ein versteckter If-Satz (Irrealis). 'Ohne Elektrizität WÄREN sie anders' -> would be."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "???",
+        "type": "adverb_intensifier",
+        "solution": ["mostly", "mainly", "simply"],
+        "specific_feedback": {
+          "always": "Hier passt ein einschränkendes Adverb wie 'hauptsächlich' (mostly/mainly) am besten."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "use",
+        "type": "if_clause_type_1_main",
+        "solution": ["will use", "'ll use"],
+        "specific_feedback": {
+          "would use": "If-Satz Typ 1! Der If-Teil steht im Präsens ('don't have'), also folgt im Hauptsatz das will-Future."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "???",
+        "type": "infinitive_particle",
+        "solution": ["to"],
+        "specific_feedback": {
+          "for": "Um einen Zweck auszudrücken ('UM ZU kommunizieren'), benutzt man im Englischen 'to' + Infinitiv."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "???",
+        "type": "preposition",
+        "solution": ["for"],
+        "specific_feedback": {
+          "to": "Wenn ein Nomen ('warmth') folgt und ein Zweck gemeint ist ('FÜR Wärme'), benutzt man 'for'."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "change",
+        "type": "verb_present_perfect",
+        "solution": ["has changed"],
+        "specific_feedback": {
+          "changed": "Signalwort 'Since'! Die Veränderung hat bis heute Auswirkungen, daher brauchst du das Present Perfect."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "impossible",
+        "type": "adjective",
+        "solution": ["impossible"],
+        "specific_feedback": {
+          "impossibly": "Nach dem Verb 'to be' (is) steht im Englischen das Adjektiv, kein Adverb."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "need",
+        "type": "verb_simple_present",
+        "solution": ["needs"],
+        "specific_feedback": {
+          "need": "Wörter wie 'every' oder 'everyone' sind im Englischen IMMER Singular! He/she/it das 's' muss mit!"
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "fast",
+        "type": "adjective_comparative",
+        "solution": ["faster"],
+        "specific_feedback": {
+          "more fast": "Einsilbige Adjektive (fast) steigert man mit -er (faster)."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 34,
+    "text": "The marathon {1} after a Greek soldier. This {2} man ran from Marathon to Athens. He {3} to announce a victory. If the soldier {4} more slowly, he would not die. The distance he covered {5} 40 kilometers. Today, the race is much {6} than then. It {7} by millions of people every year. The official length {8} in 1908. Many athletes train {9} hard. It {10} a popular sporting event.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "name",
+        "type": "verb_passive_past",
+        "solution": ["was named", "is named"],
+        "specific_feedback": {
+          "named": "Passiv! Der Marathon benennt sich nicht selbst, er WURDE benannt (was named)."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "???",
+        "type": "adjective",
+        "solution": ["brave", "Greek", "young"],
+        "specific_feedback": {
+          "bravely": "Du beschreibst das Nomen 'man', also brauchst du ein Adjektiv, kein Adverb."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "want",
+        "type": "verb_simple_past",
+        "solution": ["wanted"],
+        "specific_feedback": {
+          "wants": "Die Erzählung spielt komplett in der Vergangenheit -> Simple Past."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "run",
+        "type": "if_clause_type_2",
+        "solution": ["ran"],
+        "specific_feedback": {
+          "had run": "Achte auf den Hauptsatz ('would not die'). Das ist Typ 2, also brauchst du das Simple Past (ran)."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "be",
+        "type": "verb_simple_past",
+        "solution": ["was"],
+        "specific_feedback": {
+          "is": "Historischer Fakt in der Vergangenheit -> was."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "long",
+        "type": "adjective_comparative",
+        "solution": ["longer"],
+        "specific_feedback": {
+          "more long": "Einsilbige Adjektive werden mit -er gesteigert, nicht mit 'more'."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "run",
+        "type": "verb_passive_present",
+        "solution": ["is run"],
+        "specific_feedback": {
+          "runs": "Passiv! Das Rennen läuft nicht selbst, es WIRD gelaufen. (run - ran - run)."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "fix",
+        "type": "verb_passive_past",
+        "solution": ["was fixed"],
+        "specific_feedback": {
+          "fixed": "Passiv! Die Länge fixierte sich nicht selbst, sie WURDE 1908 fixiert."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "extreme",
+        "type": "adverb",
+        "solution": ["extremely"],
+        "specific_feedback": {
+          "extreme": "Du beschreibst das Adverb 'hard' näher (WIE hart?). Dafür brauchst du -ly (extremely)."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "remain",
+        "type": "verb_simple_present",
+        "solution": ["remains"],
+        "specific_feedback": {
+          "remain": "Das Event ist Singular (it). He/she/it das 's' muss mit!"
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 35,
+    "text": "Scooters {1} in many major cities recently. They {2} a convenient way to travel. Many people enjoy {3} them to work. If the city {4} rules, many accidents would have happened. However, many residents are {5} about them. The scooters are often left {6} on the sidewalk. Local politics {7} stricter rules. This is done {8} avoid accidents. It {9} a challenge task for the city. The popularity of scooters {10} rapidly.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "appear",
+        "type": "verb_present_perfect",
+        "solution": ["have appeared"],
+        "specific_feedback": {
+          "appeared": "Signalwort 'recently'! Die Handlung hat Bezug zur Gegenwart -> Present Perfect."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "offer",
+        "type": "verb_simple_present",
+        "solution": ["offer"],
+        "specific_feedback": {
+          "offers": "'They' ist Plural, also darf hier kein 's' am Ende stehen!"
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "ride",
+        "type": "gerund_after_verb",
+        "solution": ["riding"],
+        "specific_feedback": {
+          "to ride": "Nach dem Verb 'enjoy' folgt im Englischen zwingend das Gerundium (die -ing Form)!"
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "not/introduce",
+        "type": "if_clause_type_3",
+        "solution": ["hadn't introduced", "had not introduced"],
+        "specific_feedback": {
+          "didn't introduce": "If-Satz Typ 3! Der Hauptsatz steht mit 'would have happened', also brauchst du im If-Teil das Past Perfect (had + 3. Form)."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "unhappy",
+        "type": "adjective",
+        "solution": ["unhappy"],
+        "specific_feedback": {
+          "unhappily": "Nach 'are' (Form von to be) brauchst du ein Adjektiv, um den Zustand der Bewohner."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "careless",
+        "type": "adverb",
+        "solution": ["carelessly"],
+        "specific_feedback": {
+          "careless": "Du beschreibst das Verb 'left' (WIE werden sie zurückgelassen?). Dafür brauchst du das Adverb auf -ly."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "must/create",
+        "type": "modal_verb",
+        "solution": ["must create", "have to create"],
+        "specific_feedback": {
+          "must to create": "Nach dem Modalverb 'must' darf niemals ein 'to' stehen!"
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "???",
+        "type": "infinitive_particle",
+        "solution": ["to"],
+        "specific_feedback": {
+          "for": "Um einen Zweck auszudrücken ('UM ZU vermeiden'), benutzt man 'to' + Infinitiv."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "be",
+        "type": "verb_simple_present",
+        "solution": ["is"],
+        "specific_feedback": {
+          "was": "Die Scooter sind jetzt aktuell ein Problem, also Simple Present."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "grow",
+        "type": "verb_present_progressive",
+        "solution": ["is growing", "has grown"],
+        "specific_feedback": {
+          "grow": "'The popularity' ist Singular! Du brauchst entweder he/she/it-'s' oder besser die Verlaufsform 'is growing'."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 36,
+    "text": "The Amazon {1} the largest river by volume. It {2} through the heart of the rainforest. This area is home {3} many species. If the river {4} up, the ecosystem will collapse. Many {5} people rely on the water. It is essential {6} their survival. The area {7} by legal mining. This {8} for a long time now. We {9} to protect this nature resource. The situation {10} extremely serious.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "be",
+        "type": "verb_simple_present",
+        "solution": ["is"],
+        "specific_feedback": {
+          "are": "Der Amazonas ist Singular (it), also 'is'."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "flow",
+        "type": "verb_simple_present",
+        "solution": ["flows"],
+        "specific_feedback": {
+          "flow": "Singular (it). He/she/it das 's' muss mit!"
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "???",
+        "type": "preposition",
+        "solution": ["to"],
+        "specific_feedback": {
+          "for": "Der englische Ausdruck lautet 'to be home TO someone/something' (die Heimat von... sein)."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "dry",
+        "type": "if_clause_type_1",
+        "solution": ["dries"],
+        "specific_feedback": {
+          "dry": "If-Satz Typ 1. The river ist Singular, also he/she/it das 's' muss mit (dries)!"
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "indigenous",
+        "type": "adjective",
+        "solution": ["indigenous"],
+        "specific_feedback": {
+          "indigenously": "Du brauchst ein Adjektiv, um 'people' (indigene Völker) zu beschreiben."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "???",
+        "type": "preposition",
+        "solution": ["for"],
+        "specific_feedback": {
+          "to": "Man sagt auf Englisch 'essential FOR their survival' (essenziell für...)."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "threaten",
+        "type": "verb_passive_present",
+        "solution": ["is threatened", "is being threatened"],
+        "specific_feedback": {
+          "threatens": "Passiv! Das Gebiet bedroht nicht selbst, es WIRD bedroht."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "happen",
+        "type": "verb_present_perfect_progressive",
+        "solution": ["has been happening", "has happened"],
+        "specific_feedback": {
+          "happens": "Signalwort 'for a long time'! Eine Handlung, die in der Vergangenheit begann und andauert -> Present Perfect."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "need",
+        "type": "verb_simple_present",
+        "solution": ["need"],
+        "specific_feedback": {
+          "needs": "'We' ist Plural, also kein 's' am Ende!"
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "be",
+        "type": "verb_simple_present",
+        "solution": ["is"],
+        "specific_feedback": {
+          "was": "Die Situation ist jetzt im Moment extrem ernst -> Simple Present."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 37,
+    "text": "Amundsen {1} the first to reach the South Pole. He prepared {2} carefully for the trip. The conditions {3} freezing the whole time. If Scott {4} better equipment, he would survive. Amundsen {5} dogs to pull the sleds. This {6} to be very effective. His {7} is still celebrated by people. It was a {8} feat of endurance. The explorers faced {9} storms. Their story {10} totally impressive.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "be",
+        "type": "verb_simple_past",
+        "solution": ["was"],
+        "specific_feedback": {
+          "is": "Historischer Fakt. Amundsen ist lange tot -> Simple Past."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "extreme",
+        "type": "adverb",
+        "solution": ["extremely"],
+        "specific_feedback": {
+          "extreme": "Du beschreibst das Adverb 'carefully' (WIE sorgfältig?). Dafür brauchst du zwingend das Adverb auf -ly."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "be",
+        "type": "verb_simple_past",
+        "solution": ["were"],
+        "specific_feedback": {
+          "was": "'Conditions' (Bedingungen) ist Plural! Du brauchst 'were'."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "have",
+        "type": "if_clause_type_2",
+        "solution": ["had"],
+        "specific_feedback": {
+          "had had": "Achte auf den Hauptsatz ('would survive'). Das ist grammatikalisch Typ 2, du brauchst also das Simple Past (had)."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "use",
+        "type": "verb_simple_past",
+        "solution": ["used"],
+        "specific_feedback": {
+          "have used": "Abgeschlossene historische Expedition -> Simple Past."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "prove",
+        "type": "verb_simple_past",
+        "solution": ["proved"],
+        "specific_feedback": {
+          "has proved": "Die Expedition ist vorbei, nutze das Simple Past."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "succeed",
+        "type": "noun",
+        "solution": ["success"],
+        "specific_feedback": {
+          "succeed": "Nach dem Possessivbegleiter 'His' (Sein...) brauchst du das Nomen (Erfolg = success), nicht das Verb."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "great",
+        "type": "adjective",
+        "solution": ["great"],
+        "specific_feedback": {
+          "greatly": "Du beschreibst das Nomen 'feat' (Leistung), also brauchst du ein Adjektiv, kein Adverb."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "terrible",
+        "type": "adjective",
+        "solution": ["terrible"],
+        "specific_feedback": {
+          "terribly": "Du beschreibst das Nomen 'storms', also brauchst du das Adjektiv."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "be",
+        "type": "verb_simple_present",
+        "solution": ["is", "was"],
+        "specific_feedback": {
+          "are": "'Their story' ist Singular (it), also 'is' oder 'was'."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 38,
+    "text": "Wind power {1} an important source of energy. It {2} to reduce our dependence on oil. This technology {3} is good for nature. If nations {4} earlier, the climate would not have changed. Many governments {5} goals. These {6} plans need money. However, {7} energy is still a problem. Scientists {8} to find solutions for years. We {9} change our consumption habits. The transition {10} necessary for the planet.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "become",
+        "type": "verb_present_perfect",
+        "solution": ["has become"],
+        "specific_feedback": {
+          "became": "Es handelt sich um einen Zustand, der bis heute anhält und immer noch relevant ist -> Present Perfect.",
+          "becomes": "Achtung: 'has become' ist hier besser, da es einen Prozess beschreibt, der aus der Vergangenheit bis ins Jetzt reicht."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "help",
+        "type": "verb_simple_present",
+        "solution": ["helps"],
+        "specific_feedback": {
+          "help": "Wind power ist Singular (it). He/she/it das 's' muss mit!"
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "???",
+        "type": "adverb",
+        "solution": ["also"],
+        "specific_feedback": {
+          "too": "'Too' (auch) steht im Englischen fast immer am Ende des Satzes."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "invest",
+        "type": "if_clause_type_3",
+        "solution": ["had invested"],
+        "specific_feedback": {
+          "invested": "If-Satz Typ 3! Der Hauptsatz hat 'would not have changed', also brauchst du im If-Teil das Past Perfect (had + 3. Form)."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "already/set",
+        "type": "verb_present_perfect",
+        "solution": ["have already set"],
+        "specific_feedback": {
+          "already set": "Vergiss das Hilfsverb 'have' für das Present Perfect nicht. (set - set - set)."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "ambition",
+        "type": "adjective",
+        "solution": ["ambitious"],
+        "specific_feedback": {
+          "ambition": "Du brauchst ein Adjektiv ('ehrgeizig'), um 'plans' zu beschreiben."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "store",
+        "type": "gerund_as_subject",
+        "solution": ["storing"],
+        "specific_feedback": {
+          "store": "Wenn ein Verb ('Speichern') als Subjekt eines Satzes dient, wird es zum Gerundium (-ing)."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "try",
+        "type": "verb_present_perfect_progressive",
+        "solution": ["have been trying", "have tried"],
+        "specific_feedback": {
+          "are trying": "Signalwort 'for years'! Wenn eine Handlung in der Vergangenheit begann und bis heute andauert, brauchst du das Present Perfect (Progressive)."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "must",
+        "type": "modal_verb",
+        "solution": ["must"],
+        "specific_feedback": {
+          "must to": "Nach Modalverben wie 'must' darf niemals ein 'to' folgen!"
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "be",
+        "type": "verb_simple_present",
+        "solution": ["is"],
+        "specific_feedback": {
+          "was": "Die Energiewende ist JETZT notwendig -> Simple Present."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 39,
+    "text": "In the Middle Ages, {1} a knight was a process. A boy {2} his training early. This {3} happened at age seven. If he {4} brave, he will be knighted. He {5} to protect the weak. He also {6} his king for years. During {7}, knights wore heavy armor. This equipment {8} was made of steel. It {9} a very dangerous life. They {10} a moral code.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "become",
+        "type": "gerund_as_subject",
+        "solution": ["becoming"],
+        "specific_feedback": {
+          "become": "Als Subjekt des Satzes ('Das Werden') brauchst du das Gerundium auf -ing."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "start",
+        "type": "verb_simple_past",
+        "solution": ["started"],
+        "specific_feedback": {
+          "has started": "Abgeschlossene historische Epoche (Middle Ages) -> Simple Past."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "???",
+        "type": "adverb_frequency",
+        "solution": ["often", "usually", "typically"],
+        "specific_feedback": {
+          "always": "Hier passt ein Häufigkeitsadverb wie 'often' oder 'usually' am besten."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "be",
+        "type": "if_clause_type_1",
+        "solution": ["is"],
+        "specific_feedback": {
+          "was": "Achte auf den Hauptsatz ('will be knighted'). Das ist Typ 1 (reale Bedingung), also brauchst du das Präsens (is)."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "have",
+        "type": "verb_simple_past",
+        "solution": ["had"],
+        "specific_feedback": {
+          "has": "Die Geschichte spielt in der Vergangenheit."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "serve",
+        "type": "verb_simple_past",
+        "solution": ["served"],
+        "specific_feedback": {
+          "has served": "Historischer Fakt -> Simple Past."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "battle",
+        "type": "noun_plural",
+        "solution": ["battles"],
+        "specific_feedback": {
+          "battle": "Nach 'During' ist hier der Plural ('Während der Schlachten') gefordert."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "???",
+        "type": "relative_pronoun",
+        "solution": ["which", "that"],
+        "specific_feedback": {
+          "who": "Relativpronomen für Dinge (Ausrüstung). Nutze 'which' oder 'that'."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "be",
+        "type": "verb_simple_past",
+        "solution": ["was"],
+        "specific_feedback": {
+          "is": "Die Zeit der Ritter ist vorbei -> Simple Past."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "must/follow",
+        "type": "modal_verb_past",
+        "solution": ["had to follow"],
+        "specific_feedback": {
+          "must follow": "Das Modalverb 'must' hat keine Vergangenheitsform. Du musst 'had to' verwenden."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 40,
+    "text": "In 1969, the world {1} a great event. Three astronauts {2} to the moon. The {3} took several days. If the moon {4} closer, it would be easier. They {5} hours walking on the surface. The {6} landscape was totally different. They {7} rocks which were studied. Scientists {8} studied the rocks later. It was the {9} moment for the USA. The {10} human race was impressed.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "watch",
+        "type": "verb_simple_past",
+        "solution": ["watched"],
+        "specific_feedback": {
+          "has watched": "Ein genaues Jahr in der Vergangenheit (In 1969) erzwingt das Simple Past."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "travel",
+        "type": "verb_simple_past",
+        "solution": ["traveled", "travelled"],
+        "specific_feedback": {
+          "travel": "Historische Handlung -> Simple Past."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "journey",
+        "type": "noun",
+        "solution": ["journey", "flight"],
+        "specific_feedback": {
+          "journeyed": "Nach dem Artikel 'The' brauchst du ein Nomen ('die Reise'), kein Verb."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "be",
+        "type": "if_clause_type_2",
+        "solution": ["were", "was"],
+        "specific_feedback": {
+          "had been": "Achte auf den Hauptsatz ('would be'). Das ist Typ 2, also brauchst du im If-Teil das Simple Past."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "spend",
+        "type": "verb_simple_past",
+        "solution": ["spent"],
+        "specific_feedback": {
+          "spended": "Achtung: unregelmäßiges Verb! spend - spent - spent."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "lunar",
+        "type": "adjective",
+        "solution": ["lunar"],
+        "specific_feedback": {
+          "moon": "Das passende Adjektiv für 'Mond-' lautet 'lunar' (lunar landscape)."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "collect",
+        "type": "verb_simple_past",
+        "solution": ["collected"],
+        "specific_feedback": {
+          "were collecting": "Einfache, abgeschlossene Handlung -> Simple Past."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "careful",
+        "type": "adverb",
+        "solution": ["carefully"],
+        "specific_feedback": {
+          "careful": "Du beschreibst das Verb 'studied' (WIE wurden sie studiert?). Dafür brauchst du das Adverb (-ly)."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "proud",
+        "type": "adjective_superlative",
+        "solution": ["proudest"],
+        "specific_feedback": {
+          "most proud": "Einsilbige Adjektive (proud) steigert man im Superlativ mit -est."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "entire",
+        "type": "adjective",
+        "solution": ["entire", "whole"],
+        "specific_feedback": {
+          "entirely": "Du brauchst ein Adjektiv ('die gesamte'), um 'human race' zu beschreiben, kein Adverb."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 41,
+    "text": "Smart cities {1} modern technology to improve lives. Traffic lights {2} by intelligence sensors. This system {3} helps to reduce pollution. If the city {4} sensors, traffic would have been worse. Many {5} have already started in Singapore. However, some people {6} about their privacy. They {7} {8} being watched. It {9} a complex issue for the future. The development {10} extremely rapid. We need to find a good balance.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "use",
+        "type": "verb_simple_present",
+        "solution": ["use"],
+        "specific_feedback": {
+          "uses": "'Smart cities' ist Plural, also kein 's' am Ende!"
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "can/control",
+        "type": "verb_passive_modal",
+        "solution": ["can be controlled"],
+        "specific_feedback": {
+          "can control": "Passiv! Die Ampeln kontrollieren nicht selbst, sie KÖNNEN kontrolliert WERDEN."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "???",
+        "type": "adverb",
+        "solution": ["also", "greatly"],
+        "specific_feedback": {
+          "too": "'Too' (auch) steht im Englischen meist am Satzende."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "not/install",
+        "type": "if_clause_type_3",
+        "solution": ["hadn't installed", "had not installed"],
+        "specific_feedback": {
+          "didn't install": "If-Satz Typ 3! Der Hauptsatz ('would have been') verlangt im If-Teil das Past Perfect (had + 3. Form)."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "project",
+        "type": "noun_plural",
+        "solution": ["projects"],
+        "specific_feedback": {
+          "project": "Das Wort 'Many' verlangt den Plural."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "worry",
+        "type": "verb_simple_present",
+        "solution": ["worry"],
+        "specific_feedback": {
+          "worries": "'Some people' ist Plural, also kein 's' am Ende!"
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "fear",
+        "type": "verb_simple_present",
+        "solution": ["are afraid", "fear"],
+        "specific_feedback": {
+          "fears": "Plural (They)! Kein 's' am Ende."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "???",
+        "type": "preposition",
+        "solution": ["of", "about"],
+        "specific_feedback": {
+          "from": "Auf Englisch hat man Angst VOR etwas (afraid OF / fear OF)."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "be",
+        "type": "verb_simple_present",
+        "solution": ["is"],
+        "specific_feedback": {
+          "are": "'It' ist Singular, also brauchst du 'is'."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "be",
+        "type": "verb_present_perfect",
+        "solution": ["has been", "is"],
+        "specific_feedback": {
+          "was": "Die Entwicklung ist aktuell noch im Gange -> Present Perfect oder Simple Present."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 42,
+    "text": "The Fire {1} out in 1666 at a bakery. It {2} thousands of houses. The disaster {3} {4} four days. If the wind {5}, more houses will burn. Most of the city {6} since then. Sir Christopher Wren {7} the beautiful cathedral. The fire {8} to improved building rules. This was done to {9} protect London. Many people {10} their homes. It remains a historical event in England.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "break",
+        "type": "verb_simple_past",
+        "solution": ["broke"],
+        "specific_feedback": {
+          "breaked": "Unregelmäßiges Verb! break - broke - broken."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "destroy",
+        "type": "verb_simple_past",
+        "solution": ["destroyed"],
+        "specific_feedback": {
+          "destroys": "Historisches Event in der Vergangenheit -> Simple Past."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "last",
+        "type": "verb_simple_past",
+        "solution": ["lasted"],
+        "specific_feedback": {
+          "last": "Einfache Vergangenheit (Simple Past) für eine historische Dauer."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "???",
+        "type": "preposition_time",
+        "solution": ["for"],
+        "specific_feedback": {
+          "since": "'Vier Tage' ist eine Zeitspanne (Wie lange?), daher brauchst du 'for'."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "not/stop",
+        "type": "if_clause_type_1",
+        "solution": ["does not stop", "doesn't stop"],
+        "specific_feedback": {
+          "didn't stop": "Achte auf den Hauptsatz ('will burn'). Auch wenn es historisch ist, steht der Satz grammatikalisch im Typ 1 (Präsens -> will)."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "must/rebuild",
+        "type": "verb_present_perfect_passive_modal",
+        "solution": ["has had to be rebuilt", "had to be rebuilt"],
+        "specific_feedback": {
+          "must be rebuilt": "Signalwort 'since then'! Das 'müssen' erstreckt sich in die Gegenwart -> has had to be rebuilt (oder had to be rebuilt)."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "design",
+        "type": "verb_simple_past",
+        "solution": ["designed"],
+        "specific_feedback": {
+          "has designed": "Abgeschlossene Handlung eines Architekten aus der Vergangenheit -> Simple Past."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "lead",
+        "type": "verb_simple_past",
+        "solution": ["led"],
+        "specific_feedback": {
+          "leaded": "Achtung: unregelmäßiges Verb! lead - led - led."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "???",
+        "type": "adverb",
+        "solution": ["better", "further"],
+        "specific_feedback": {
+          "good": "Du brauchst hier den Komparativ als Adverb (um es 'besser' zu schützen)."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "lose",
+        "type": "verb_simple_past",
+        "solution": ["lost"],
+        "specific_feedback": {
+          "losed": "Achtung: unregelmäßiges Verb! lose - lost - lost."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 43,
+    "text": "Scientists {1} Mars for many decades. They {2} several rovers to the red planet. If we {3} water, it will be a huge sensation. The atmosphere {4} very thin compared to Earth. In the past, people {5} in Martians. Today, the planet {6} by robots. A manned mission {7} for the future. It {8} billions of dollars already. Astronauts {9} extremely hard for this. Mars {10} humanity since ancient times.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "study",
+        "type": "verb_present_perfect_progressive",
+        "solution": ["have been studying", "have studied"],
+        "specific_feedback": {
+          "are studying": "Signalwort 'for many decades'! Eine Handlung, die in der Vergangenheit begann und andauert, erfordert das Present Perfect (Progressive)."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "send",
+        "type": "verb_present_perfect",
+        "solution": ["have sent"],
+        "specific_feedback": {
+          "sended": "Achtung: unregelmäßiges Verb! send - sent - sent.",
+          "sent": "Da die Erforschung bis in die Gegenwart reicht, brauchst du das Present Perfect (have sent)."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "find",
+        "type": "if_clause_type_1",
+        "solution": ["find"],
+        "specific_feedback": {
+          "will find": "Im If-Teil steht im Englischen kein 'will'!"
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "be",
+        "type": "verb_simple_present",
+        "solution": ["is"],
+        "specific_feedback": {
+          "are": "'The atmosphere' ist Singular, also brauchst du 'is'."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "believe",
+        "type": "verb_simple_past",
+        "solution": ["believed"],
+        "specific_feedback": {
+          "have believed": "Signalwort 'In the past' markiert eine komplett abgeschlossene Phase -> Simple Past."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "explore",
+        "type": "verb_passive_present",
+        "solution": ["is explored", "is being explored"],
+        "specific_feedback": {
+          "explores": "Passiv! Der Planet erforscht nicht selbst, er WIRD erforscht."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "plan",
+        "type": "verb_passive_present",
+        "solution": ["is planned"],
+        "specific_feedback": {
+          "planned": "Passiv! Die Mission plant nicht selbst, sie WIRD geplant. Vergiss das Hilfsverb ('is') nicht."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "cost",
+        "type": "verb_present_perfect",
+        "solution": ["has cost"],
+        "specific_feedback": {
+          "costed": "Achtung: unregelmäßiges Verb, das sich nicht verändert! cost - cost - cost."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "must/train",
+        "type": "modal_verb",
+        "solution": ["must train", "have to train"],
+        "specific_feedback": {
+          "must to train": "Nach dem Modalverb 'must' darf niemals ein 'to' stehen!"
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "fascinate",
+        "type": "verb_present_perfect",
+        "solution": ["has fascinated"],
+        "specific_feedback": {
+          "fascinated": "Signalwort 'since'! Es fasziniert die Menschheit seit damals bis heute -> Present Perfect."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 44,
+    "text": "The Great Pyramid {1} thousands of years ago. It {2} one of the wonders of the world. Workers {3} huge stones without modern machines. If they {4} good organization, it would have failed. The exact methods {5} a mystery today. Inside, explorers {6} secret chambers recently. Many treasures {7} by grave robbers long ago. The Pharaohs {8} with their wealth. Tourists {9} the site every day. It {10} a truly magical place.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "build",
+        "type": "verb_passive_past",
+        "solution": ["was built"],
+        "specific_feedback": {
+          "built": "Passiv! Die Pyramide hat nicht selbst gebaut, sie WURDE gebaut.",
+          "was builded": "Unregelmäßiges Verb! build - built - built."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "consider",
+        "type": "verb_passive_present",
+        "solution": ["is considered"],
+        "specific_feedback": {
+          "considered": "Passiv! Sie betrachtet nicht selbst, sie WIRD (heute noch) betrachtet."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "move",
+        "type": "verb_simple_past",
+        "solution": ["moved"],
+        "specific_feedback": {
+          "have moved": "Historisch abgeschlossene Handlung -> Simple Past."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "not/have",
+        "type": "if_clause_type_3",
+        "solution": ["hadn't had", "had not had"],
+        "specific_feedback": {
+          "didn't have": "If-Satz Typ 3! Der Hauptsatz hat 'would have failed', also brauchst du im If-Teil das Past Perfect (had + 3. Form von have)."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "remain",
+        "type": "verb_simple_present",
+        "solution": ["remain"],
+        "specific_feedback": {
+          "remains": "'The exact methods' ist Plural (sie), also darf hier kein 's' am Ende stehen!"
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "discover",
+        "type": "verb_present_perfect",
+        "solution": ["have discovered"],
+        "specific_feedback": {
+          "discovered": "Signalwort 'recently'! Das verlangt nach dem Present Perfect."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "steal",
+        "type": "verb_passive_past",
+        "solution": ["were stolen"],
+        "specific_feedback": {
+          "was stolen": "Treasures ist Plural, also brauchst du 'were'.",
+          "stole": "Passiv! Die Schätze haben nicht selbst gestohlen, sie WURDEN gestohlen."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "bury",
+        "type": "verb_passive_past",
+        "solution": ["were buried"],
+        "specific_feedback": {
+          "buried": "Passiv! Die Pharaonen WURDEN begraben. Vergiss das Hilfsverb ('were') nicht."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "visit",
+        "type": "verb_simple_present",
+        "solution": ["visit"],
+        "specific_feedback": {
+          "visits": "Tourists ist Plural, also ohne 's' am Ende!"
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "be",
+        "type": "verb_simple_present",
+        "solution": ["is"],
+        "specific_feedback": {
+          "was": "Es ist auch HEUTE noch ein magischer Ort -> Simple Present."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 45,
+    "text": "Alexander Graham Bell {1} the telephone in 1876. He {2} on telegraphs when he had the idea. If he {3}, communication would be different today. The first words {4} to his assistant. Soon, telephones {5} in many homes. Since then, technology {6} dramatically. Today, almost everyone {7} a smartphone. The invention {8} the whole world. People {9} much faster now. It is {10} essential for modern life.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "invent",
+        "type": "verb_simple_past",
+        "solution": ["invented"],
+        "specific_feedback": {
+          "has invented": "Ein genaues Jahr in der Vergangenheit (in 1876) erzwingt das Simple Past."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "work",
+        "type": "verb_past_progressive",
+        "solution": ["was working"],
+        "specific_feedback": {
+          "worked": "Er war gerade dabei daran zu arbeiten, als etwas anderes passierte -> Past Progressive (was/were + -ing)."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "not/succeed",
+        "type": "if_clause_mixed",
+        "solution": ["hadn't succeeded", "had not succeeded"],
+        "specific_feedback": {
+          "didn't succeed": "Mixed Conditional! Die Bedingung liegt in der Vergangenheit (Past Perfect), das Resultat im Heute ('would be different today')."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "speak",
+        "type": "verb_passive_past",
+        "solution": ["were spoken"],
+        "specific_feedback": {
+          "spoke": "Passiv! Die Worte haben nicht selbst gesprochen, sie WURDEN gesprochen.",
+          "was spoken": "'Words' ist Plural, du brauchst 'were'."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "install",
+        "type": "verb_passive_past",
+        "solution": ["were installed"],
+        "specific_feedback": {
+          "installed": "Passiv! Telefone haben nicht selbst installiert, sie WURDEN installiert."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "change",
+        "type": "verb_present_perfect",
+        "solution": ["has changed"],
+        "specific_feedback": {
+          "changed": "Signalwort 'Since then'! Die Entwicklung dauert bis heute an -> Present Perfect."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "carry",
+        "type": "verb_simple_present",
+        "solution": ["carries"],
+        "specific_feedback": {
+          "carry": "Wörter wie 'everyone' sind im Englischen IMMER Singular! He/she/it das 's' muss mit!"
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "connect",
+        "type": "verb_present_perfect",
+        "solution": ["has connected", "connected"],
+        "specific_feedback": {
+          "connect": "Die Erfindung ist Singular. Entweder 'connects' oder noch besser das Present Perfect ('has connected')."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "communicate",
+        "type": "verb_simple_present",
+        "solution": ["communicate"],
+        "specific_feedback": {
+          "communicates": "'People' ist im Englischen immer Plural, also kein 's' am Ende!"
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "absolute",
+        "type": "adverb",
+        "solution": ["absolutely"],
+        "specific_feedback": {
+          "absolute": "Du beschreibst das Adjektiv 'essential' näher (WIE essenziell?). Dafür brauchst du das Adverb auf -ly."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 46,
+    "text": "The Earth's temperature {1} constantly. This {2} by greenhouse gases. If we {3} now, the consequences will be severe. Many glaciers {4} already. Scientists {5} us for decades. We {6} our carbon footprint. Renewable energy {7} more important recently. The oceans {8} with plastic too. People {9} to change their lifestyle. It {10} the biggest challenge of our time.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "rise",
+        "type": "verb_present_progressive",
+        "solution": ["is rising", "has been rising"],
+        "specific_feedback": {
+          "rises": "Es ist ein Vorgang, der gerade (konstant) stattfindet, also ist das Present Progressive (is rising) die beste Wahl."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "cause",
+        "type": "verb_passive_present",
+        "solution": ["is caused"],
+        "specific_feedback": {
+          "causes": "Passiv! Es verursacht nicht selbst, es WIRD durch Gase verursacht."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "not/act",
+        "type": "if_clause_type_1",
+        "solution": ["don't act", "do not act"],
+        "specific_feedback": {
+          "won't act": "Im If-Teil steht im Englischen kein 'will'!"
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "melt",
+        "type": "verb_present_perfect",
+        "solution": ["have melted"],
+        "specific_feedback": {
+          "melted": "Signalwort 'already'! Das verlangt zwingend nach dem Present Perfect (have + 3. Form)."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "warn",
+        "type": "verb_present_perfect_progressive",
+        "solution": ["have been warning", "have warned"],
+        "specific_feedback": {
+          "are warning": "Signalwort 'for decades'! Eine Handlung, die in der Vergangenheit begann und andauert -> Present Perfect (Progressive)."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "must/reduce",
+        "type": "modal_verb",
+        "solution": ["must reduce"],
+        "specific_feedback": {
+          "must to reduce": "Nach dem Modalverb 'must' darf niemals ein 'to' folgen!"
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "become",
+        "type": "verb_present_perfect",
+        "solution": ["has become"],
+        "specific_feedback": {
+          "became": "Signalwort 'recently'! Die Entwicklung reicht bis ins Jetzt -> Present Perfect."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "pollute",
+        "type": "verb_passive_present",
+        "solution": ["are polluted", "are being polluted"],
+        "specific_feedback": {
+          "pollute": "Passiv! Die Ozeane verschmutzen nicht selbst, sie WERDEN verschmutzt."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "need",
+        "type": "verb_simple_present",
+        "solution": ["need"],
+        "specific_feedback": {
+          "needs": "'People' ist immer Plural, also kein 's' am Ende!"
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "be",
+        "type": "verb_simple_present",
+        "solution": ["is"],
+        "specific_feedback": {
+          "was": "Es ist die Herausforderung UNSERER Zeit (Gegenwart)."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 47,
+    "text": "The first Olympic Games {1} place in ancient Greece. They {2} to honor the gods. If athletes {3}, they received an olive branch. The modern games {4} in 1896. Since then, they {5} into a massive event. Athletes {6} for many years to compete. New world records {7} at almost every event. The host city {8} a lot of money. The games {9} nations together. It is an {10} exciting competition.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "take",
+        "type": "verb_simple_past",
+        "solution": ["took"],
+        "specific_feedback": {
+          "taken": "Die 3. Form nützt dir hier nichts. Du brauchst das Simple Past (take - took - taken)."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "organize",
+        "type": "verb_passive_past",
+        "solution": ["were organized"],
+        "specific_feedback": {
+          "organized": "Passiv! Die Spiele haben nicht selbst organisiert, sie WURDEN organisiert."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "win",
+        "type": "if_clause_past_habit",
+        "solution": ["won"],
+        "specific_feedback": {
+          "had won": "Das ist ein Bedingungssatz für Gewohnheiten in der Vergangenheit (Jedes Mal, wenn sie gewannen...). Nutze das Simple Past."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "start",
+        "type": "verb_simple_past",
+        "solution": ["started"],
+        "specific_feedback": {
+          "have started": "Ein exaktes Jahr in der Vergangenheit (in 1896) erfordert das Simple Past."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "grow",
+        "type": "verb_present_perfect",
+        "solution": ["have grown"],
+        "specific_feedback": {
+          "grew": "Signalwort 'Since then'! Die Entwicklung dauert bis heute an -> Present Perfect."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "train",
+        "type": "verb_simple_present",
+        "solution": ["train"],
+        "specific_feedback": {
+          "trains": "'Athletes' ist Plural, also kein 's' am Ende!"
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "set",
+        "type": "verb_passive_present",
+        "solution": ["are set"],
+        "specific_feedback": {
+          "set": "Passiv! Rekorde stellen sich nicht selbst auf, sie WERDEN aufgestellt."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "spend",
+        "type": "verb_simple_present",
+        "solution": ["spends"],
+        "specific_feedback": {
+          "spend": "The host city ist Singular (it). He/she/it das 's' muss mit!"
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "bring",
+        "type": "verb_simple_present",
+        "solution": ["bring"],
+        "specific_feedback": {
+          "brings": "'The games' ist Plural, also kein 's' am Ende!"
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "incredible",
+        "type": "adverb",
+        "solution": ["incredibly"],
+        "specific_feedback": {
+          "incredible": "Du beschreibst das Adjektiv 'exciting' näher (WIE aufregend?). Dafür brauchst du das Adverb auf -ly."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 48,
+    "text": "Tea {1} in China thousands of years ago. A legendary emperor {2} it by accident. If the leaves {3} into his water, he wouldn't have tasted it. Soon, the drink {4} very popular. It {5} to Europe by traders. The British {6} it their national drink. Today, tea {7} all over the world. There {8} many different varieties. It {9} a very healthy beverage. People {10} it every day.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "discover",
+        "type": "verb_passive_past",
+        "solution": ["was discovered"],
+        "specific_feedback": {
+          "discovered": "Passiv! Der Tee hat nicht selbst entdeckt, er WURDE entdeckt."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "find",
+        "type": "verb_simple_past",
+        "solution": ["found"],
+        "specific_feedback": {
+          "finded": "Unregelmäßiges Verb! find - found - found."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "not/fall",
+        "type": "if_clause_type_3",
+        "solution": ["hadn't fallen", "had not fallen"],
+        "specific_feedback": {
+          "didn't fall": "If-Satz Typ 3! Der Hauptsatz hat 'wouldn't have tasted', also brauchst du im If-Teil das Past Perfect (had + 3. Form)."
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "become",
+        "type": "verb_simple_past",
+        "solution": ["became"],
+        "specific_feedback": {
+          "become": "Vergangenheitsform! become - became - become."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "bring",
+        "type": "verb_passive_past",
+        "solution": ["was brought"],
+        "specific_feedback": {
+          "brought": "Passiv! Es hat nicht selbst gebracht, es WURDE nach Europa gebracht."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "make",
+        "type": "verb_simple_past",
+        "solution": ["made"],
+        "specific_feedback": {
+          "maked": "Unregelmäßiges Verb! make - made - made."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "drink",
+        "type": "verb_passive_present",
+        "solution": ["is drunk"],
+        "specific_feedback": {
+          "drinks": "Passiv! Tee trinkt nicht selbst, er WIRD getrunken. (drink - drank - drunk)."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "be",
+        "type": "verb_simple_present",
+        "solution": ["are"],
+        "specific_feedback": {
+          "is": "'Varieties' ist Plural, also brauchst du 'are'."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "consider",
+        "type": "verb_passive_present",
+        "solution": ["is considered"],
+        "specific_feedback": {
+          "considers": "Passiv! Es 'betrachtet' nicht selbst, es WIRD als gesundes Getränk betrachtet."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "enjoy",
+        "type": "verb_simple_present",
+        "solution": ["enjoy"],
+        "specific_feedback": {
+          "enjoys": "'People' ist immer Plural, also kein 's' am Ende!"
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 49,
+    "text": "Autonomous vehicles {1} on public roads right now. They {2} complex sensors to navigate. If a car {3} an obstacle, it stops immediately. Tech companies {4} billions in this technology recently. In the past, people {5} this was science fiction. Drivers {6} to hold the steering wheel anymore. However, some accidents {7} already. The software {8} constantly. Fully autonomous driving {9} our cities. It {10} a revolution in transport.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "test",
+        "type": "verb_passive_present_progressive",
+        "solution": ["are being tested", "are tested"],
+        "specific_feedback": {
+          "test": "Passiv! Die Autos testen nicht selbst, sie WERDEN (gerade) getestet."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "use",
+        "type": "verb_simple_present",
+        "solution": ["use"],
+        "specific_feedback": {
+          "uses": "'They' ist Plural, also kein 's' am Ende!"
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "detect",
+        "type": "if_clause_type_1",
+        "solution": ["detects"],
+        "specific_feedback": {
+          "detect": "'A car' ist Singular. He/she/it das 's' muss mit!"
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "invest",
+        "type": "verb_present_perfect",
+        "solution": ["have invested"],
+        "specific_feedback": {
+          "invested": "Signalwort 'recently'! Das verlangt zwingend nach dem Present Perfect."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "think",
+        "type": "verb_simple_past",
+        "solution": ["thought"],
+        "specific_feedback": {
+          "thinked": "Unregelmäßiges Verb! think - thought - thought."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "not/need",
+        "type": "verb_simple_present_negative",
+        "solution": ["do not need", "don't need", "won't need"],
+        "specific_feedback": {
+          "doesn't need": "'Drivers' ist Plural, du musst mit 'don't' verneinen."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "happen",
+        "type": "verb_present_perfect",
+        "solution": ["have happened"],
+        "specific_feedback": {
+          "happened": "Signalwort 'already'! Das verlangt das Present Perfect (have + 3. Form)."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "improve",
+        "type": "verb_present_progressive",
+        "solution": ["is improving", "is being improved"],
+        "specific_feedback": {
+          "improve": "'The software' ist Singular, also brauchst du he/she/it-'s' oder die Verlaufsform 'is improving'."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "change",
+        "type": "verb_future",
+        "solution": ["will change"],
+        "specific_feedback": {
+          "changes": "Es ist eine Vorhersage für die Zukunft ('Fully autonomous driving...'), nutze das will-Future."
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "be",
+        "type": "verb_future_or_present",
+        "solution": ["will be", "is"],
+        "specific_feedback": {
+          "was": "Es geht um die Zukunft / die Gegenwart, nicht um die Vergangenheit."
+        }
+      }
+    ]
+  },
+  {
+    "block_id": 50,
+    "text": "The Hubble Telescope {1} into orbit in 1990. It {2} breathtaking pictures of the universe. If Hubble {3}, we would know much less. In the beginning, the mirror {4} a slight defect. Astronauts {5} it during a dangerous mission. Since then, it {6} incredible discoveries. Distant galaxies {7} by scientists every day. The telescope {8} from a control center on Earth. Its beautiful images {9} millions of people. It {10} a true masterpiece of engineering.",
+    "gaps": [
+      {
+        "id": "1",
+        "base_word": "launch",
+        "type": "verb_passive_past",
+        "solution": ["was launched"],
+        "specific_feedback": {
+          "launched": "Passiv! Das Teleskop hat nicht selbst gestartet, es WURDE ins All geschossen."
+        }
+      },
+      {
+        "id": "2",
+        "base_word": "take",
+        "type": "verb_present_perfect",
+        "solution": ["has taken", "takes"],
+        "specific_feedback": {
+          "took": "Es macht bis heute Bilder, daher ist das Simple Past hier nicht ideal."
+        }
+      },
+      {
+        "id": "3",
+        "base_word": "not/exist",
+        "type": "if_clause_type_2",
+        "solution": ["didn't exist", "did not exist"],
+        "specific_feedback": {
+          "wouldn't exist": "Im If-Teil steht im Englischen niemals 'would'!"
+        }
+      },
+      {
+        "id": "4",
+        "base_word": "have",
+        "type": "verb_simple_past",
+        "solution": ["had"],
+        "specific_feedback": {
+          "has": "Signalwort 'In the beginning' bezieht sich auf die Vergangenheit -> Simple Past."
+        }
+      },
+      {
+        "id": "5",
+        "base_word": "repair",
+        "type": "verb_simple_past",
+        "solution": ["repaired"],
+        "specific_feedback": {
+          "have repaired": "Abgeschlossene historische Mission -> Simple Past."
+        }
+      },
+      {
+        "id": "6",
+        "base_word": "make",
+        "type": "verb_present_perfect",
+        "solution": ["has made"],
+        "specific_feedback": {
+          "made": "Signalwort 'Since then'! Die Serie von Entdeckungen dauert bis heute an -> Present Perfect."
+        }
+      },
+      {
+        "id": "7",
+        "base_word": "observe",
+        "type": "verb_passive_present",
+        "solution": ["are observed"],
+        "specific_feedback": {
+          "observe": "Passiv! Die Galaxien beobachten nicht selbst, sie WERDEN beobachtet."
+        }
+      },
+      {
+        "id": "8",
+        "base_word": "operate",
+        "type": "verb_passive_present",
+        "solution": ["is operated"],
+        "specific_feedback": {
+          "operates": "Passiv! Das Teleskop operiert nicht selbst, es WIRD operiert/gesteuert."
+        }
+      },
+      {
+        "id": "9",
+        "base_word": "fascinate",
+        "type": "verb_present_perfect",
+        "solution": ["have fascinated", "fascinate"],
+        "specific_feedback": {
+          "fascinates": "'Images' ist Plural, also darf hier kein 's' am Ende stehen!"
+        }
+      },
+      {
+        "id": "10",
+        "base_word": "be",
+        "type": "verb_simple_present",
+        "solution": ["is"],
+        "specific_feedback": {
+          "was": "Es ist HEUTE noch ein Meisterwerk -> Simple Present."
+        }
+      }
+    ]
+  }
+]
