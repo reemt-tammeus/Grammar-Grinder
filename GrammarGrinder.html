@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>GrammarGrinder</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #ffffff;
+            --text-muted: #888;
+            --primary: #4A90E2;
+            --secondary: #50E3C2;
+            --danger: #FF5252;
+            --success: #4CAF50;
+            --keyboard-btn: #333;
+        }
+
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            -webkit-tap-highlight-color: transparent; 
+            user-select: none; 
+            -webkit-user-select: none; 
+        }
+        
+        body { 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            height: 100vh; 
+            height: 100dvh; 
+            width: 100vw; 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column; 
+        }
+
+        #flash-overlay { 
+            position: fixed; 
+            top: 0; left: 0; width: 100%; height: 100%; 
+            pointer-events: none; opacity: 0; 
+            transition: opacity 0.3s, background-color 0.3s; 
+            z-index: 9999; 
+        }
+        .flash-success { background-color: var(--success); opacity: 0.3 !important; }
+        .flash-error { background-color: var(--danger); opacity: 0.4 !important; }
+
+        #app-container { 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            width: 100%; 
+            max-width: 600px; 
+            margin: 0 auto; 
+        }
+
+        /* TOP BAR IM ROOTBOOT STYLE */
+        header {
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+        .app-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .screen { 
+            display: flex; 
+            flex-direction: column; 
+            flex: 1; 
+            padding: 20px; 
+        }
+        
+        .text-box {
+            background: var(--card-bg); 
+            padding: 30px 20px; 
+            border-radius: 12px;
+            font-size: 1.4rem; 
+            font-weight: bold; 
+            text-align: center; 
+            margin-top: 10px;
+            margin-bottom: 20px;
+            min-height: 140px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            border: 1px solid #333;
+        }
+
+        .input-section { margin-bottom: 20px; text-align: center; }
+        .label { 
+            font-size: 0.85rem; 
+            color: var(--text-muted); 
+            margin-bottom: 10px; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+        }
+        
+        .app-input {
+            width: 100%; 
+            background: #000; 
+            border: 2px solid #333;
+            color: var(--secondary); 
+            font-size: 1.6rem; 
+            font-weight: bold;
+            text-align: center; 
+            padding: 15px; 
+            border-radius: 12px;
+            outline: none;
+        }
+
+        /* KEYBOARD */
+        .keyboard {
+            margin-top: auto; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 7px;
+            padding-bottom: 30px;
+        }
+        .keyboard-row { display: flex; justify-content: center; gap: 5px; }
+        .key { 
+            flex: 1; max-width: 45px; height: 55px; 
+            background: var(--keyboard-btn); 
+            color: white; border: none; border-radius: 8px; 
+            font-weight: 600; font-size: 1.2rem; 
+            display: flex; justify-content: center; align-items: center; 
+            box-shadow: 0 3px 0 #000;
+        }
+        .key:active { background: var(--primary); transform: translateY(2px); box-shadow: none; }
+        .key.action { max-width: 65px; background: #444; font-size: 0.9rem; }
+        .key.enter { background: var(--primary); }
+        .key.space { max-width: 180px; }
+
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <div id="flash-overlay"></div>
+
+    <div id="app-container">
+        <header>
+            <div class="app-title">GrammarGrinder</div>
+        </header>
+
+        <main class="screen" id="main-game">
+            <div class="text-box" id="task-display">Initializing...</div>
+            
+            <div class="input-section">
+                <p class="label" id="feedback-hint">Mixed Grammar Passage</p>
+                <input type="text" id="task-input" class="app-input" readonly tabindex="-1">
+            </div>
+
+            <div id="app-keyboard" class="keyboard"></div>
+        </main>
+
+        <main class="screen hidden" id="result-screen" style="justify-content: center; text-align: center;">
+            <h1 style="font-size: 2.5rem; color: var(--secondary);">Session Complete</h1>
+            <p style="margin: 20px 0; color: var(--text-muted);">You've mastered the passage.</p>
+            <button onclick="location.reload()" style="background: var(--primary); color: white; border: none; padding: 15px 30px; border-radius: 10px; font-weight: bold; font-size: 1.1rem;">Restart Grinder</button>
+        </main>
+    </div>
+
+    <script>
+        const JSON_URL = "https://raw.githubusercontent.com/B-V-F/minimixed/refs/heads/main/Minimixed.json";
+        let pool = [];
+        let lock = false;
+        let currentInput = "";
+
+        async function init() {
+            renderKeyboard();
+            try {
+                const response = await fetch(JSON_URL);
+                const data = await response.json();
+                pool = data.sort(() => Math.random() - 0.5);
+                nextTask();
+            } catch (error) {
+                document.getElementById("task-display").innerText = "Connection Error. Check GitHub Source.";
+            }
+        }
+
+        function normalize(text) {
+            let n = text.toLowerCase().replace(/['´`’]/g, "'");
+            n = n.replace(/n't\b/g, " not").replace(/'m\b/g, " am").replace(/'re\b/g, " are");
+            n = n.replace(/'ll\b/g, " will").replace(/'ve\b/g, " have").replace(/'d\b/g, " would");
+            return n.trim().replace(/\s+/g, ' ');
+        }
+
+        function nextTask() {
+            if (pool.length === 0) {
+                document.getElementById("main-game").classList.add("hidden");
+                document.getElementById("result-screen").classList.remove("hidden");
+                return;
+            }
+            
+            currentInput = "";
+            updateInputDisplay();
+            document.getElementById("task-display").innerHTML = pool[0].q;
+            document.getElementById("feedback-hint").innerText = "Fill the gap";
+            document.getElementById("feedback-hint").style.color = "var(--text-muted)";
+            lock = false;
+        }
+
+        function checkAnswer() {
+            if (lock || currentInput.trim() === "") return;
+            lock = true;
+            
+            const normalizedInput = normalize(currentInput);
+            const validOptions = pool[0].a.split('/').map(x => normalize(x));
+
+            if (validOptions.includes(normalizedInput)) {
+                triggerFlash(true);
+                document.getElementById("feedback-hint").innerText = "✓ Correct";
+                document.getElementById("feedback-hint").style.color = "var(--success)";
+                pool.shift();
+                setTimeout(nextTask, 800);
+            } else {
+                triggerFlash(false);
+                document.getElementById("feedback-hint").innerText = "✗ Solution: " + pool[0].a;
+                document.getElementById("feedback-hint").style.color = "var(--danger)";
+                let currentItem = pool.shift();
+                pool.push(currentItem);
+                setTimeout(nextTask, 2500);
+            }
+        }
+
+        function triggerFlash(isSuccess) {
+            const overlay = document.getElementById('flash-overlay');
+            overlay.className = isSuccess ? 'flash-success' : 'flash-error';
+            setTimeout(() => { overlay.className = ''; }, 300);
+        }
+
+        function renderKeyboard() {
+            const layout = [
+                ['q','w','e','r','t','y','u','i','o','p'],
+                ['a','s','d','f','g','h','j','k','l', "'"],
+                ['DEL','z','x','c','v','b','n','m','ENT'],
+                ['SPACE']
+            ];
+
+            const kbContainer = document.getElementById('app-keyboard');
+            kbContainer.innerHTML = '';
+
+            layout.forEach(row => {
+                const rowDiv = document.createElement('div');
+                rowDiv.className = 'keyboard-row';
+                row.forEach(key => {
+                    const btn = document.createElement('button');
+                    btn.className = 'key';
+                    if (key === 'DEL' || key === 'ENT') btn.classList.add('action');
+                    if (key === 'ENT') btn.classList.add('enter');
+                    if (key === 'SPACE') btn.classList.add('space');
+
+                    btn.innerText = key === 'SPACE' ? 'SPACE' : (key === 'DEL' ? '⌫' : (key === 'ENT' ? 'GO' : key));
+                    
+                    const handleTap = (e) => { e.preventDefault(); handleKeyPress(key); };
+                    btn.addEventListener('touchstart', handleTap, {passive: false});
+                    btn.addEventListener('mousedown', handleTap);
+                    
+                    rowDiv.appendChild(btn);
+                });
+                kbContainer.appendChild(rowDiv);
+            });
+        }
+
+        function handleKeyPress(key) {
+            if (lock) return;
+            if (key === 'DEL') currentInput = currentInput.slice(0, -1);
+            else if (key === 'ENT') checkAnswer();
+            else if (key === 'SPACE') currentInput += ' ';
+            else currentInput += key;
+            updateInputDisplay();
+        }
+
+        function updateInputDisplay() {
+            document.getElementById('task-input').value = currentInput;
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>
