@@ -59,7 +59,6 @@
             margin: 0 auto; 
         }
 
-        /* TOP BAR IM ROOTBOOT STYLE */
         header {
             padding: 15px 20px;
             display: flex;
@@ -121,7 +120,6 @@
             outline: none;
         }
 
-        /* KEYBOARD */
         .keyboard {
             margin-top: auto; 
             display: flex; 
@@ -174,20 +172,51 @@
     </div>
 
     <script>
-        const JSON_URL = "https://raw.githubusercontent.com/B-V-F/minimixed/refs/heads/main/Minimixed.json";
+        // Konfiguration der Datenquellen
+        const LIVE_JSON_URL = "https://raw.githubusercontent.com/reemt-tammeus/Grammar-Grinder/main/data_quickie.json";
+        const LOCAL_FALLBACK_URL = "./data__ap_mode.json"; // Relativer Pfad für den AP-Modus
+
         let pool = [];
         let lock = false;
         let currentInput = "";
 
         async function init() {
             renderKeyboard();
+            const display = document.getElementById("task-display");
+            
             try {
-                const response = await fetch(JSON_URL);
+                // Versuch 1: Live-Daten laden
+                display.innerText = "Connecting to GitHub...";
+                const response = await fetch(LIVE_JSON_URL);
+                
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                
                 const data = await response.json();
                 pool = data.sort(() => Math.random() - 0.5);
                 nextTask();
+                
             } catch (error) {
-                document.getElementById("task-display").innerText = "Connection Error. Check GitHub Source.";
+                console.warn("Live-Verbindung fehlgeschlagen, wechsle in den AP-Modus:", error);
+                
+                try {
+                    // Versuch 2: Lokales Fallback (AP-Modus)
+                    display.innerText = "Offline. Lade AP-Modus Daten...";
+                    const fallbackResponse = await fetch(LOCAL_FALLBACK_URL);
+                    
+                    if (!fallbackResponse.ok) throw new Error("Lokale Datei nicht gefunden.");
+                    
+                    const localData = await fallbackResponse.json();
+                    pool = localData.sort(() => Math.random() - 0.5);
+                    
+                    // Kurze Bestätigung für den User, dass er im AP-Modus ist
+                    setTimeout(nextTask, 800);
+                    
+                } catch (fallbackError) {
+                    // Wenn beides fehlschlägt, ist die App tot.
+                    console.error("Totalausfall:", fallbackError);
+                    display.innerText = "Kritischer Fehler: Weder Live- noch lokale Daten verfügbar.";
+                    display.style.color = "var(--danger)";
+                }
             }
         }
 
@@ -207,7 +236,8 @@
             
             currentInput = "";
             updateInputDisplay();
-            document.getElementById("task-display").innerHTML = pool[0].q;
+            // Sicherheits-Fix: innerText statt innerHTML verhindert Code-Injection
+            document.getElementById("task-display").innerText = pool[0].q;
             document.getElementById("feedback-hint").innerText = "Fill the gap";
             document.getElementById("feedback-hint").style.color = "var(--text-muted)";
             lock = false;
