@@ -1,141 +1,282 @@
+/* ==========================================================================
+   VARIABLES & BASE
+   ========================================================================== */
 :root {
-    --bg-color: #121212;
-    --card-bg: #1e1e1e;
-    --text-main: #ffffff;
-    --text-muted: #888;
-    --primary: #4A90E2;
-    --secondary: #50E3C2;
-    --danger: #FF5252;
-    --success: #4CAF50;
-    --keyboard-btn: #333;
+    /* Startscreen / Light Mode */
+    --start-bg: #ffffff;
+    --btn-start-bg: #000000;
+    --btn-start-text: #ffffff;
+    
+    /* AP-Mode (Deep Dark) */
+    --ap-bg: #0a0a0a;
+    --ap-card: #161616;
+    --ap-text: #e0e0e0;
+    --ap-primary: #4A90E2;
+    
+    /* Quickie (Dimmed) */
+    --q-bg: rgba(0, 0, 0, 0.85);
+    --q-accent: #8e44ad;
+    --q-btn-glow: rgba(142, 68, 173, 0.3);
+
+    /* Feedback Colors */
+    --success: #2ecc71;
+    --warning: #f39c12; /* Orange für Tippfehler */
+    --danger: #e74c3c;
+    
+    --transition-speed: 0.4s;
 }
 
-* { 
-    box-sizing: border-box; 
-    margin: 0; 
-    padding: 0; 
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-    -webkit-tap-highlight-color: transparent; 
-    user-select: none; 
-    -webkit-user-select: none; 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
 }
 
-body { 
-    background-color: var(--bg-color); 
-    color: var(--text-main); 
-    height: 100vh; 
-    height: 100dvh; 
-    width: 100vw; 
-    overflow: hidden; 
-    display: flex; 
-    flex-direction: column; 
+body {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    background-color: var(--start-bg);
+    transition: background-color var(--transition-speed) ease;
 }
 
-#flash-overlay { 
-    position: fixed; 
-    top: 0; left: 0; width: 100%; height: 100%; 
-    pointer-events: none; opacity: 0; 
-    transition: opacity 0.3s, background-color 0.3s; 
-    z-index: 9999; 
-}
-
-.flash-success { background-color: var(--success); opacity: 0.3 !important; }
-.flash-error { background-color: var(--danger); opacity: 0.4 !important; }
-
-#app-container { 
-    flex: 1; 
-    display: flex; 
-    flex-direction: column; 
-    width: 100%; 
-    max-width: 600px; 
-    margin: 0 auto; 
-}
-
-header {
-    padding: 15px 20px;
+/* ==========================================================================
+   LAYOUT CONTAINERS
+   ========================================================================== */
+#app-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
     display: flex;
+    flex-direction: column;
+}
+
+.screen {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-speed);
+}
+
+.screen.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ==========================================================================
+   STARTSCREEN (Light Mode + Logo)
+   ========================================================================== */
+#start-screen {
+    background: url('logo.jpg') no-repeat center center;
+    background-size: cover;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid #333;
 }
 
-.app-title {
+.menu-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 40px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.btn-mode {
+    background: var(--btn-start-bg);
+    color: var(--btn-start-text);
+    border: 2px solid var(--btn-start-bg);
+    padding: 18px 40px;
     font-size: 1.2rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    color: var(--primary);
-    text-transform: uppercase;
-}
-
-.screen { 
-    display: flex; 
-    flex-direction: column; 
-    flex: 1; 
-    padding: 20px; 
-}
-
-.text-box {
-    background: var(--card-bg); 
-    padding: 30px 20px; 
-    border-radius: 12px;
-    font-size: 1.4rem; 
-    font-weight: bold; 
-    text-align: center; 
-    margin-top: 10px;
-    margin-bottom: 20px;
-    min-height: 140px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    border: 1px solid #333;
-}
-
-.input-section { margin-bottom: 20px; text-align: center; }
-
-.label { 
-    font-size: 0.85rem; 
-    color: var(--text-muted); 
-    margin-bottom: 10px; 
-    text-transform: uppercase; 
-    letter-spacing: 1.5px; 
-}
-
-.app-input {
-    width: 100%; 
-    background: #000; 
-    border: 2px solid #333;
-    color: var(--secondary); 
-    font-size: 1.6rem; 
     font-weight: bold;
-    text-align: center; 
-    padding: 15px; 
     border-radius: 12px;
-    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
 }
 
-.keyboard {
-    margin-top: auto; 
-    display: flex; 
-    flex-direction: column; 
-    gap: 7px;
-    padding-bottom: 30px;
+/* Invertierung bei Berührung/Hover */
+.btn-mode:active, .btn-mode:hover {
+    background: var(--btn-start-text);
+    color: var(--btn-start-bg);
 }
 
-.keyboard-row { display: flex; justify-content: center; gap: 5px; }
+/* ==========================================================================
+   MODI COMMON ELEMENTS (HUD, Progress, etc.)
+   ========================================================================== */
+.hud-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 10px;
+    z-index: 10;
+}
 
-.key { 
-    flex: 1; max-width: 45px; height: 55px; 
-    background: var(--keyboard-btn); 
-    color: white; border: none; border-radius: 8px; 
-    font-weight: 600; font-size: 1.2rem; 
-    display: flex; justify-content: center; align-items: center; 
+.hearts-container { display: flex; gap: 5px; font-size: 1.5rem; }
+.timer { font-weight: bold; font-family: monospace; font-size: 1.2rem; }
+.timer.warning { color: var(--danger); animation: blink 0.5s infinite; }
+
+.progress-container {
+    width: 100%;
+    max-width: 800px;
+    height: 6px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--ap-primary);
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-menu {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   TEXT & GAPS (Option B Logic)
+   ========================================================================== */
+.text-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    scroll-behavior: smooth;
+}
+
+.gap {
+    display: inline-block;
+    min-width: 40px;
+    padding: 0 5px;
+    margin: 0 4px;
+    border-bottom: 2px solid var(--ap-primary);
+    color: var(--ap-primary);
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.gap.active {
+    background: rgba(74, 144, 226, 0.1);
+    border-bottom-color: #fff;
+    color: #fff;
+}
+
+.gap.active::after {
+    content: '|';
+    animation: blink 1s infinite;
+}
+
+.gap.correct { border-bottom-color: var(--success); color: var(--success); }
+.gap.typing-error { border-bottom-color: var(--warning); color: var(--warning); }
+.gap.wrong { border-bottom-color: var(--danger); color: var(--danger); }
+
+/* ==========================================================================
+   INPUTS (Keyboard & MC Buttons)
+   ========================================================================== */
+.footer-controls {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+}
+
+/* On-Screen Keyboard */
+.keyboard { display: flex; flex-direction: column; gap: 8px; }
+.kb-row { display: flex; justify-content: center; gap: 5px; }
+.key {
+    flex: 1; height: 50px; max-width: 45px;
+    background: #333; color: white; border: none; border-radius: 6px;
+    font-size: 1.1rem; font-weight: bold;
     box-shadow: 0 3px 0 #000;
 }
+.key:active { transform: translateY(2px); box-shadow: none; background: #555; }
+.key.wide { max-width: 70px; background: #444; }
+.key.space { max-width: 200px; }
 
-.key:active { background: var(--primary); transform: translateY(2px); box-shadow: none; }
-.key.action { max-width: 65px; background: #444; font-size: 0.9rem; }
-.key.enter { background: var(--primary); }
-.key.space { max-width: 180px; }
+/* Multiple Choice Buttons (Quickie) */
+.mc-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px;
+}
+.mc-btn {
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    transition: all 0.2s;
+}
+.mc-btn:active { background: #fff; color: #000; }
+.mc-btn.glow-q { border-color: var(--q-accent); box-shadow: 0 0 15px var(--q-btn-glow); }
+.mc-btn.disabled { opacity: 0.5; pointer-events: none; }
 
-.hidden { display: none !important; }
+/* ==========================================================================
+   FEEDBACK & ANIMATIONS
+   ========================================================================== */
+#flash-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 1000; opacity: 0;
+    transition: opacity 0.2s;
+}
+
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* ==========================================================================
+   RESPONSIVE MODES
+   ========================================================================== */
+/* Tablet/PC Layout */
+@media (min-width: 769px) {
+    .text-container { font-size: 1.4rem; padding: 40px; }
+    .key { height: 60px; max-width: 55px; }
+}
+
+/* Smartphone Layout */
+@media (max-width: 768px) {
+    .screen { padding: 10px; }
+    .text-container { font-size: 1.1rem; }
+    .menu-card { padding: 20px; width: 90%; }
+}
+
+/* Mode Switches (Triggered via JS) */
+body.ap-mode { background-color: var(--ap-bg); color: var(--ap-text); }
+body.q-mode { background: linear-gradient(var(--q-bg), var(--q-bg)), url('logo.jpg') center; background-size: cover; color: #fff; }
+
+.feedback-msg {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+    min-height: 1.2em;
+}
