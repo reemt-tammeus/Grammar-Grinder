@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <title>GrammarGrinder</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,7 +13,7 @@
 
     <div id="app-wrapper">
         <section id="start-screen" class="screen active">
-            <div style="background: rgba(255,255,255,0.2); padding: 30px; border-radius: 20px; backdrop-filter: blur(5px);">
+            <div class="menu-card">
                 <button class="btn-mode" id="btn-quickie">Five Gap Quickie</button>
                 <button class="btn-mode" id="btn-ap">AP-Mode</button>
             </div>
@@ -20,23 +21,36 @@
 
         <section id="game-screen" class="screen">
             <div class="hud-top">
-                <div id="hearts" class="hearts"></div>
-                <div id="timer" class="timer">05:00</div>
-                <button id="btn-menu" style="background:none; border:1px solid #666; color:#666; padding:5px 10px; border-radius:5px;">MENU</button>
+                <div id="ap-hud-elements" style="display: none; align-items: center; gap: 15px;">
+                    <div id="hearts" class="hearts"></div>
+                    <div id="timer" class="timer">05:00</div>
+                </div>
+                <div id="q-hud-elements" style="display: none; align-items: center; gap: 15px;">
+                    <div id="stopwatch-display" class="timer">00:00</div>
+                    <div id="best-time-display" style="font-size: 0.8rem; opacity: 0.7;">Best: --:--</div>
+                </div>
+                <button id="btn-goto-menu" class="btn-menu">MENU</button>
             </div>
+            
             <div class="progress-container"><div id="progress-bar"></div></div>
+            
             <div id="text-display" class="text-container"></div>
-            <div id="feedback-message" style="text-align:center; margin:10px; font-weight:bold; min-height:1.2em;"></div>
+            
             <div class="footer-controls">
-                <div id="keyboard-container" class="keyboard"></div>
-                <div id="mc-container" style="display:none; flex-direction:column; gap:10px;"></div>
+                <div id="base-word-badge" style="display: none;"></div>
+                <div id="feedback-message" class="feedback-msg"></div>
+
+                <div id="keyboard-container" class="keyboard" style="display: none;"></div>
+                <div id="mc-container" class="mc-container" style="display: none;"></div>
             </div>
         </section>
 
         <section id="result-screen" class="screen" style="justify-content:center; align-items:center;">
-            <h1 id="res-title">FERTIG!</h1>
-            <p id="res-stats"></p>
-            <button class="btn-mode" onclick="location.reload()">NOCHMAL</button>
+            <div class="menu-card" style="text-align: center; margin-bottom: 0;">
+                <h1 id="res-title" style="color: var(--success); font-size: 2rem; margin-bottom: 10px;">FERTIG!</h1>
+                <p id="res-stats" style="margin-bottom: 20px; font-weight: bold;"></p>
+                <button class="btn-mode" onclick="location.reload()">NOCHMAL</button>
+            </div>
         </section>
     </div>
     <script src="app.js"></script>
