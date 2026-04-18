@@ -20,10 +20,8 @@ window.onload = () => {
 
 async function startApp(mode) {
     state.mode = mode;
+    // Setzt die Klasse für CSS - CSS regelt ab jetzt den schwarzen Hintergrund!
     document.body.className = mode === 'ap' ? 'ap-mode' : 'q-mode';
-    if(mode === 'quickie') {
-        document.body.style.background = "linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('logo.jpg') center / cover";
-    }
     
     document.getElementById('start-screen').classList.remove('active');
     document.getElementById('game-screen').classList.add('active');
@@ -74,14 +72,13 @@ function renderContent() {
     const container = document.getElementById('text-display');
     const badge = document.getElementById('base-word-badge');
     const feedback = document.getElementById('feedback-message');
-    feedback.innerText = ""; // Clear old feedback
+    feedback.innerText = ""; 
     
     const isMobile = window.innerWidth <= 768;
     container.innerHTML = "";
 
     let textToRender = state.block.text;
 
-    // DIE SCHLAUE LOGIK: Mobile zeigt Vorherigen + Aktuellen Satz
     if(isMobile) {
         const sentences = state.block.text.match(/[^.!?]+[.!?]*\s*/g) || [state.block.text];
         const currentGapId = state.block.gaps[state.gapIdx].id;
@@ -108,7 +105,6 @@ function renderContent() {
                 span.innerText = state.input || "____";
                 span.classList.add('active');
                 
-                // Basiswort in das Badge pushen
                 if(state.mode === 'ap' && g.base_word) {
                     badge.style.display = 'inline-block';
                     badge.innerText = g.base_word.toUpperCase();
@@ -134,7 +130,7 @@ function checkAP() {
     const gap = state.block.gaps[state.gapIdx];
     
     let val = state.input.toLowerCase().trim();
-    val = val.replace(/[’´`‘]/g, "'"); // iOS Apostroph Fix
+    val = val.replace(/[’´`‘]/g, "'"); 
     
     const solutions = (Array.isArray(gap.solution) ? gap.solution : [gap.solution]).map(s => s.toLowerCase().trim().replace(/[’´`‘]/g, "'"));
 
@@ -208,7 +204,7 @@ function finish() {
     
     if(state.mode === 'quickie' && state.sessionWins < 5) {
         launchFireworks(false);
-        setTimeout(() => initQuickie(), 1000); // Direkt weiter
+        setTimeout(() => initQuickie(), 1000); 
         return;
     }
 
