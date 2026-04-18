@@ -11,33 +11,31 @@
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; -webkit-tap-highlight-color: transparent; }
 body { width: 100vw; height: 100vh; height: 100dvh; overflow: hidden; background: var(--start-bg); color: #000000; transition: background 0.3s; }
 
-/* Erzwungene weiße Schrift in den Spielmodi */
-body.ap-mode, body.q-mode { color: #ffffff !important; }
+/* HIER WAR DER FEHLER: Der schwarze Hintergrund für den AP-Modus hat gefehlt! */
+body.ap-mode { background: var(--ap-bg) !important; color: #ffffff !important; }
+body.q-mode { background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('logo.jpg') center / cover !important; color: #ffffff !important; }
 
 .screen { position: absolute; width: 100%; height: 100%; display: none; flex-direction: column; padding: 15px; }
 .screen.active { display: flex; }
 
-/* Startbildschirm: Logo oben, Buttons unten */
-#start-screen { background: url('logo.jpg') no-repeat center top; background-size: cover; align-items: center; justify-content: flex-end; padding-bottom: 10vh; }
-.menu-card { display: flex; flex-direction: column; width: 100%; max-width: 350px; background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(10px); padding: 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); }
-.btn-mode { background: #000; color: #fff; border: 2px solid #333; padding: 18px; margin: 8px 0; border-radius: 12px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; font-size: 1.1rem; transition: 0.2s; }
-.btn-mode:active { background: #fff; color: #000; }
+/* Startbildschirm: Zentriert in der unteren Hälfte */
+#start-screen { background: url('logo.jpg') no-repeat center top; background-size: cover; align-items: center; justify-content: flex-end; padding-bottom: 12vh; }
+.menu-card { display: flex; flex-direction: column; align-items: center; width: 90%; max-width: 350px; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px); padding: 30px 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.15); }
+.btn-mode { width: 100%; max-width: 280px; background: #000; color: #fff; border: 2px solid #444; padding: 18px; margin: 8px 0; border-radius: 12px; font-weight: bold; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; font-size: 1.1rem; transition: 0.2s; text-align: center; }
+.btn-mode:active { background: #fff; color: #000; border-color: #fff; }
 
-/* Menü Button */
 .btn-menu { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 8px 15px; border-radius: 8px; font-size: 0.8rem; cursor: pointer; }
 
-/* HUD & Progress - Zentriert auf PC */
 .hud-top { display: flex; justify-content: space-between; align-items: center; margin: 0 auto 10px auto; width: 100%; max-width: 800px; flex-shrink: 0; }
 .hearts { color: #e74c3c; font-size: 1.5rem; letter-spacing: 3px; }
 .timer { font-family: monospace; font-size: 1.3rem; font-weight: bold; }
 .timer.blink { color: #e74c3c; animation: blinker 1s linear infinite; }
 @keyframes blinker { 50% { opacity: 0; } }
 
-.progress-container { width: 100%; max-width: 800px; margin: 0 auto 15px auto; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+.progress-container { width: 100%; max-width: 800px; margin: 0 auto 15px auto; height: 6px; background: rgba(255,255,255,0.15); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
 #progress-bar { height: 100%; width: 0%; background: var(--ap-primary); transition: 0.3s; }
 
-/* Textbereich */
-.text-container { flex: 1; overflow-y: auto; line-height: 1.8; font-size: 1.2rem; padding: 10px; text-align: left; color: #ffffff !important; width: 100%; max-width: 800px; margin: 0 auto; }
+.text-container { flex: 1; overflow-y: auto; line-height: 1.8; font-size: 1.2rem; padding: 10px; text-align: left; width: 100%; max-width: 800px; margin: 0 auto; }
 
 .gap { display: inline-block; border-bottom: 2px solid var(--ap-primary); min-width: 40px; padding: 0 5px; margin: 0 3px; color: var(--ap-primary); font-weight: bold; text-align: center; position: relative; transition: all 0.2s; }
 .gap.active { color: #ffffff !important; border-bottom-color: #ffffff !important; }
@@ -45,11 +43,10 @@ body.ap-mode, body.q-mode { color: #ffffff !important; }
 .gap.correct { color: var(--success); border-bottom-color: var(--success); }
 .gap.corrected { color: var(--corrected); border-bottom-color: var(--corrected); }
 
-/* Tastatur & Footer */
 .footer-controls { flex-shrink: 0; padding-top: 5px; padding-bottom: env(safe-area-inset-bottom, 15px); width: 100%; max-width: 800px; margin: 0 auto; text-align: center; }
 
-/* Das Base Word Badge */
-#base-word-badge { background: rgba(74, 144, 226, 0.15); border: 1px solid var(--ap-primary); color: var(--ap-primary); padding: 5px 15px; border-radius: 20px; display: inline-block; margin-bottom: 8px; font-weight: bold; font-size: 0.9rem; letter-spacing: 1px; }
+/* Base Word Badge - Jetzt perfekt lesbar */
+#base-word-badge { background: rgba(74, 144, 226, 0.2); border: 1px solid var(--ap-primary); color: var(--ap-primary); padding: 8px 20px; border-radius: 20px; display: inline-block; margin-bottom: 8px; font-weight: bold; font-size: 1rem; letter-spacing: 1.5px; text-transform: uppercase; }
 .feedback-msg { font-weight: bold; min-height: 1.2em; margin-bottom: 8px; font-size: 1.1rem; }
 
 .keyboard { display: flex; flex-direction: column; gap: 6px; }
@@ -59,16 +56,15 @@ body.ap-mode, body.q-mode { color: #ffffff !important; }
 .key.wide { max-width: 70px; background: #3d3d3d; font-size: 1rem; }
 .key.space { max-width: 200px; }
 
-.mc-container { display: flex; flex-direction: column; gap: 10px; }
-.mc-btn { background: rgba(0,0,0,0.5); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 15px; border-radius: 12px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: 0.2s; backdrop-filter: blur(5px); }
+.mc-container { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.mc-btn { width: 100%; max-width: 400px; background: rgba(0,0,0,0.6); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 15px; border-radius: 12px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: 0.2s; backdrop-filter: blur(5px); }
 .mc-btn:active { background: #fff; color: #000; }
 
 #flash-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0; transition: 0.15s; z-index: 100; }
 
-/* PC / TABLET UPGRADES */
 @media (min-width: 769px) {
     .text-container { font-size: 1.5rem; line-height: 2.2; padding: 20px; }
     .key { height: 55px; font-size: 1.3rem; max-width: 55px; }
     .key.wide { max-width: 90px; }
-    #base-word-badge { font-size: 1.1rem; padding: 8px 20px; }
+    #base-word-badge { font-size: 1.1rem; padding: 8px 25px; }
 }
