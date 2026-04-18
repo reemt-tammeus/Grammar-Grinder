@@ -13,27 +13,60 @@
 
     <div id="flash-overlay"></div>
 
-    <div id="app-container">
-        <header>
-            <div class="app-title">GrammarGrinder</div>
-        </header>
+    <canvas id="fireworks-canvas" style="position:fixed; top:0; left:0; pointer-events:none; z-index:999;"></canvas>
 
-        <main class="screen" id="main-game">
-            <div class="text-box" id="task-display">Initializing...</div>
+    <div id="app-wrapper">
+
+        <section id="start-screen" class="screen active">
+            <div class="menu-card">
+                <button class="btn-mode" id="btn-quickie">Five Gap Quickie</button>
+                <button class="btn-mode" id="btn-ap">AP-Mode</button>
+            </div>
+        </section>
+
+        <section id="game-screen" class="screen">
             
-            <div class="input-section">
-                <p class="label" id="feedback-hint">Mixed Grammar Passage</p>
-                <input type="text" id="task-input" class="app-input" readonly tabindex="-1">
+            <div class="hud-top">
+                <div id="ap-hud-elements" style="display: none; flex: 1; display: flex; align-items: center; gap: 20px;">
+                    <div id="hearts-container" class="hearts-container">
+                        </div>
+                    <div id="timer-display" class="timer">05:00</div>
+                </div>
+                
+                <div id="q-hud-elements" style="display: none; flex: 1; align-items: center; gap: 20px;">
+                    <div id="stopwatch-display" class="timer">00:00</div>
+                    <div id="best-time-display" style="font-size: 0.7rem; opacity: 0.7;">Best: --:--</div>
+                </div>
+
+                <button class="btn-menu" id="btn-goto-menu">MENU</button>
             </div>
 
-            <div id="app-keyboard" class="keyboard"></div>
-        </main>
+            <div class="progress-container">
+                <div id="progress-bar"></div>
+            </div>
 
-        <main class="screen hidden" id="result-screen" style="justify-content: center; text-align: center;">
-            <h1 style="font-size: 2.5rem; color: var(--secondary);">Session Complete</h1>
-            <p style="margin: 20px 0; color: var(--text-muted);">You've mastered the passage.</p>
-            <button onclick="location.reload()" style="background: var(--primary); color: white; border: none; padding: 15px 30px; border-radius: 10px; font-weight: bold; font-size: 1.1rem;">Restart Grinder</button>
-        </main>
+            <div id="text-display" class="text-container">
+                </div>
+
+            <div id="feedback-message" class="feedback-msg"></div>
+
+            <div class="footer-controls">
+                <div id="keyboard-container" class="keyboard" style="display: none;">
+                    </div>
+
+                <div id="mc-container" class="mc-container" style="display: none;">
+                    </div>
+            </div>
+        </section>
+
+        <section id="result-screen" class="screen" style="justify-content: center; align-items: center; text-align: center;">
+            <div class="menu-card">
+                <h1 id="result-title" style="color: var(--success); font-size: 2rem; margin-bottom: 10px;">FERTIG!</h1>
+                <p id="result-stats" style="margin-bottom: 20px;">Statistiken laden...</p>
+                <button class="btn-mode" onclick="location.reload()">NOCHMAL</button>
+            </div>
+        </section>
+
     </div>
 
     <script src="app.js"></script>
