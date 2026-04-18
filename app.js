@@ -2,15 +2,27 @@ const CONFIG = {
     LIVE_URL: "https://raw.githubusercontent.com/reemt-tammeus/Grammar-Grinder/main/data_quickie.json",
     AP_URL: "./data__ap_mode.json",
     AP_TIME: 300,
-    MAX_LIVES: 3
+    MAX_LIVES: 3,
+    WIN_STREAK: 3 // Neue Regel: 3 Texte für das große Feuerwerk
 };
 
 let state = {
     mode: null, pool: [], block: null, gapIdx: 0,
     lives: 3, time: 300, input: "", 
     attempts: 0, firstTry: true, sessionWins: 0, lock: false,
-    stopwatch: 0, timerInterval: null
+    stopwatch: 0, timerInterval: null,
+    waitingForNext: false
 };
+
+function shuffleArray(array) {
+    let currentIndex = array.length, randomIndex;
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+    return array;
+}
 
 window.onload = () => {
     document.getElementById('btn-ap').onclick = () => startApp('ap');
@@ -20,10 +32,9 @@ window.onload = () => {
 
 async function startApp(mode) {
     state.mode = mode;
-    // Setzt die Klasse für CSS - CSS regelt ab jetzt den schwarzen Hintergrund!
     document.body.className = mode === 'ap' ? 'ap-mode' : 'q-mode';
     
-    document.getElementById('start-screen').classList.remove('active');
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById('game-screen').classList.add('active');
     
     try {
@@ -37,8 +48,11 @@ async function startApp(mode) {
 }
 
 function initAP() {
+    if(state.sessionWins === 0) {
+        state.time = CONFIG.AP_TIME; 
+        startTimer();
+    }
     state.lives = CONFIG.MAX_LIVES;
-    state.time = CONFIG.AP_TIME;
     state.block = state.pool[Math.floor(Math.random() * state.pool.length)];
     state.gapIdx = 0;
     
@@ -46,7 +60,6 @@ function initAP() {
     document.getElementById('keyboard-container').style.display = 'flex';
     
     renderHUD();
-    startTimer();
     renderContent();
     renderKeyboard();
 }
@@ -60,6 +73,7 @@ function initQuickie() {
     }
     state.block = state.pool[Math.floor(Math.random() * state.pool.length)];
     state.gapIdx = 0;
+    state.waitingForNext = false;
     
     document.getElementById('q-hud-elements').style.display = 'flex';
     document.getElementById('mc-container').style.display = 'flex';
@@ -71,9 +85,6 @@ function initQuickie() {
 function renderContent() {
     const container = document.getElementById('text-display');
     const badge = document.getElementById('base-word-badge');
-    const feedback = document.getElementById('feedback-message');
-    feedback.innerText = ""; 
-    
     const isMobile = window.innerWidth <= 768;
     container.innerHTML = "";
 
@@ -124,20 +135,55 @@ function renderContent() {
     document.getElementById('progress-bar').style.width = `${(state.gapIdx / state.block.gaps.length) * 100}%`;
 }
 
+function handleGameOver() {
+    clearInterval(state.timerInterval);
+    state.sessionWins = 0; // Strafe: Score wird genullt
+    
+    // Umschalten auf die Strafbank (Loser Screen)
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById('loser-screen').classList.add('active');
+    
+    setTimeout(() => {
+        // Text-Reset nach 3 Sekunden
+        state.lives = CONFIG.MAX_LIVES;
+        state.time = CONFIG.AP_TIME;
+        state.gapIdx = 0;
+        state.input = "";
+        state.attempts = 0;
+        state.firstTry = true;
+        state.lock = false;
+        
+        // Farben des aktuellen Textes zurücksetzen
+        state.block.gaps.forEach(g => g.wasCorrected = false); 
+        document.getElementById('feedback-message').innerText = "";
+        
+        document.getElementById('loser-screen').classList.remove('active');
+        document.getElementById('game-screen').classList.add('active');
+        
+        renderHUD();
+        startTimer();
+        renderContent();
+        renderKeyboard();
+    }, 3000);
+}
+
 function checkAP() {
     if(state.lock || !state.input) return;
-    state.lock = true;
     const gap = state.block.gaps[state.gapIdx];
     
-    let val = state.input.toLowerCase().trim();
-    val = val.replace(/[’´`‘]/g, "'"); 
-    
+    let val = state.input.toLowerCase().trim().replace(/[’´`‘]/g, "'"); 
     const solutions = (Array.isArray(gap.solution) ? gap.solution : [gap.solution]).map(s => s.toLowerCase().trim().replace(/[’´`‘]/g, "'"));
 
     if(solutions.includes(val)) {
+        state.lock = true;
         handleSuccess();
+        return; // Direkt abbrechen, damit Game-Over-Logik nicht greift
     } else {
-        const feedback = gap.specific_feedback ? (gap.specific_feedback[val] || Object.values(gap.specific_feedback)[0]) : null;
+        let feedbackText = null;
+        if(gap.specific_feedback) {
+            if(gap.specific_feedback[val]) feedbackText = gap.specific_feedback[val];
+            else feedbackText = Object.values(gap.specific_feedback)[0];
+        }
         
         const dist = (a, b) => {
             const dp = Array.from({length:a.length+1},()=>Array(b.length+1).fill(0));
@@ -148,38 +194,43 @@ function checkAP() {
         };
         const isTypingMistake = solutions.some(s => dist(val, s) <= 2);
 
-        if(feedback && !isTypingMistake) {
+        if(feedbackText && !isTypingMistake) {
             state.lives--; state.firstTry = false; gap.wasCorrected = true;
             renderHUD();
-            flash('error', `TIP: ${feedback}`);
-            setTimeout(() => { state.lock = false; state.input = ""; renderContent(); }, 1500);
+            flash('error', `TIP: ${feedbackText}`);
+            state.input = ""; renderContent();
         } else if(isTypingMistake && state.attempts < 1) {
             state.attempts++;
             flash('warning', 'Typing mistake?');
-            setTimeout(() => { state.lock = false; renderContent(); }, 1000);
+            renderContent();
         } else {
             state.lives--; state.firstTry = false; gap.wasCorrected = true;
             renderHUD();
             flash('error', 'FALSE!');
-            setTimeout(() => { state.lock = false; state.input = ""; renderContent(); }, 1500);
+            state.input = ""; renderContent();
         }
+    }
+
+    // GAME OVER PRÜFUNG
+    if (state.lives <= 0) {
+        state.lock = true; // Sperrt die Tastatur für 1 Sekunde
+        setTimeout(handleGameOver, 1000); // Gibt dem Schüler 1 Sekunde Zeit, das kaputte Herz zu realisieren
     }
 }
 
 function checkQuickie(opt) {
     if(state.lock) return;
-    state.lock = true;
     const gap = state.block.gaps[state.gapIdx];
+    const correctOpt = (Array.isArray(gap.solution) ? gap.solution[0] : gap.solution).toLowerCase().trim();
     
-    if(opt.toLowerCase().trim() === (Array.isArray(gap.solution) ? gap.solution[0] : gap.solution).toLowerCase().trim()) {
+    if(opt.toLowerCase().trim() === correctOpt) {
+        state.lock = true;
         handleSuccess();
     } else {
-        flash('error', gap.explanation || 'False!');
-        setTimeout(() => {
-            state.gapIdx++;
-            state.lock = false;
-            if(state.gapIdx >= state.block.gaps.length) finish(); else { renderContent(); renderMC(); }
-        }, 1500);
+        const correctUpper = correctOpt.toUpperCase();
+        flash('error', gap.explanation || `FALSE! The correct answer is: ${correctUpper}`);
+        state.waitingForNext = true;
+        renderMC(); 
     }
 }
 
@@ -194,6 +245,8 @@ function handleSuccess() {
         state.attempts = 0;
         state.firstTry = true;
         state.lock = false;
+        document.getElementById('feedback-message').innerText = ""; 
+        
         if(state.gapIdx >= state.block.gaps.length) finish(); 
         else { renderContent(); if(state.mode === 'quickie') renderMC(); }
     }, 1000);
@@ -202,23 +255,27 @@ function handleSuccess() {
 function finish() {
     state.sessionWins++;
     
-    if(state.mode === 'quickie' && state.sessionWins < 5) {
-        launchFireworks(false);
-        setTimeout(() => initQuickie(), 1000); 
+    if(state.sessionWins < CONFIG.WIN_STREAK) {
+        launchFireworks(false); // Kleines Feuerwerk
+        setTimeout(() => {
+            if(state.mode === 'ap') initAP(); // Nächster Text im AP-Modus (Leben und Zeit laufen weiter)
+            else initQuickie();
+        }, 1000); 
         return;
     }
 
+    // NACH 3 TEXTEN (WIN_STREAK erreicht)
     clearInterval(state.timerInterval);
     if(state.mode === 'quickie') {
         const best = localStorage.getItem('best_quickie');
         if(!best || state.stopwatch < parseInt(best)) localStorage.setItem('best_quickie', state.stopwatch);
     }
 
-    launchFireworks(true);
-    document.getElementById('game-screen').classList.remove('active');
+    launchFireworks(true); // Großes Feuerwerk
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById('result-screen').classList.add('active');
     
-    let msg = state.mode === 'ap' ? "Passage Mastered!" : `Time: ${state.stopwatch}s (5 Texts)`;
+    let msg = state.mode === 'ap' ? `Passage Mastered! (3 Texts)` : `Time: ${state.stopwatch}s (3 Texts)`;
     document.getElementById('res-stats').innerText = msg;
 }
 
@@ -229,7 +286,7 @@ function flash(type, msg) {
     o.style.opacity = "0.3";
     f.innerText = msg;
     f.style.color = o.style.backgroundColor;
-    setTimeout(() => o.style.opacity = "0", 200);
+    setTimeout(() => o.style.opacity = "0", 200); 
 }
 
 function renderKeyboard() {
@@ -245,11 +302,14 @@ function renderKeyboard() {
             b.innerText = k === 'DEL' ? '⌫' : (k === 'GO' ? 'GO' : (k === 'SPACE' ? ' ' : k));
             b.onmousedown = (e) => {
                 e.preventDefault();
-                if(k === 'DEL') state.input = state.input.slice(0,-1);
-                else if(k === 'GO') checkAP();
-                else if(k === 'SPACE') state.input += " ";
-                else state.input += k;
-                renderContent();
+                if(state.lock) return;
+                
+                document.getElementById('feedback-message').innerText = "";
+                
+                if(k === 'DEL') { state.input = state.input.slice(0,-1); renderContent(); }
+                else if(k === 'GO') { checkAP(); }
+                else if(k === 'SPACE') { state.input += " "; renderContent(); }
+                else { state.input += k; renderContent(); }
             };
             div.appendChild(b);
         });
@@ -260,8 +320,27 @@ function renderKeyboard() {
 function renderMC() {
     const cont = document.getElementById('mc-container');
     cont.innerHTML = "";
+    
+    if(state.waitingForNext) {
+        const b = document.createElement('button');
+        b.className = 'mc-btn';
+        b.innerText = "WEITER ➔";
+        b.style.borderColor = "var(--ap-primary)";
+        b.onclick = () => {
+            state.waitingForNext = false;
+            document.getElementById('feedback-message').innerText = "";
+            state.gapIdx++;
+            if(state.gapIdx >= state.block.gaps.length) finish(); else { renderContent(); renderMC(); }
+        };
+        cont.appendChild(b);
+        return;
+    }
+
     const gap = state.block.gaps[state.gapIdx];
-    gap.options.forEach(opt => {
+    let options = [...gap.options];
+    options = shuffleArray(options); 
+    
+    options.forEach(opt => {
         const b = document.createElement('button');
         b.className = 'mc-btn';
         b.innerText = opt;
@@ -279,7 +358,12 @@ function startTimer() {
             const m = Math.floor(state.time / 60), s = state.time % 60;
             tEl.innerText = `${m}:${s < 10 ? '0'+s : s}`;
             if(state.time < 30) tEl.classList.add('blink');
-            if(state.time <= 0 || state.lives <= 0) { clearInterval(state.timerInterval); location.reload(); }
+            
+            // Wenn Zeit abläuft -> Game Over!
+            if(state.time <= 0) { 
+                clearInterval(state.timerInterval);
+                handleGameOver(); 
+            }
         }
     }, 1000);
 }
