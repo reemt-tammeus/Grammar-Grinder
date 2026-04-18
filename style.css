@@ -2,71 +2,110 @@
     --start-bg: #ffffff;
     --ap-bg: #0a0a0a;
     --ap-primary: #4A90E2;
-    --success: #2ecc71;   /* Grün für 1. Versuch */
-    --warning: #f39c12;   /* Orange für Tippfehler */
-    --danger: #e74c3c;    /* Rot für Fehler */
-    --corrected: #ffffff; /* Weiß für korrigierte Lücken */
+    --success: #2ecc71 !important;
+    --warning: #f39c12 !important;
+    --danger: #e74c3c !important;
+    --corrected: #ffffff !important;
 }
 
-/* Grund-Reset */
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
-body { width: 100vw; height: 100vh; overflow: hidden; transition: 0.5s; }
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; -webkit-tap-highlight-color: transparent; }
+body { width: 100vw; height: 100vh; height: 100dvh; overflow: hidden; background: var(--start-bg); color: #000000; transition: background 0.3s; }
 
-/* Bildschirme */
-.screen { position: absolute; width: 100%; height: 100%; display: none; flex-direction: column; padding: 20px; }
+/* Erzwungene weiße Schrift in den Spielmodi */
+body.ap-mode, body.q-mode { color: #ffffff !important; }
+
+.screen { position: absolute; width: 100%; height: 100%; display: none; flex-direction: column; padding: 15px; }
 .screen.active { display: flex; }
 
-/* Startbildschirm (Logo + Buttons) */
 #start-screen { background: url('logo.jpg') no-repeat center center; background-size: cover; justify-content: center; align-items: center; }
-.btn-mode { background: #000; color: #fff; border: 2px solid #000; padding: 15px 30px; margin: 10px; border-radius: 10px; font-weight: bold; cursor: pointer; }
-.btn-mode:hover { background: #fff; color: #000; }
+.btn-mode { background: #000; color: #fff; border: 2px solid #000; padding: 15px 30px; margin: 10px; border-radius: 10px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+.btn-mode:active { background: #fff; color: #000; }
 
-/* HUD & Progress */
-.hud-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-shrink: 0; }
-.hearts { color: #e74c3c; font-size: 1.5rem; }
-.timer { font-family: monospace; font-size: 1.2rem; font-weight: bold; }
+/* HUD - Jetzt zentriert und in der Breite begrenzt */
+.hud-top { display: flex; justify-content: space-between; align-items: center; margin: 0 auto 10px auto; width: 100%; max-width: 800px; flex-shrink: 0; }
+.hearts { color: #e74c3c; font-size: 1.5rem; letter-spacing: 3px; }
+.timer { font-family: monospace; font-size: 1.3rem; font-weight: bold; }
 .timer.blink { color: #e74c3c; animation: blinker 1s linear infinite; }
 @keyframes blinker { 50% { opacity: 0; } }
 
-.progress-container { width: 100%; height: 8px; background: #333; border-radius: 4px; margin-bottom: 20px; overflow: hidden; }
+/* Fortschrittsbalken - Ebenfalls zentriert */
+.progress-container { width: 100%; max-width: 800px; margin: 0 auto 15px auto; height: 6px; background: #333; border-radius: 3px; overflow: hidden; flex-shrink: 0; }
 #progress-bar { height: 100%; width: 0%; background: var(--ap-primary); transition: 0.3s; }
 
-/* Textbereich */
-.text-container { flex: 1; overflow-y: auto; line-height: 2; font-size: 1.2rem; padding: 10px; }
+/* Textbereich - Standard für Mobile (Volltextbreite bis max 800px) */
+.text-container { 
+    flex: 1; 
+    overflow-y: auto; 
+    line-height: 2; 
+    font-size: 1.3rem; 
+    padding: 10px; 
+    text-align: left; 
+    color: #ffffff !important; 
+    width: 100%; 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
 
-/* Die Elastische Lücke */
 .gap {
     display: inline-block;
     border-bottom: 2px solid var(--ap-primary);
-    min-width: 60px;
-    padding: 0 5px;
+    min-width: 50px;
+    padding: 0 8px;
+    margin: 0 4px;
     color: var(--ap-primary);
     font-weight: bold;
     text-align: center;
     position: relative;
+    transition: all 0.2s;
 }
-
-.gap.active { color: #fff; border-bottom-color: #fff; }
+.gap.active { color: #ffffff !important; border-bottom-color: #ffffff !important; }
 .gap.active::after {
-    content: '';
-    position: absolute;
-    right: -2px;
-    width: 2px;
-    height: 80%;
-    background: #fff;
-    animation: blinker 1s step-end infinite;
+    content: ''; position: absolute; right: 0; bottom: 4px;
+    width: 2px; height: 70%; background: #fff;
+    animation: blinker 0.8s step-end infinite;
 }
 
 .gap.correct { color: var(--success); border-bottom-color: var(--success); }
 .gap.corrected { color: var(--corrected); border-bottom-color: var(--corrected); }
-.gap.wrong { color: var(--danger); border-bottom-color: var(--danger); }
 
-/* Tastatur & MC */
-.footer-controls { flex-shrink: 0; padding-bottom: 20px; }
-.keyboard { display: flex; flex-direction: column; gap: 5px; }
-.kb-row { display: flex; justify-content: center; gap: 5px; }
-.key { background: #333; color: #fff; border: none; padding: 12px; border-radius: 5px; min-width: 35px; cursor: pointer; }
-.key.wide { min-width: 60px; background: #444; }
+/* Tastatur & MC Buttons - Zentriert und begrenzt */
+.footer-controls { 
+    flex-shrink: 0; 
+    padding-top: 10px; 
+    padding-bottom: env(safe-area-inset-bottom, 20px); 
+    width: 100%; 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+.keyboard { display: flex; flex-direction: column; gap: 6px; }
+.kb-row { display: flex; justify-content: center; gap: 4px; }
+.key { 
+    background: #2a2a2a; color: #fff; border: none; 
+    height: 45px; min-width: 32px; flex: 1; max-width: 45px;
+    border-radius: 5px; font-size: 1.1rem; font-weight: bold;
+    box-shadow: 0 3px 0 #000;
+    cursor: pointer;
+}
+.key:active { transform: translateY(2px); box-shadow: none; background: #444; }
+.key.wide { max-width: 70px; background: #3d3d3d; }
 
-/* Flash Overlays */
-#flash-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0; transition: 0.2s; z-index: 100; }
+#flash-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0; transition: 0.15s; z-index: 100; }
+
+/* ==========================================================================
+   PC / TABLET UPGRADES (Ab 769px Breite)
+   ========================================================================== */
+@media (min-width: 769px) {
+    .text-container {
+        font-size: 1.6rem; /* Große, gut lesbare Schrift */
+        line-height: 2.2;
+        padding: 20px;
+    }
+    
+    .key {
+        height: 55px; /* Etwas höhere Tasten für besseres Klicken am PC */
+        font-size: 1.3rem;
+        max-width: 60px;
+    }
+    
+    .key.wide { max-width: 90px; }
+}
