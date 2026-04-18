@@ -3,8 +3,8 @@
     --ap-bg: #0a0a0a;
     --ap-primary: #4A90E2;
     --success: #2ecc71 !important;
-    --warning: #f39c12 !important; /* Orange für Joker */
-    --danger: #e74c3c !important;  /* Rot für Fehler */
+    --warning: #f39c12 !important;
+    --danger: #e74c3c !important;
     --corrected: #ffffff !important;
 }
 
@@ -35,18 +35,18 @@ body.q-mode { background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), u
 .progress-container { width: 100%; max-width: 800px; margin: 0 auto 15px auto; height: 6px; background: rgba(255,255,255,0.15); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
 #progress-bar { height: 100%; width: 0%; background: var(--ap-primary); transition: 0.3s; }
 
+/* Textbereich darf scrollen, wenn er zu lang wird */
 .text-container { flex: 1; overflow-y: auto; line-height: 1.8; font-size: 1.2rem; padding: 10px; text-align: left; width: 100%; max-width: 800px; margin: 0 auto; }
 
 .gap { display: inline-block; border-bottom: 2px solid var(--ap-primary); min-width: 40px; padding: 0 5px; margin: 0 3px; color: var(--ap-primary); font-weight: bold; text-align: center; position: relative; transition: all 0.2s; }
 .gap.active { color: #ffffff !important; border-bottom-color: #ffffff !important; }
 .gap.active::after { content: ''; position: absolute; right: 0; bottom: 4px; width: 2px; height: 70%; background: #fff; animation: blinker 0.8s step-end infinite; }
 
-/* Das neue Farbsystem */
 .gap.perfect { color: var(--success) !important; border-bottom-color: var(--success) !important; }
 .gap.corrected { color: var(--warning) !important; border-bottom-color: var(--warning) !important; }
 .gap.failed { color: var(--danger) !important; border-bottom-color: var(--danger) !important; }
 
-.footer-controls { flex-shrink: 0; padding-top: 5px; padding-bottom: env(safe-area-inset-bottom, 15px); width: 100%; max-width: 800px; margin: 0 auto; text-align: center; }
+.footer-controls { flex-shrink: 0; padding-top: 5px; padding-bottom: env(safe-area-inset-bottom, 10px); width: 100%; max-width: 800px; margin: 0 auto; text-align: center; }
 
 #base-word-badge { background: rgba(74, 144, 226, 0.2); border: 1px solid var(--ap-primary); color: var(--ap-primary); padding: 8px 20px; border-radius: 20px; display: inline-block; margin-bottom: 8px; font-weight: bold; font-size: 1rem; letter-spacing: 1.5px; text-transform: uppercase; }
 .feedback-msg { font-weight: bold; min-height: 1.2em; margin-bottom: 8px; font-size: 1.1rem; line-height: 1.4; padding: 0 10px; }
@@ -58,8 +58,9 @@ body.q-mode { background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), u
 .key.wide { max-width: 70px; background: #3d3d3d; font-size: 1rem; }
 .key.space { max-width: 200px; }
 
-.mc-container { display: flex; flex-direction: column; gap: 10px; align-items: center; }
-.mc-btn { width: 100%; max-width: 400px; background: rgba(0,0,0,0.6); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 15px; border-radius: 12px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: 0.2s; backdrop-filter: blur(5px); }
+/* OPTIMIERT FÜR SMARTPHONE: Kompaktere Buttons, damit sie nicht aus dem Bild rutschen */
+.mc-container { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+.mc-btn { width: 100%; max-width: 400px; background: rgba(0,0,0,0.6); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 10px; border-radius: 8px; font-size: 1.05rem; font-weight: bold; cursor: pointer; transition: 0.2s; backdrop-filter: blur(5px); }
 .mc-btn:active { background: #fff; color: #000; }
 
 #flash-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0; transition: 0.15s; z-index: 100; }
@@ -70,4 +71,8 @@ body.q-mode { background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), u
     .key { height: 55px; font-size: 1.3rem; max-width: 55px; }
     .key.wide { max-width: 90px; }
     #base-word-badge { font-size: 1.1rem; padding: 8px 25px; }
+    
+    /* PC: Wieder große, luxuriöse MC-Buttons */
+    .mc-container { gap: 10px; }
+    .mc-btn { padding: 15px; border-radius: 12px; font-size: 1.1rem; }
 }
