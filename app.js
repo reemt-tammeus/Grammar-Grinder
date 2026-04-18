@@ -1,344 +1,440 @@
-// GrammarGrinder - bereinigte Version
-// WICHTIG:
-// 1) Diese Datei als app.js speichern
-// 2) Die HTML-Datei für GitHub Pages in index.html umbenennen
-// 3) data_quickie.json und data__ap_mode.json im selben Ordner lassen
+/* ==========================================================================
+   CONFIG & STATE
+   ========================================================================== */
+const LIVE_JSON_URL = "https://raw.githubusercontent.com/reemt-tammeus/Grammar-Grinder/main/data_quickie.json";
+const LOCAL_FALLBACK_URL = "./data__ap_mode.json";
 
-const CONFIG = {
-    primaryDataUrl: "./data_quickie.json",
-    fallbackDataUrl: "./data__ap_mode.json",
-    shuffleBlocks: false,
-    passagePauseMs: 1400,
-    correctPauseMs: 900,
-    wrongPauseMs: 3200
+let pool = [];
+let currentBlock = null;
+let currentGapIndex = 0;
+let gameMode = null; // 'ap' or 'quickie'
+let lock = false;
+
+// AP-Mode State
+let lives = 3;
+let timerValue = 300; // 5 Minuten
+let timerInterval = null;
+
+// Quickie State
+let stopwatchValue = 0;
+let stopwatchInterval = null;
+let sessionCount = 0; // Für das große Feuerwerk (5 Texte)
+
+// Input State
+let currentInput = "";
+
+/* ==========================================================================
+   INIT & NAVIGATION
+   ========================================================================== */
+window.onload = () => {
+    // Event-Listener für Start-Buttons
+    document.getElementById('btn-ap').onclick = () => startMode('ap');
+    document.getElementById('btn-quickie').onclick = () => startMode('quickie');
+    document.getElementById('btn-goto-menu').onclick = () => location.reload();
 };
 
-const state = {
-    pool: [],
-    currentBlockIndex: 0,
-    currentGapIndex: 0,
-    currentInput: "",
-    lock: false
-};
+async function startMode(mode) {
+    gameMode = mode;
+    document.body.className = mode === 'ap' ? 'ap-mode' : 'q-mode';
+    switchScreen('game-screen');
 
-function $(id) {
-    return document.getElementById(id);
-}
+    // UI-Elemente umschalten
+    document.getElementById('ap-hud-elements').style.display = mode === 'ap' ? 'flex' : 'none';
+    document.getElementById('q-hud-elements').style.display = mode === 'quickie' ? 'flex' : 'none';
+    document.getElementById('keyboard-container').style.display = mode === 'ap' ? 'flex' : 'none';
+    document.getElementById('mc-container').style.display = mode === 'quickie' ? 'flex' : 'none';
 
-function setDisplayStyle() {
-    const display = $("task-display");
-    display.style.textAlign = "left";
-    display.style.fontSize = "1.1rem";
-    display.style.alignItems = "flex-start";
-    display.style.lineHeight = "1.5";
-}
-
-function shuffleArray(arr) {
-    const copy = [...arr];
-    for (let i = copy.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [copy[i], copy[j]] = [copy[j], copy[i]];
+    await loadData();
+    
+    if (mode === 'ap') {
+        initAPMode();
+    } else {
+        initQuickieMode();
     }
-    return copy;
 }
 
-async function fetchJson(url) {
-    const response = await fetch(url, { cache: "no-store" });
-    if (!response.ok) {
-        throw new Error(`HTTP ${response.status} while loading ${url}`);
-    }
-    return response.json();
+function switchScreen(screenId) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(screenId).classList.add('active');
 }
 
-function isValidPool(data) {
-    return Array.isArray(data) && data.length > 0;
-}
-
+/* ==========================================================================
+   DATA LOADING
+   ========================================================================== */
 async function loadData() {
-    const display = $("task-display");
-
+    const display = document.getElementById('text-display');
     try {
-        display.textContent = "Loading quickie data...";
-        let data = await fetchJson(CONFIG.primaryDataUrl);
+        const response = await fetch(gameMode === 'ap' ? LOCAL_FALLBACK_URL : LIVE_JSON_URL);
+        if (!response.ok) throw new Error("Fetch failed");
+        pool = await response.json();
+    } catch (e) {
+        console.warn("Ladefehler, wechsle zu lokalem Fallback", e);
+        const fallback = await fetch(LOCAL_FALLBACK_URL);
+        pool = await fallback.json();
+    }
+}
 
-        if (!isValidPool(data)) {
-            throw new Error("Primary JSON is empty or invalid.");
+/* ==========================================================================
+   AP-MODE LOGIC
+   ========================================================================== */
+function initAPMode() {
+    lives = 3;
+    timerValue = 300;
+    updateHearts();
+    startTimer();
+    
+    // Zufälligen Block wählen
+    currentBlock = pool[Math.floor(Math.random() * pool.length)];
+    currentGapIndex = 0;
+    
+    renderKeyboard();
+    renderText();
+}
+
+function startTimer() {
+    clearInterval(timerInterval);
+    const timerDisplay = document.getElementById('timer-display');
+    timerInterval = setInterval(() => {
+        timerValue--;
+        let mins = Math.floor(timerValue / 60);
+        let secs = timerValue % 60;
+        timerDisplay.innerText = `${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
+        
+        if (timerValue <= 30) timerDisplay.classList.add('warning');
+        if (timerValue <= 0) {
+            clearInterval(timerInterval);
+            // AP-Konsequenz: Timer abgelaufen (Note am Ende oder Siegel)
         }
+    }, 1000);
+}
 
-        return CONFIG.shuffleBlocks ? shuffleArray(data) : data;
-    } catch (primaryError) {
-        console.warn("Primary data load failed:", primaryError);
+function updateHearts() {
+    const container = document.getElementById('hearts-container');
+    container.innerHTML = '❤️'.repeat(lives);
+    if (lives <= 0) gameOver();
+}
 
-        try {
-            display.textContent = "Quickie data unavailable. Loading fallback data...";
-            let data = await fetchJson(CONFIG.fallbackDataUrl);
+/* ==========================================================================
+   QUICKIE LOGIC
+   ========================================================================== */
+function initQuickieMode() {
+    stopwatchValue = 0;
+    startStopwatch();
+    
+    // Zufälligen Block wählen
+    currentBlock = pool[Math.floor(Math.random() * pool.length)];
+    currentGapIndex = 0;
+    
+    // Bestzeit laden
+    const best = localStorage.getItem('best_quickie');
+    document.getElementById('best-time-display').innerText = best ? `Best: ${best}s` : "Best: --:--";
+    
+    renderText();
+    renderMCButtons();
+}
 
-            if (!isValidPool(data)) {
-                throw new Error("Fallback JSON is empty or invalid.");
+function startStopwatch() {
+    clearInterval(stopwatchInterval);
+    stopwatchInterval = setInterval(() => {
+        stopwatchValue++;
+        let m = Math.floor(stopwatchValue / 60);
+        let s = stopwatchValue % 60;
+        document.getElementById('stopwatch-display').innerText = `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+    }, 1000);
+}
+
+/* ==========================================================================
+   CORE RENDERING
+   ========================================================================== */
+function renderText() {
+    const display = document.getElementById('text-display');
+    display.innerHTML = "";
+    
+    // Text parsen und Gaps als Spans einfügen
+    let textParts = currentBlock.text.split(/(\{\d+\})/);
+    
+    textParts.forEach(part => {
+        const match = part.match(/\{(\d+)\}/);
+        if (match) {
+            const gapId = match[1];
+            const gapData = currentBlock.gaps.find(g => g.id === gapId);
+            const gapEl = document.createElement('span');
+            gapEl.className = 'gap';
+            gapEl.id = `gap-${gapId}`;
+            
+            let currentGapIdxInArray = currentBlock.gaps.indexOf(gapData);
+            
+            if (currentGapIdxInArray < currentGapIndex) {
+                // Gelöst
+                gapEl.innerText = (Array.isArray(gapData.solution) ? gapData.solution[0] : gapData.solution).toUpperCase();
+                gapEl.classList.add('correct');
+            } else if (currentGapIdxInArray === currentGapIndex) {
+                // Aktiv
+                gapEl.innerText = currentInput || "____";
+                gapEl.classList.add('active');
+                setTimeout(() => gapEl.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+            } else {
+                // Zukünftig
+                gapEl.innerText = "....";
             }
-
-            return CONFIG.shuffleBlocks ? shuffleArray(data) : data;
-        } catch (fallbackError) {
-            console.error("Fallback data load failed:", fallbackError);
-            throw new Error("No usable data source could be loaded.");
-        }
-    }
-}
-
-function normalize(text) {
-    return String(text)
-        .toLowerCase()
-        .replace(/['´`’]/g, "'")
-        .replace(/n't\b/g, " not")
-        .replace(/'m\b/g, " am")
-        .replace(/'re\b/g, " are")
-        .replace(/'ll\b/g, " will")
-        .replace(/'ve\b/g, " have")
-        // bewusst KEIN pauschales "'d" => "would"
-        .trim()
-        .replace(/\s+/g, " ");
-}
-
-function getSolutions(gap) {
-    if (!gap || gap.solution == null) return [];
-
-    if (Array.isArray(gap.solution)) {
-        return gap.solution.map(s => String(s).trim()).filter(Boolean);
-    }
-
-    if (typeof gap.solution === "string") {
-        return gap.solution
-            .split("/")
-            .map(s => s.trim())
-            .filter(Boolean);
-    }
-
-    return [String(gap.solution).trim()].filter(Boolean);
-}
-
-function getMainSolution(gap) {
-    const solutions = getSolutions(gap);
-    return solutions[0] || "";
-}
-
-function getNormalizedSolutions(gap) {
-    return getSolutions(gap).map(normalize);
-}
-
-function updateInputDisplay() {
-    $("task-input").value = state.currentInput;
-}
-
-function triggerFlash(isSuccess) {
-    const overlay = $("flash-overlay");
-    overlay.className = isSuccess ? "flash-success" : "flash-error";
-    setTimeout(() => {
-        overlay.className = "";
-    }, 300);
-}
-
-function showResultScreen() {
-    $("main-game").classList.add("hidden");
-    $("result-screen").classList.remove("hidden");
-}
-
-function renderCurrentTask() {
-    const block = state.pool[state.currentBlockIndex];
-    const gap = block.gaps[state.currentGapIndex];
-
-    state.currentInput = "";
-    state.lock = false;
-    updateInputDisplay();
-
-    let displayText = block.text;
-
-    block.gaps.forEach((g, index) => {
-        const placeholder = `{${g.id}}`;
-
-        if (index < state.currentGapIndex) {
-            const solvedText = getMainSolution(g).toUpperCase();
-            displayText = displayText.replace(placeholder, solvedText);
-        } else if (index === state.currentGapIndex) {
-            displayText = displayText.replace(placeholder, "[ ___ ]");
+            display.appendChild(gapEl);
         } else {
-            displayText = displayText.replace(placeholder, "...");
+            display.appendChild(document.createTextNode(part));
         }
     });
-
-    $("task-display").textContent = displayText;
-    $("feedback-hint").textContent = `Base word: ${gap.base_word ?? "-"}`;
-    $("feedback-hint").style.color = "var(--primary)";
+    
+    // Progress
+    let progress = (currentGapIndex / currentBlock.gaps.length) * 100;
+    document.getElementById('progress-bar').style.width = `${progress}%`;
 }
 
-function nextTask() {
-    if (state.currentBlockIndex >= state.pool.length) {
-        showResultScreen();
-        return;
-    }
-
-    const block = state.pool[state.currentBlockIndex];
-
-    if (!block || !Array.isArray(block.gaps) || block.gaps.length === 0) {
-        console.warn("Invalid block skipped:", block);
-        state.currentBlockIndex++;
-        state.currentGapIndex = 0;
-        nextTask();
-        return;
-    }
-
-    if (state.currentGapIndex >= block.gaps.length) {
-        state.currentBlockIndex++;
-        state.currentGapIndex = 0;
-        state.lock = true;
-
-        $("task-display").textContent = "Excellent! Loading next passage...";
-        $("feedback-hint").textContent = "";
-
-        setTimeout(() => {
-            state.lock = false;
-            nextTask();
-        }, CONFIG.passagePauseMs);
-
-        return;
-    }
-
-    renderCurrentTask();
-}
-
-function getFeedbackMessage(gap, rawInput, normalizedInput) {
-    if (gap.specific_feedback) {
-        if (gap.specific_feedback[rawInput]) {
-            return gap.specific_feedback[rawInput];
-        }
-        if (gap.specific_feedback[normalizedInput]) {
-            return gap.specific_feedback[normalizedInput];
-        }
-    }
-
-    if (gap.explanation) {
-        return gap.explanation;
-    }
-
-    return "Wrong answer.";
-}
-
-function checkAnswer() {
-    if (state.lock) return;
-    if (state.currentInput.trim() === "") return;
-
-    state.lock = true;
-
-    const block = state.pool[state.currentBlockIndex];
-    const gap = block.gaps[state.currentGapIndex];
-
-    const rawInput = state.currentInput.trim();
-    const normalizedInput = normalize(rawInput);
-    const validOptions = getNormalizedSolutions(gap);
-    const mainSolution = getMainSolution(gap);
-
-    if (validOptions.includes(normalizedInput)) {
-        triggerFlash(true);
-        $("feedback-hint").textContent = "✓ Correct!";
-        $("feedback-hint").style.color = "var(--success)";
-
-        state.currentGapIndex++;
-
-        setTimeout(() => {
-            nextTask();
-        }, CONFIG.correctPauseMs);
-
-        return;
-    }
-
-    triggerFlash(false);
-
-    const feedback = getFeedbackMessage(gap, rawInput, normalizedInput);
-    $("feedback-hint").textContent = `✗ ${feedback} (Solution: ${mainSolution})`;
-    $("feedback-hint").style.color = "var(--danger)";
-
-    state.currentGapIndex++;
-
-    setTimeout(() => {
-        nextTask();
-    }, CONFIG.wrongPauseMs);
-}
-
+/* ==========================================================================
+   INPUT HANDLING (AP & QUICKIE)
+   ========================================================================== */
 function handleKeyPress(key) {
-    if (state.lock) return;
-
-    if (key === "DEL") {
-        state.currentInput = state.currentInput.slice(0, -1);
-    } else if (key === "ENT") {
-        checkAnswer();
-        return;
-    } else if (key === "SPACE") {
-        state.currentInput += " ";
-    } else {
-        state.currentInput += key;
-    }
-
-    updateInputDisplay();
+    if (lock) return;
+    if (key === 'DEL') currentInput = currentInput.slice(0, -1);
+    else if (key === 'ENT') checkAnswerAP();
+    else if (key === 'SPACE') currentInput += ' ';
+    else currentInput += key;
+    
+    renderText(); // Update Lücke live
 }
 
 function renderKeyboard() {
     const layout = [
-        ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
-        ["a", "s", "d", "f", "g", "h", "j", "k", "l", "'"],
-        ["DEL", "z", "x", "c", "v", "b", "n", "m", "ENT"],
-        ["SPACE"]
+        ['q','w','e','r','t','y','u','i','o','p'],
+        ['a','s','d','f','g','h','j','k','l', "'"],
+        ['DEL','z','x','c','v','b','n','m','ENT'],
+        ['SPACE']
     ];
-
-    const kbContainer = $("app-keyboard");
-    kbContainer.innerHTML = "";
-
+    const container = document.getElementById('keyboard-container');
+    container.innerHTML = "";
     layout.forEach(row => {
-        const rowDiv = document.createElement("div");
-        rowDiv.className = "keyboard-row";
-
+        const rowDiv = document.createElement('div');
+        rowDiv.className = 'kb-row';
         row.forEach(key => {
-            const btn = document.createElement("button");
-            btn.type = "button";
-            btn.className = "key";
-
-            if (key === "DEL" || key === "ENT") btn.classList.add("action");
-            if (key === "ENT") btn.classList.add("enter");
-            if (key === "SPACE") btn.classList.add("space");
-
-            if (key === "SPACE") {
-                btn.textContent = "SPACE";
-            } else if (key === "DEL") {
-                btn.textContent = "⌫";
-            } else if (key === "ENT") {
-                btn.textContent = "GO";
-            } else {
-                btn.textContent = key;
-            }
-
-            btn.addEventListener("pointerdown", (event) => {
-                event.preventDefault();
-                handleKeyPress(key);
-            });
-
+            const btn = document.createElement('button');
+            btn.className = 'key';
+            if (['DEL', 'ENT', 'SPACE'].includes(key)) btn.classList.add('wide');
+            if (key === 'SPACE') btn.classList.add('space');
+            btn.innerText = key === 'DEL' ? '⌫' : (key === 'ENT' ? 'GO' : key);
+            btn.onmousedown = (e) => { e.preventDefault(); handleKeyPress(key); };
             rowDiv.appendChild(btn);
         });
-
-        kbContainer.appendChild(rowDiv);
+        container.appendChild(rowDiv);
     });
 }
 
-async function init() {
-    renderKeyboard();
-    setDisplayStyle();
+function renderMCButtons() {
+    const container = document.getElementById('mc-container');
+    container.innerHTML = "";
+    const gap = currentBlock.gaps[currentGapIndex];
+    gap.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'mc-btn glow-q';
+        btn.innerText = opt;
+        btn.onclick = () => checkAnswerQuickie(opt);
+        container.appendChild(btn);
+    });
+}
 
-    try {
-        state.pool = await loadData();
-        nextTask();
-    } catch (error) {
-        console.error("Critical startup error:", error);
-        $("task-display").textContent = "Kritischer Fehler: Keine Daten verfügbar.";
-        $("task-display").style.color = "var(--danger)";
-        $("feedback-hint").textContent = "";
+/* ==========================================================================
+   LOGIC: CHECK ANSWERS
+   ========================================================================== */
+function normalize(str) {
+    // Egal-Regel für Apostrophe & Full Forms
+    let n = str.toLowerCase().trim();
+    n = n.replace(/[’´`‘]/g, "'");
+    // Optionale Full-Form Normalisierung hier möglich
+    return n;
+}
+
+// Levenshtein für Tippfehler
+function getDistance(a, b) {
+    const matrix = [];
+    for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+    for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+    for (let i = 1; i <= b.length; i++) {
+        for (let j = 1; j <= a.length; j++) {
+            if (b.charAt(i - 1) === a.charAt(j - 1)) matrix[i][j] = matrix[i - 1][j - 1];
+            else matrix[i][j] = Math.min(matrix[i - 1][j - 1] + 1, matrix[i][j - 1] + 1, matrix[i - 1][j] + 1);
+        }
+    }
+    return matrix[b.length][a.length];
+}
+
+let apTippfehlerCount = 0;
+
+function checkAnswerAP() {
+    if (lock || !currentInput) return;
+    const gap = currentBlock.gaps[currentGapIndex];
+    const input = normalize(currentInput);
+    const solutions = (Array.isArray(gap.solution) ? gap.solution : [gap.solution]).map(s => normalize(s));
+
+    // 1. Korrekt?
+    if (solutions.includes(input)) {
+        successStep();
+        return;
+    }
+
+    // 2. Grammatikfehler (JSON Priority)?
+    if (gap.specific_feedback && (gap.specific_feedback[input] || gap.specific_feedback[currentInput])) {
+        failStep(gap.specific_feedback[input] || gap.specific_feedback[currentInput], "red");
+        return;
+    }
+
+    // 3. Tippfehler (Levenshtein)?
+    let isTippfehler = solutions.some(s => getDistance(input, s) <= 2);
+    if (isTippfehler) {
+        apTippfehlerCount++;
+        if (apTippfehlerCount >= 2) {
+            lives--;
+            updateHearts();
+            failStep("Typing mistake again! Life lost.", "red");
+            apTippfehlerCount = 0;
+        } else {
+            failStep("Typing mistake?", "orange");
+        }
+    } else {
+        // Komplett falsch
+        lives--;
+        updateHearts();
+        failStep("False!", "red");
     }
 }
 
-document.addEventListener("DOMContentLoaded", init);
+function checkAnswerQuickie(opt) {
+    if (lock) return;
+    const gap = currentBlock.gaps[currentGapIndex];
+    if (normalize(opt) === normalize(gap.solution)) {
+        successStep();
+    } else {
+        failStep(`False! ${gap.explanation}`, "red");
+    }
+}
+
+/* ==========================================================================
+   FEEDBACK EFFECTS
+   ========================================================================== */
+function successStep() {
+    lock = true;
+    triggerFlash("success");
+    document.getElementById('feedback-message').innerText = "✓ Correct";
+    document.getElementById('feedback-message').style.color = "var(--success)";
+    
+    setTimeout(() => {
+        currentGapIndex++;
+        currentInput = "";
+        apTippfehlerCount = 0;
+        if (currentGapIndex >= currentBlock.gaps.length) {
+            finishBlock();
+        } else {
+            lock = false;
+            renderText();
+            if (gameMode === 'quickie') renderMCButtons();
+            document.getElementById('feedback-message').innerText = "";
+        }
+    }, gameMode === 'ap' ? 1200 : 500);
+}
+
+function failStep(msg, color) {
+    lock = true;
+    triggerFlash(color === "orange" ? "warning" : "error");
+    document.getElementById('feedback-message').innerText = msg;
+    document.getElementById('feedback-message').style.color = color === "orange" ? "var(--warning)" : "var(--danger)";
+    
+    // AP-Mode: Wenn wir Hilfe/Lösung zeigen (nach dem 3. Versuch), 
+    // ist der Timer länger oder wir springen weiter. 
+    // Hier vereinfacht: User muss es nochmal versuchen.
+    setTimeout(() => {
+        lock = false;
+        if (color === "red" && gameMode === 'quickie') {
+             // Quickie: Lösung zeigen und weiter
+             currentGapIndex++;
+             if (currentGapIndex >= currentBlock.gaps.length) finishBlock();
+             else { renderText(); renderMCButtons(); }
+        }
+        renderText();
+    }, 1500);
+}
+
+function triggerFlash(type) {
+    const f = document.getElementById('flash-overlay');
+    f.style.backgroundColor = type === 'success' ? 'var(--success)' : (type === 'warning' ? 'var(--warning)' : 'var(--danger)');
+    f.style.opacity = "0.3";
+    setTimeout(() => f.style.opacity = "0", 200);
+}
+
+/* ==========================================================================
+   GAME END & FIREWORKS
+   ========================================================================== */
+function finishBlock() {
+    clearInterval(timerInterval);
+    clearInterval(stopwatchInterval);
+    
+    if (gameMode === 'quickie') {
+        sessionCount++;
+        // Highscore speichern
+        const currentBest = localStorage.getItem('best_quickie');
+        if (!currentBest || stopwatchValue < parseInt(currentBest)) {
+            localStorage.setItem('best_quickie', stopwatchValue);
+        }
+    }
+
+    switchScreen('result-screen');
+    document.getElementById('result-stats').innerText = gameMode === 'ap' ? "Passage Mastered!" : `Time: ${stopwatchValue}s (Session: ${sessionCount}/5)`;
+    
+    if (gameMode === 'quickie' && sessionCount >= 5) {
+        launchFireworks(true); // Groß
+        sessionCount = 0;
+    } else {
+        launchFireworks(false); // Klein
+    }
+}
+
+function gameOver() {
+    clearInterval(timerInterval);
+    alert("GAME OVER! Neustart des Blocks.");
+    currentGapIndex = 0;
+    lives = 3;
+    startMode('ap');
+}
+
+/* ==========================================================================
+   FIREWORKS (Datenschutzkonform - Canvas)
+   ========================================================================== */
+function launchFireworks(large) {
+    const canvas = document.getElementById('fireworks-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    let particles = [];
+    function createParticle(x, y) {
+        return {
+            x, y,
+            vX: (Math.random() - 0.5) * 10,
+            vY: (Math.random() - 0.5) * 10,
+            alpha: 1,
+            color: `hsl(${Math.random() * 360}, 100%, 50%)`
+        };
+    }
+
+    for (let i = 0; i < (large ? 300 : 100); i++) {
+        particles.push(createParticle(canvas.width/2, canvas.height/2));
+    }
+
+    function animate() {
+        ctx.clearRect(0,0, canvas.width, canvas.height);
+        particles.forEach((p, i) => {
+            p.x += p.vX; p.y += p.vY; p.alpha -= 0.01;
+            ctx.globalAlpha = p.alpha;
+            ctx.fillStyle = p.color;
+            ctx.beginPath(); ctx.arc(p.x, p.y, 3, 0, Math.PI*2); ctx.fill();
+            if (p.alpha <= 0) particles.splice(i, 1);
+        });
+        if (particles.length > 0) requestAnimationFrame(animate);
+    }
+    animate();
+}
