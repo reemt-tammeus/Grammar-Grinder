@@ -117,11 +117,9 @@ function renderContent() {
             span.className = 'gap';
             
             if(gIdx < state.gapIdx) {
-                // Hier greift das neue Farbsystem
                 span.innerText = (Array.isArray(g.solution) ? g.solution[0] : g.solution).toUpperCase();
                 span.classList.add(g.status || 'perfect'); 
             } else if (gIdx === state.gapIdx) {
-                // Wenn failed -> rote Lösung anzeigen und blockieren
                 if(g.status === 'failed') {
                     span.innerText = (Array.isArray(g.solution) ? g.solution[0] : g.solution).toUpperCase();
                     span.classList.add('failed');
@@ -152,10 +150,15 @@ function handleGameOver() {
     clearInterval(state.timerInterval);
     state.sessionWins = 0; 
     
+    // Auf die Strafbank wechseln
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById('loser-screen').classList.add('active');
     
     setTimeout(() => {
+        // BUGFIX: Screen wieder aktiv auf Game-Screen zurückschalten!
+        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+        document.getElementById('game-screen').classList.add('active');
+        
         if(state.mode === 'ap') initAP();
         else initQuickie();
     }, 3000);
@@ -170,7 +173,7 @@ function checkAP() {
 
     if(solutions.includes(val)) {
         state.lock = true;
-        if(!gap.status) gap.status = 'perfect'; // Grün
+        if(!gap.status) gap.status = 'perfect'; 
         handleSuccess();
         return; 
     } 
@@ -188,22 +191,22 @@ function checkAP() {
         dp[i][j] = a[i-1]===b[j-1]?dp[i-1][j-1]:Math.min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1])+1;
         return dp[a.length][b.length];
     };
-    const isTypingMistake = solutions.some(s => dist(val, s) <= 2);
+    
+    // BUGFIX: Toleranz auf <= 1 gesenkt (nur 1 Buchstabe darf falsch sein)
+    const isTypingMistake = solutions.some(s => dist(val, s) <= 1);
 
     if(isTypingMistake && state.attempts < 1) {
         state.attempts++;
         flash('warning', 'Typing mistake?');
         renderContent();
     } else {
-        // Logik: Joker-Prüfung
         if(state.jokersUsed < CONFIG.MAX_JOKERS) {
             state.jokersUsed++;
-            gap.status = 'corrected'; // Wird beim nächsten richtigen Versuch orange
+            gap.status = 'corrected'; 
             flash('warning', `TIP: ${feedbackText || 'False! Try again.'} (Joker used)`);
             state.input = ""; 
             renderContent();
         } else {
-            // Keine Joker mehr -> Leben weg, Rot, Auto-Skip
             state.lives--; 
             gap.status = 'failed';
             renderHUD();
@@ -211,7 +214,7 @@ function checkAP() {
             const correctUpper = solutions[0].toUpperCase();
             flash('error', `FALSE! The correct answer is: ${correctUpper}`);
             state.input = ""; 
-            state.waitingForNext = true; // Blockiert Tastatur, wartet auf "Taste drücken"
+            state.waitingForNext = true; 
             renderContent();
             
             if (state.lives <= 0) {
@@ -236,7 +239,6 @@ function checkQuickie(opt) {
             state.jokersUsed++;
             gap.status = 'corrected';
             flash('warning', `TIP: ${gap.explanation || 'False!'} (Joker used)`);
-            // Buttons bleiben, er darf nochmal raten
         } else {
             state.lives--;
             gap.status = 'failed';
@@ -244,8 +246,8 @@ function checkQuickie(opt) {
             const correctUpper = correctOpt.toUpperCase();
             flash('error', `FALSE! The correct answer is: ${correctUpper}`);
             state.waitingForNext = true;
-            renderContent(); // Zeichnet die Lücke rot
-            renderMC(); // Zeigt "Weiter"-Button
+            renderContent(); 
+            renderMC(); 
             
             if (state.lives <= 0) {
                 state.lock = true; 
@@ -276,7 +278,6 @@ function finish() {
         launchFireworks(false); 
         setTimeout(() => {
             if(state.mode === 'ap') {
-                // Im AP-Modus bleibt Zeit und Leben erhalten, nur Block & Joker resettet
                 state.jokersUsed = 0;
                 state.block = state.pool[Math.floor(Math.random() * state.pool.length)];
                 state.block.gaps.forEach(g => g.status = null);
@@ -307,7 +308,6 @@ function flash(type, msg) {
     const o = document.getElementById('flash-overlay');
     const f = document.getElementById('feedback-message');
     
-    // Orange für Joker, Grün für Success, Rot für Error
     let color = type === 'success' ? '#2ecc71' : (type === 'warning' ? '#f39c12' : '#e74c3c');
     
     o.style.backgroundColor = color;
@@ -332,7 +332,6 @@ function renderKeyboard() {
                 e.preventDefault();
                 if(state.lock) return;
                 
-                // Wenn nach einem 3. Fehler auf "Taste drücken zum Weitergehen" gewartet wird
                 if(state.waitingForNext) {
                     state.waitingForNext = false;
                     document.getElementById('feedback-message').innerText = "";
