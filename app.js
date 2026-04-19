@@ -1,10 +1,10 @@
 const CONFIG = {
-    LIVE_URL: "https://raw.githubusercontent.com/reemt-tammeus/Grammar-Grinder/main/data_quickie.json",
-    AP_URL: "./data__ap_mode.json",
+    LIVE_URL: "./data_quickie.json",
+    AP_URL: "./data_ap_mode.json",
     AP_TIME: 300,
     MAX_LIVES: 3,
     WIN_STREAK: 3,
-    MAX_JOKERS: 2 // Max. Fehler ohne Lebensabzug pro Text
+    MAX_JOKERS: 1  // <-- Härtegrad erhöht: Nur noch 1 Joker global!
 };
 
 let state = {
@@ -12,8 +12,7 @@ let state = {
     lives: 3, time: 300, input: "", 
     attempts: 0, sessionWins: 0, lock: false,
     stopwatch: 0, timerInterval: null,
-    waitingForNext: false,
-    jokersUsed: 0
+    waitingForNext: false, jokersUsed: 0
 };
 
 function shuffleArray(array) {
@@ -35,7 +34,6 @@ window.onload = () => {
 async function startApp(mode) {
     state.mode = mode;
     document.body.className = mode === 'ap' ? 'ap-mode' : 'q-mode';
-    
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById('game-screen').classList.add('active');
     
@@ -50,46 +48,35 @@ async function startApp(mode) {
 }
 
 function initAP() {
-    if(state.sessionWins === 0) {
-        state.time = CONFIG.AP_TIME; 
-        startTimer();
-    }
-    state.lives = CONFIG.MAX_LIVES;
-    state.jokersUsed = 0;
+    if(state.sessionWins === 0) { state.time = CONFIG.AP_TIME; startTimer(); }
+    state.lives = CONFIG.MAX_LIVES; state.jokersUsed = 0;
     state.block = state.pool[Math.floor(Math.random() * state.pool.length)];
-    state.block.gaps.forEach(g => g.status = null); // Reset gap states
+    state.block.gaps.forEach(g => g.status = null); 
     state.gapIdx = 0;
     
     document.getElementById('ap-hud-elements').style.display = 'flex';
     document.getElementById('keyboard-container').style.display = 'flex';
     document.getElementById('mc-container').style.display = 'none';
     
-    renderHUD();
-    renderContent();
-    renderKeyboard();
+    renderHUD(); renderContent(); renderKeyboard();
 }
 
 function initQuickie() {
     if(state.sessionWins === 0) {
-        state.stopwatch = 0;
-        startStopwatch();
+        state.stopwatch = 0; startStopwatch();
         const best = localStorage.getItem('best_quickie');
         document.getElementById('best-time-display').innerText = best ? `Best: ${best}s` : "Best: --:--";
     }
-    state.lives = CONFIG.MAX_LIVES;
-    state.jokersUsed = 0;
+    state.lives = CONFIG.MAX_LIVES; state.jokersUsed = 0;
     state.block = state.pool[Math.floor(Math.random() * state.pool.length)];
     state.block.gaps.forEach(g => g.status = null);
-    state.gapIdx = 0;
-    state.waitingForNext = false;
+    state.gapIdx = 0; state.waitingForNext = false;
     
     document.getElementById('q-hud-elements').style.display = 'flex';
     document.getElementById('mc-container').style.display = 'flex';
     document.getElementById('keyboard-container').style.display = 'none';
     
-    renderHUD();
-    renderContent();
-    renderMC();
+    renderHUD(); renderContent(); renderMC();
 }
 
 function renderContent() {
@@ -131,51 +118,36 @@ function renderContent() {
                 if(state.mode === 'ap' && g.base_word) {
                     badge.style.display = 'inline-block';
                     badge.innerText = g.base_word.toUpperCase();
-                } else {
-                    badge.style.display = 'none';
-                }
+                } else { badge.style.display = 'none'; }
                 setTimeout(() => span.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
-            } else {
-                span.innerText = "....";
-            }
+            } else { span.innerText = "...."; }
             container.appendChild(span);
-        } else {
-            container.appendChild(document.createTextNode(p));
-        }
+        } else { container.appendChild(document.createTextNode(p)); }
     });
     document.getElementById('progress-bar').style.width = `${(state.gapIdx / state.block.gaps.length) * 100}%`;
 }
 
 function handleGameOver() {
-    clearInterval(state.timerInterval);
-    state.sessionWins = 0; 
-    
-    // Auf die Strafbank wechseln
+    clearInterval(state.timerInterval); state.sessionWins = 0; 
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById('loser-screen').classList.add('active');
     
     setTimeout(() => {
-        // BUGFIX: Screen wieder aktiv auf Game-Screen zurückschalten!
         document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
         document.getElementById('game-screen').classList.add('active');
-        
-        if(state.mode === 'ap') initAP();
-        else initQuickie();
+        if(state.mode === 'ap') initAP(); else initQuickie();
     }, 3000);
 }
 
 function checkAP() {
     if(state.lock || !state.input) return;
     const gap = state.block.gaps[state.gapIdx];
-    
     let val = state.input.toLowerCase().trim().replace(/[’´`‘]/g, "'"); 
     const solutions = (Array.isArray(gap.solution) ? gap.solution : [gap.solution]).map(s => s.toLowerCase().trim().replace(/[’´`‘]/g, "'"));
 
     if(solutions.includes(val)) {
-        state.lock = true;
-        if(!gap.status) gap.status = 'perfect'; 
-        handleSuccess();
-        return; 
+        state.lock = true; if(!gap.status) gap.status = 'perfect'; 
+        handleSuccess(); return; 
     } 
 
     let feedbackText = null;
@@ -192,67 +164,45 @@ function checkAP() {
         return dp[a.length][b.length];
     };
     
-    // BUGFIX: Toleranz auf <= 1 gesenkt (nur 1 Buchstabe darf falsch sein)
     const isTypingMistake = solutions.some(s => dist(val, s) <= 1);
 
     if(isTypingMistake && state.attempts < 1) {
-        state.attempts++;
-        flash('warning', 'Typing mistake?');
-        renderContent();
+        state.attempts++; flash('warning', 'Typing mistake?'); renderContent();
     } else {
         if(state.jokersUsed < CONFIG.MAX_JOKERS) {
-            state.jokersUsed++;
-            gap.status = 'corrected'; 
+            state.jokersUsed++; gap.status = 'corrected'; 
             flash('warning', `TIP: ${feedbackText || 'False! Try again.'} (Joker used)`);
-            state.input = ""; 
-            renderContent();
+            state.input = ""; renderContent();
         } else {
-            state.lives--; 
-            gap.status = 'failed';
-            renderHUD();
-            
-            const correctUpper = solutions[0].toUpperCase();
-            flash('error', `FALSE! The correct answer is: ${correctUpper}`);
-            state.input = ""; 
-            state.waitingForNext = true; 
-            renderContent();
-            
-            if (state.lives <= 0) {
-                state.lock = true; 
-                setTimeout(handleGameOver, 1500); 
-            }
+            state.lives--; gap.status = 'failed'; renderHUD();
+            flash('error', `FALSE! The correct answer is: ${solutions[0].toUpperCase()}`);
+            state.input = ""; state.waitingForNext = true; renderContent();
+            if (state.lives <= 0) { state.lock = true; setTimeout(handleGameOver, 1500); }
         }
     }
 }
 
-function checkQuickie(opt) {
+// <-- NEU: Nimmt jetzt auch den geklickten Button (btnElement) entgegen -->
+function checkQuickie(opt, btnElement) {
     if(state.lock) return;
     const gap = state.block.gaps[state.gapIdx];
     const correctOpt = (Array.isArray(gap.solution) ? gap.solution[0] : gap.solution).toLowerCase().trim();
     
     if(opt.toLowerCase().trim() === correctOpt) {
-        state.lock = true;
-        if(!gap.status) gap.status = 'perfect';
-        handleSuccess();
+        state.lock = true; if(!gap.status) gap.status = 'perfect'; handleSuccess();
     } else {
         if(state.jokersUsed < CONFIG.MAX_JOKERS) {
-            state.jokersUsed++;
-            gap.status = 'corrected';
+            state.jokersUsed++; gap.status = 'corrected';
             flash('warning', `TIP: ${gap.explanation || 'False!'} (Joker used)`);
-        } else {
-            state.lives--;
-            gap.status = 'failed';
-            renderHUD();
-            const correctUpper = correctOpt.toUpperCase();
-            flash('error', `FALSE! The correct answer is: ${correctUpper}`);
-            state.waitingForNext = true;
-            renderContent(); 
-            renderMC(); 
             
-            if (state.lives <= 0) {
-                state.lock = true; 
-                setTimeout(handleGameOver, 1500); 
-            }
+            // <-- NEU: Button wird visuell deaktiviert (Geist) -->
+            btnElement.style.opacity = "0.3";
+            btnElement.style.pointerEvents = "none";
+        } else {
+            state.lives--; gap.status = 'failed'; renderHUD();
+            flash('error', `FALSE! The correct answer is: ${correctOpt.toUpperCase()}`);
+            state.waitingForNext = true; renderContent(); renderMC(); 
+            if (state.lives <= 0) { state.lock = true; setTimeout(handleGameOver, 1500); }
         }
     }
 }
@@ -260,12 +210,8 @@ function checkQuickie(opt) {
 function handleSuccess() {
     flash('success', 'CORRECT!');
     setTimeout(() => {
-        state.gapIdx++;
-        state.input = "";
-        state.attempts = 0;
-        state.lock = false;
+        state.gapIdx++; state.input = ""; state.attempts = 0; state.lock = false;
         document.getElementById('feedback-message').innerText = ""; 
-        
         if(state.gapIdx >= state.block.gaps.length) finish(); 
         else { renderContent(); if(state.mode === 'quickie') renderMC(); }
     }, 1000);
@@ -273,75 +219,52 @@ function handleSuccess() {
 
 function finish() {
     state.sessionWins++;
-    
     if(state.sessionWins < CONFIG.WIN_STREAK) {
         launchFireworks(false); 
         setTimeout(() => {
             if(state.mode === 'ap') {
-                state.jokersUsed = 0;
-                state.block = state.pool[Math.floor(Math.random() * state.pool.length)];
-                state.block.gaps.forEach(g => g.status = null);
-                state.gapIdx = 0;
-                renderContent();
-            } else {
-                initQuickie();
-            }
+                state.jokersUsed = 0; state.block = state.pool[Math.floor(Math.random() * state.pool.length)];
+                state.block.gaps.forEach(g => g.status = null); state.gapIdx = 0; renderContent();
+            } else { initQuickie(); }
         }, 1000); 
         return;
     }
-
     clearInterval(state.timerInterval);
     if(state.mode === 'quickie') {
         const best = localStorage.getItem('best_quickie');
         if(!best || state.stopwatch < parseInt(best)) localStorage.setItem('best_quickie', state.stopwatch);
     }
-
     launchFireworks(true);
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById('result-screen').classList.add('active');
-    
-    let msg = state.mode === 'ap' ? `Passage Mastered! (3 Texts)` : `Time: ${state.stopwatch}s (3 Texts)`;
-    document.getElementById('res-stats').innerText = msg;
+    document.getElementById('res-stats').innerText = state.mode === 'ap' ? `Passage Mastered! (3 Texts)` : `Time: ${state.stopwatch}s (3 Texts)`;
 }
 
 function flash(type, msg) {
-    const o = document.getElementById('flash-overlay');
-    const f = document.getElementById('feedback-message');
-    
+    const o = document.getElementById('flash-overlay'); const f = document.getElementById('feedback-message');
     let color = type === 'success' ? '#2ecc71' : (type === 'warning' ? '#f39c12' : '#e74c3c');
-    
-    o.style.backgroundColor = color;
-    o.style.opacity = "0.3";
-    f.innerText = msg;
-    f.style.color = color;
+    o.style.backgroundColor = color; o.style.opacity = "0.3";
+    f.innerText = msg; f.style.color = color;
     setTimeout(() => o.style.opacity = "0", 200); 
 }
 
 function renderKeyboard() {
     const keys = [['q','w','e','r','t','y','u','i','o','p'],['a','s','d','f','g','h','j','k','l',"'"],['DEL','z','x','c','v','b','n','m','GO'],['SPACE']];
-    const cont = document.getElementById('keyboard-container');
-    cont.innerHTML = "";
+    const cont = document.getElementById('keyboard-container'); cont.innerHTML = "";
     keys.forEach(row => {
         const div = document.createElement('div'); div.className = 'kb-row';
         row.forEach(k => {
             const b = document.createElement('button'); b.className = 'key';
-            if(k.length > 1) b.classList.add('wide');
-            if(k === 'SPACE') b.classList.add('space');
+            if(k.length > 1) b.classList.add('wide'); if(k === 'SPACE') b.classList.add('space');
             b.innerText = k === 'DEL' ? '⌫' : (k === 'GO' ? 'GO' : (k === 'SPACE' ? ' ' : k));
             b.onmousedown = (e) => {
-                e.preventDefault();
-                if(state.lock) return;
-                
+                e.preventDefault(); if(state.lock) return;
                 if(state.waitingForNext) {
-                    state.waitingForNext = false;
-                    document.getElementById('feedback-message').innerText = "";
-                    state.gapIdx++;
-                    if(state.gapIdx >= state.block.gaps.length) finish(); else renderContent();
+                    state.waitingForNext = false; document.getElementById('feedback-message').innerText = "";
+                    state.gapIdx++; if(state.gapIdx >= state.block.gaps.length) finish(); else renderContent();
                     return;
                 }
-                
                 document.getElementById('feedback-message').innerText = "";
-                
                 if(k === 'DEL') { state.input = state.input.slice(0,-1); renderContent(); }
                 else if(k === 'GO') { checkAP(); }
                 else if(k === 'SPACE') { state.input += " "; renderContent(); }
@@ -354,61 +277,45 @@ function renderKeyboard() {
 }
 
 function renderMC() {
-    const cont = document.getElementById('mc-container');
-    cont.innerHTML = "";
-    
+    const cont = document.getElementById('mc-container'); cont.innerHTML = "";
     if(state.waitingForNext) {
-        const b = document.createElement('button');
-        b.className = 'mc-btn';
-        b.innerText = "WEITER ➔";
+        const b = document.createElement('button'); b.className = 'mc-btn'; b.innerText = "WEITER ➔";
         b.style.borderColor = "var(--ap-primary)";
         b.onclick = () => {
-            state.waitingForNext = false;
-            document.getElementById('feedback-message').innerText = "";
-            state.gapIdx++;
-            if(state.gapIdx >= state.block.gaps.length) finish(); else { renderContent(); renderMC(); }
+            state.waitingForNext = false; document.getElementById('feedback-message').innerText = "";
+            state.gapIdx++; if(state.gapIdx >= state.block.gaps.length) finish(); else { renderContent(); renderMC(); }
         };
-        cont.appendChild(b);
-        return;
+        cont.appendChild(b); return;
     }
-
     const gap = state.block.gaps[state.gapIdx];
-    let options = [...gap.options];
-    options = shuffleArray(options); 
-    
+    let options = shuffleArray([...gap.options]); 
     options.forEach(opt => {
-        const b = document.createElement('button');
-        b.className = 'mc-btn';
-        b.innerText = opt;
-        b.onclick = () => checkQuickie(opt);
+        const b = document.createElement('button'); b.className = 'mc-btn'; b.innerText = opt;
+        
+        // <-- NEU: Wir übergeben 'b' (den Button) an die checkQuickie Funktion -->
+        b.onclick = () => checkQuickie(opt, b);
+        
         cont.appendChild(b);
     });
 }
 
 function startTimer() {
-    clearInterval(state.timerInterval);
-    const tEl = document.getElementById('timer');
+    clearInterval(state.timerInterval); const tEl = document.getElementById('timer');
     state.timerInterval = setInterval(() => {
         if(document.getElementById('game-screen').classList.contains('active')) {
-            state.time--;
-            const m = Math.floor(state.time / 60), s = state.time % 60;
+            state.time--; const m = Math.floor(state.time / 60), s = state.time % 60;
             tEl.innerText = `${m}:${s < 10 ? '0'+s : s}`;
             if(state.time < 30) tEl.classList.add('blink');
-            if(state.time <= 0) { 
-                clearInterval(state.timerInterval);
-                handleGameOver(); 
-            }
+            if(state.time <= 0) { clearInterval(state.timerInterval); handleGameOver(); }
         }
     }, 1000);
 }
 
 function startStopwatch() {
-    clearInterval(state.timerInterval);
-    const sEl = document.getElementById('stopwatch-display');
+    clearInterval(state.timerInterval); const sEl = document.getElementById('stopwatch-display');
     state.timerInterval = setInterval(() => {
         if(document.getElementById('game-screen').classList.contains('active')) {
-            state.stopwatch++;
-            const m = Math.floor(state.stopwatch / 60), s = state.stopwatch % 60;
+            state.stopwatch++; const m = Math.floor(state.stopwatch / 60), s = state.stopwatch % 60;
             sEl.innerText = `${m}:${s < 10 ? '0'+s : s}`;
         }
     }, 1000);
@@ -419,16 +326,12 @@ function renderHUD() { document.getElementById('hearts').innerText = "❤️".re
 function launchFireworks(big) {
     const c = document.getElementById('fireworks-canvas'), ctx = c.getContext('2d');
     c.width = window.innerWidth; c.height = window.innerHeight;
-    let p = Array.from({length: big ? 400 : 100}, () => ({
-        x: c.width/2, y: c.height/2, vX: (Math.random()-0.5)*15, vY: (Math.random()-0.5)*15,
-        a: 1, c: `hsl(${Math.random()*360},100%,50%)`
-    }));
+    let p = Array.from({length: big ? 400 : 100}, () => ({ x: c.width/2, y: c.height/2, vX: (Math.random()-0.5)*15, vY: (Math.random()-0.5)*15, a: 1, c: `hsl(${Math.random()*360},100%,50%)` }));
     function anim() {
         ctx.clearRect(0,0,c.width,c.height);
         p.forEach((x, i) => {
             x.x += x.vX; x.y += x.vY; x.a -= 0.01;
-            ctx.globalAlpha = x.a; ctx.fillStyle = x.c;
-            ctx.beginPath(); ctx.arc(x.x, x.y, 3, 0, 7); ctx.fill();
+            ctx.globalAlpha = x.a; ctx.fillStyle = x.c; ctx.beginPath(); ctx.arc(x.x, x.y, 3, 0, 7); ctx.fill();
             if(x.a <= 0) p.splice(i, 1);
         });
         if(p.length > 0) requestAnimationFrame(anim);
