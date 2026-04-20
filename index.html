@@ -2,61 +2,53 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>GrammarGrinder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Iffy - Conditional Trainer</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="flash-overlay"></div>
-    <canvas id="fireworks-canvas" style="position:fixed; top:0; left:0; pointer-events:none; z-index:99;"></canvas>
+    <div id="app-container">
+        <header id="stats-bar" class="hidden">
+            <div id="lives">❤️❤️❤️</div>
+            <div id="streak">🔥 0</div>
+        </header>
 
-    <div id="app-wrapper">
-        <section id="start-screen" class="screen active">
-            <div class="menu-card">
-                <button class="btn-mode" id="btn-quickie">Five Gap Quickie</button>
-                <button class="btn-mode" id="btn-ap">AP-Mode</button>
-            </div>
-        </section>
-
-        <section id="game-screen" class="screen">
-            <div class="hud-top">
-                <div id="hearts" class="hearts"></div>
-                
-                <div id="ap-hud-elements" style="display: none; align-items: center; gap: 15px;">
-                    <div id="timer" class="timer">05:00</div>
+        <main id="content-area">
+            <div id="start-screen">
+                <div class="start-ui-zone">
+                    <h1>The Ultimate Conditional Trainer</h1>
+                    <div class="mode-selection">
+                        <button onclick="startGame('quickie')">Quickie-Mode (MC)</button>
+                        <button onclick="startGame('ap')">AP-Mode (Tippen)</button>
+                    </div>
                 </div>
-                
-                <div id="q-hud-elements" style="display: none; align-items: center; gap: 15px;">
-                    <div id="stopwatch-display" class="timer">00:00</div>
-                    <div id="best-time-display" style="font-size: 0.8rem; opacity: 0.7;">Best: --:--</div>
+                <div class="start-image-zone">
+                    <img src="logo.jpg" alt="Iffy Logo" id="logo" onerror="this.style.display='none'">
                 </div>
-                
-                <button id="btn-goto-menu" class="btn-menu">MENU</button>
+            </div>
+
+            <div id="game-screen" class="hidden">
+                <div id="text-display">Lade Satz...</div>
+            </div>
+        </main>
+
+        <footer id="thumb-zone" class="hidden">
+            <div id="quickie-controls" class="hidden"></div>
+            
+            <div id="ap-controls" class="hidden">
+                <div id="ap-input-display"></div>
+                <div id="keyboard"></div>
+                <button id="ap-submit" onclick="checkAPAnswer()">Prüfen</button>
             </div>
             
-            <div class="progress-container"><div id="progress-bar"></div></div>
-            
-            <div id="text-display" class="text-container"></div>
-            
-            <div class="footer-controls">
-                <div id="base-word-badge" style="display: none;"></div>
-                <div id="feedback-message" class="feedback-msg"></div>
+            <button id="next-btn" class="hidden" onclick="loadNext()">WEITER</button>
+        </footer>
 
-                <div id="keyboard-container" class="keyboard" style="display: none;"></div>
-                <div id="mc-container" class="mc-container" style="display: none;"></div>
-            </div>
-        </section>
+        <div id="feedback-flash" class="hidden"></div>
 
-        <section id="loser-screen" class="screen"></section>
-
-        <section id="result-screen" class="screen" style="justify-content:center; align-items:center;">
-            <div class="menu-card" style="text-align: center; margin-bottom: 0;">
-                <h1 id="res-title" style="color: var(--success); font-size: 2rem; margin-bottom: 10px;">FERTIG!</h1>
-                <p id="res-stats" style="margin-bottom: 20px; font-weight: bold;"></p>
-                <button class="btn-mode" onclick="location.reload()">NOCHMAL</button>
-            </div>
-        </section>
+        <div id="game-over-screen" class="hidden">
+            <img src="loser.jpg" alt="Game Over" onerror="this.style.display='none'">
+        </div>
     </div>
     <script src="app.js"></script>
 </body>
