@@ -374,3 +374,68 @@ function launchFireworks(big) {
     }
     anim();
 }
+
+// --- NEU: Physische Tastatur-Unterstützung ---
+document.addEventListener('keydown', (e) => {
+    // 1. Nur reagieren, wenn der Spielbildschirm aktiv ist
+    const gameScreen = document.getElementById('game-screen');
+    if (!gameScreen || !gameScreen.classList.contains('active')) return;
+    
+    // 2. Eingaben blockieren, wenn die App gerade "gelockt" ist (z.B. während Animationen)
+    if (state.lock) return;
+
+    // 3. Status: Warten auf die nächste Lücke (nach einem Fehler oder Erfolg)
+    if (state.waitingForNext) {
+        // Mit Enter oder Leertaste geht es weiter
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            state.waitingForNext = false; 
+            document.getElementById('feedback-message').innerText = "";
+            state.gapIdx++; 
+            if(state.gapIdx >= state.block.gaps.length) {
+                finish(); 
+            } else { 
+                renderContent(); 
+                if(state.mode === 'quickie') renderMC(); 
+            }
+        }
+        return;
+    }
+
+    // 4. Verhalten im AP-Modus (Texteingabe)
+    if (state.mode === 'ap') {
+        if (e.key === 'Backspace') {
+            e.preventDefault();
+            state.input = state.input.slice(0, -1);
+            renderContent();
+        } else if (e.key === 'Enter') {
+            e.preventDefault();
+            checkAP();
+        } else if (e.key === ' ') {
+            e.preventDefault();
+            state.input += " ";
+            renderContent();
+        } else if (e.key.length === 1 && /^[a-zA-ZäöüÄÖÜß\'´`‘]$/.test(e.key)) {
+            // Nur einzelne Buchstaben, Umlaute, ß und typografische Apostrophe zulassen
+            e.preventDefault();
+            state.input += e.key;
+            renderContent();
+        }
+    } 
+    // 5. Verhalten im Quickie-Modus (Multiple Choice)
+    else if (state.mode === 'quickie') {
+        // Wenn eine Zahlentaste (1-9) gedrückt wird
+        if (/^[1-9]$/.test(e.key)) {
+            const index = parseInt(e.key) - 1;
+            // Alle aktuell angezeigten Antwort-Buttons abrufen
+            const buttons = document.querySelectorAll('#mc-container .mc-btn');
+            
+            // Prüfen, ob es den Button gibt und er nicht bereits durch einen Joker deaktiviert wurde
+            if (buttons[index] && buttons[index].style.pointerEvents !== 'none') {
+                e.preventDefault();
+                // Die bestehende Prüf-Funktion direkt aufrufen
+                checkQuickie(buttons[index].innerText, buttons[index]);
+            }
+        }
+    }
+});
